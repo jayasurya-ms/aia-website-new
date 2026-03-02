@@ -2,13 +2,11 @@ import { BASE_URL } from "@/api/base-url";
 import { cn } from "@/lib/utils";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import Highlight from "../common/highlight";
-import { Avatar, AvatarImage } from "../ui/avatar";
 import SectionHeading from "../SectionHeading/SectionHeading";
-
+import { Avatar, AvatarImage } from "../ui/avatar";
 export function TestimonialCardCourse({
   author,
   href,
@@ -81,7 +79,23 @@ const PassoutResult = () => {
       target: "_blank",
     }));
   }, [certificatesData]);
+  const marqueeRef = useRef(null);
+  const [duration, setDuration] = useState(40);
+  useEffect(() => {
+    if (!marqueeRef.current) return;
 
+    const width = marqueeRef.current.scrollWidth;
+
+    const SPEED = 140;
+
+    const calculatedDuration = width / SPEED;
+
+    console.log("Certificates count:", testimonials.length);
+    console.log("Marquee width:", width);
+    console.log("Calculated Duration:", calculatedDuration);
+
+    setDuration(calculatedDuration);
+  }, [testimonials]);
   if (isLoading) {
     return (
       <div className="relative w-full py-12 sm:py-24 md:py-32">
@@ -127,8 +141,12 @@ const PassoutResult = () => {
             description="Tap on any certificate to learn about their certification journey, explore their LinkedIn profiles, and connect with professionals who advanced their careers through AIA’s global programs."
             align="center"
           />
-          <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
-            <div className="group flex overflow-hidden p-2 [--gap:1rem] gap-(--gap) flex-row [--duration:150s]">
+          {/* <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
+            <div
+              className="group flex overflow-hidden p-2 [--gap:1rem] gap-(--gap) flex-row"
+              style={{ ["--duration"]: `${duration}s` }}
+            >
+              {" "}
               <div className="flex shrink-0 justify-around gap-(--gap) animate-marquee flex-row group-hover:paused">
                 {testimonials.map((testimonial, i) => (
                   <TestimonialCardCourse
@@ -140,7 +158,6 @@ const PassoutResult = () => {
                   />
                 ))}
               </div>
-
               <div
                 className="flex shrink-0 justify-around gap-(--gap) animate-marquee flex-row group-hover:paused"
                 aria-hidden="true"
@@ -155,6 +172,36 @@ const PassoutResult = () => {
                   />
                 ))}
               </div>
+            </div>
+
+            <div className="pointer-events-none absolute inset-y-0 left-0 hidden w-48 bg-linear-to-r from-background sm:block" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-48 bg-linear-to-l from-background sm:block" />
+          </div> */}
+          <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
+            <div
+              ref={marqueeRef}
+              className="group flex shrink-0 justify-around gap-4 animate-marquee group-hover:paused"
+              style={{ ["--duration"]: `${duration}s` }}
+            >
+              {testimonials.map((testimonial, i) => (
+                <TestimonialCardCourse
+                  key={`first-${i}`}
+                  author={testimonial.author}
+                  href={testimonial.href}
+                  alt={testimonial.alt}
+                  target={testimonial.target}
+                />
+              ))}
+
+              {testimonials.map((testimonial, i) => (
+                <TestimonialCardCourse
+                  key={`second-${i}`}
+                  author={testimonial.author}
+                  href={testimonial.href}
+                  alt={testimonial.alt}
+                  target={testimonial.target}
+                />
+              ))}
             </div>
 
             <div className="pointer-events-none absolute inset-y-0 left-0 hidden w-48 bg-linear-to-r from-background sm:block" />

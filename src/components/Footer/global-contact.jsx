@@ -1,4 +1,7 @@
 import { IMAGE_PATH } from "@/api/base-url";
+import { Check, Copy } from "lucide-react";
+import { useState } from "react";
+import { toast } from "sonner";
 
 const PhoneIcon = () => (
   <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
@@ -12,58 +15,89 @@ const WhatsAppIcon = () => (
   </svg>
 );
 
-const ContactCard = ({ country, contacts }) => (
-  <div className="group bg-gray-900/60 border border-gray-700/60 rounded-xl p-3.5 hover:border-[#fa8017]/60 transition-all duration-200 hover:bg-gray-900/80">
-    <p className="text-[12px] font-semibold tracking-[0.12em] text-[#fa8017] uppercase mb-2.5">
-      {country}
-    </p>
+const ContactCard = ({ country, contacts }) => {
+  const [copied, setCopied] = useState(null);
 
-    <div className="space-y-2">
-      {contacts.map(({ number, tel, wa, zalo, label }) => (
-        <div key={number} className="flex items-center justify-between gap-2">
-          <a
-            href={`tel:${tel}`}
-            className="text-[12px] text-gray-300 hover:text-[#fa8017]   leading-none"
-          >
-            {number}
-          </a>
+  const handleCopy = async (number) => {
+    try {
+      await navigator.clipboard.writeText(number);
+      setCopied(number);
+      toast.success("Phone number copied!");
+      setTimeout(() => {
+        setCopied(null);
+      }, 2000);
+    } catch (error) {
+      console.error("Copy failed");
+    }
+  };
 
-          <div className="flex items-center gap-1 shrink-0">
-            {zalo && (
-              <div
-                title="Zalo"
-                className="w-6 h-6 bg-white/10 border border-white/10 rounded-md flex items-center justify-center cursor-pointer"
-              >
-                <img src={zalo} alt="Zalo" className="w-3.5 h-3.5 rounded-sm" />
-              </div>
-            )}
-            {tel && (
+  return (
+    <div className="group bg-gray-900/60 border border-gray-700/60 rounded-xl p-3.5 hover:border-[#fa8017]/60 transition-all duration-200 hover:bg-gray-900/80">
+      <p className="text-[12px] font-semibold tracking-[0.12em] text-[#fa8017] uppercase mb-2.5">
+        {country}
+      </p>
+
+      <div className="space-y-2">
+        {contacts.map(({ number, tel, wa, zalo }) => (
+          <div key={number} className="flex items-center justify-between gap-2">
+            <div className="group/number flex items-center gap-2">
               <a
                 href={`tel:${tel}`}
-                title="Call"
-                className="w-6 h-6 bg-[#fa8017]/15 border border-[#fa8017]/20 rounded-md flex items-center justify-center text-[#fa8017] hover:bg-[#fa8017] hover:text-white transition-all duration-150"
+                className="text-[12px] text-gray-300 hover:text-[#fa8017] leading-none"
               >
-                <PhoneIcon />
+                {number}
               </a>
-            )}
-            {wa && (
-              <a
-                href={`https://wa.me/${wa}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                title="WhatsApp"
-                className="w-6 h-6 bg-[#25D366]/15 border border-[#25D366]/20 rounded-md flex items-center justify-center text-[#25D366] hover:bg-[#25D366] hover:text-white transition-all duration-150"
-              >
-                <WhatsAppIcon />
-              </a>
-            )}
-          </div>
-        </div>
-      ))}
-    </div>
-  </div>
-);
 
+              <button
+                onClick={() => handleCopy(number)}
+                className="opacity-0 cursor-pointer group-hover/number:opacity-100 transition-all duration-200 text-gray-400 hover:text-[#fa8017]"
+                title="Copy number"
+              >
+                {copied == number ? (
+                  <Check className="w-3.5 h-3.5 text-green-500" />
+                ) : (
+                  <Copy className="w-3.5 h-3.5" />
+                )}
+              </button>
+            </div>
+
+            <div className="flex items-center gap-1 shrink-0">
+              {zalo && (
+                <div className="w-6 h-6 bg-white/10 border border-white/10 rounded-md flex items-center justify-center cursor-pointer">
+                  <img
+                    src={zalo}
+                    alt="Zalo"
+                    className="w-3.5 h-3.5 rounded-sm"
+                  />
+                </div>
+              )}
+
+              {tel && (
+                <a
+                  href={`tel:${tel}`}
+                  className="w-6 h-6 bg-[#fa8017]/15 border border-[#fa8017]/20 rounded-md flex items-center justify-center text-[#fa8017] hover:bg-[#fa8017] hover:text-white transition-all duration-150"
+                >
+                  <PhoneIcon />
+                </a>
+              )}
+
+              {wa && (
+                <a
+                  href={`https://wa.me/${wa}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-6 h-6 bg-[#25D366]/15 border border-[#25D366]/20 rounded-md flex items-center justify-center text-[#25D366] hover:bg-[#25D366] hover:text-white transition-all duration-150"
+                >
+                  <WhatsAppIcon />
+                </a>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 export const ContactGrid = () => {
   const regions = [
     {

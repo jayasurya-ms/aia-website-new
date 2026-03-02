@@ -38,7 +38,7 @@ const SectionHeading = ({
         >
           {highlight}
         </h2>
-        <div
+        {/* <div
           className={`mt-3 relative overflow-hidden ${
             isCenter ? "mx-auto" : ""
           }`}
@@ -51,6 +51,46 @@ const SectionHeading = ({
           />
 
           <span className="absolute top-0 left-0 h-1 w-1/2 bg-[#F3831C] rounded animate-underline-slide" />
+        </div> */}
+        <div
+          className={`mt-3 flex ${isCenter ? "justify-center" : "justify-start"}`}
+        >
+          <div
+            className="relative flex items-center justify-center"
+            style={{ width: "120px", height: "18px", overflow: "hidden" }}
+          >
+            <span
+              className="absolute block"
+              style={{
+                width: "60%",
+                height: "2.5px",
+                background: className ? undefined : "#0F3652",
+              }}
+              {...(className && {
+                className: `absolute block bg-${className}`,
+              })}
+            />
+
+            <span
+              className="absolute block"
+              style={{
+                width: "25%",
+                height: "6px",
+                background: "#F3831C",
+                top: "50%",
+                transform: "translateY(-50%)",
+                animation: "slideBackForth 2.8s ease-in-out infinite",
+              }}
+            />
+          </div>
+
+          <style>{`
+    @keyframes slideBackForth {
+      0%   { left: 15%; }
+      50%  { left: 60%; }
+      100% { left: 15%; }
+    }
+  `}</style>
         </div>
       </div>
 

@@ -45,7 +45,7 @@ const CourseJourney = ({ heading, highlight, steps, connectorImage }) => {
           </div>
 
           {connectorImage && (
-            <div className="hidden lg:block absolute top-0 left-0 right-0 z-0 scale-105 opacity-30 lg:opacity-100">
+            <div className="hidden lg:block absolute top-0 left-0 right-0 z-0 scale-110 opacity-30 lg:opacity-100">
               <img
                 src={connectorImage}
                 alt="Step Connector"

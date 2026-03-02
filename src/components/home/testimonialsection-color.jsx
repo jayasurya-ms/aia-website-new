@@ -16,22 +16,38 @@ export function TestimonialsSectionColor({
   const marqueeRef = useRef(null);
   const [duration, setDuration] = useState(40);
 
+  // useEffect(() => {
+  //   if (customDuration) return;
+  //   if (!marqueeRef.current) return;
+
+  //   const marqueeWidth = marqueeRef.current.scrollWidth;
+  //   const SPEED = 150;
+  //   setDuration(marqueeWidth / SPEED);
+  // }, [testimonials]);
   useEffect(() => {
-    if (customDuration) return;
     if (!marqueeRef.current) return;
 
-    const marqueeWidth = marqueeRef.current.scrollWidth;
-    const SPEED = 150;
-    setDuration(marqueeWidth / SPEED);
+    const width = marqueeRef.current.scrollWidth;
+
+    const SPEED = 140; 
+
+    const calculatedDuration = width / SPEED;
+
+    console.log("Testimonials count:", testimonials.length);
+    console.log("Marquee width:", width);
+    console.log("Calculated Duration:", calculatedDuration);
+
+    setDuration(calculatedDuration);
   }, [testimonials]);
-  const finalDuration = customDuration || duration;
+  // const finalDuration = customDuration || duration;
+  const finalDuration = duration;
   if (!testimonials || testimonials.length === 0) return null;
 
   return (
     <section
       className={cn(
         "py-12 sm:py-16 md:py-18 px-0 bg-[#0F3652] mt-10",
-        className
+        className,
       )}
     >
       <div className="mx-auto flex max-w-340 flex-col items-center gap-4 text-center sm:gap-16">

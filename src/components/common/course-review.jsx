@@ -151,7 +151,7 @@ const CourseReview = ({ slug }) => {
         } bg-white z-40 pb-2 pt-6`}
       >
         <SectionHeading
-          title="290+ Voices – All Rated"
+          title="290+ Professional Experiences Shared"
           highlight1="★★★★★"
           align="center"
         />

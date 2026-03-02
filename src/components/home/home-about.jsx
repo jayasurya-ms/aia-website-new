@@ -17,7 +17,7 @@ Guided by industry experts with hands-on experience, our practical training ensu
         buttonLink="/about-aia"
         aboutStats={[
           {
-            display: "50,000+ Hours",
+            display: "10,000+ Hours",
             title: "Expert Mentoring Sessions",
             show: "true",
           },

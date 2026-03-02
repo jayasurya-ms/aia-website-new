@@ -25,6 +25,7 @@ import BlogCourse from "./pages/Blog/blog-course";
 import CfePracticeQuestion from "./pages/free-resources/cfe-practice-question";
 import Meta from "./components/seo/meta";
 import FloatingContact from "./components/common/floating-contact";
+import { Toaster } from "sonner";
 
 export default function App() {
   return (
@@ -33,6 +34,7 @@ export default function App() {
       <GoogleAnalytics />
       <NotificationPopup />
       <FloatingContact />
+      <Toaster position="top-right" richColors />
       <Layout>
         <Meta />
         <main className="grow">

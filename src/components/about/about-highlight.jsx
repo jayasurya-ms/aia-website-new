@@ -10,7 +10,7 @@ const AboutHighlight = () => {
       description="With globally recognized certifications, authorized partnerships, and a proven track record of success. We empower professionals and organizations across various industries with audit, risk, and compliance excellence."
       stats={[
         {
-          value: 50,
+          value: 10,
           suffix: "k+ Hours",
           subtitle: "(Expert Mentoring Sessions)",
         },

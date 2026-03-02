@@ -44,7 +44,10 @@ const CourseLms = ({ courseFeatures, cardTitle, image = "lms2.webp" }) => {
 
   return (
     <>
-      <section className="mt-8 cursor-pointer" onClick={() => navigate("/contact")}>
+      <section
+        className="mt-8 cursor-pointer"
+        onClick={() => window.open("/contact", "_blank")}
+      >
         <img
           src={`${IMAGE_PATH}/${image}`}
           alt="LMS-Image"

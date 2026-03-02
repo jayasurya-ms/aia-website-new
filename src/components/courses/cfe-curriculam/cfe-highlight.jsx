@@ -10,7 +10,7 @@ const CfeHighlight = () => {
       description="With globally recognized certifications, authorized partnerships, and a proven track record of success. We empower professionals and organizations across various industries with audit, risk, and compliance excellence."
       stats={[
         {
-          value: 50000,
+          value: 10000,
           suffix: "+ Hours",
           subtitle: "Expert Mentoring Sessions",
         },

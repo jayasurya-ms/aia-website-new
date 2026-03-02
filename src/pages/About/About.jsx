@@ -20,7 +20,7 @@ import HomeHero from "@/components/home/home-hero";
 const AboutPage = () => {
   return (
     <div className="min-h-screen bg-white">
-      <PopUp slug="About-Us" />
+      <PopUp slug="about-aia" />
       {/* <AboutHeroSection /> */}
       <HomeHero slug="about-aia" />
       <AboutSection />

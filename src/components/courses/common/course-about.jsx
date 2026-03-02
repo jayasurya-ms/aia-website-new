@@ -16,10 +16,12 @@ const CourseAbout = ({
   formbuttonlabel,
 }) => {
   const location = useLocation();
-  
+
   return (
     <section className="py-12 md:py-16 lg:py-18 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <SectionHeading title={heading} align="center" />
+
         <div className="grid lg:grid-cols-2 gap-8 md:gap-10 lg:gap-12 xl:gap-16 items-center">
           {/* Left Content */}
           <div className="order-2 lg:order-1">
@@ -31,12 +33,12 @@ const CourseAbout = ({
               </div>
             )}
 
-            <SectionHeading title={heading} />
-            
             {description && (
               <div className="text-sm sm:text-base text-[#0F3652] leading-relaxed space-y-3 md:space-y-4 mb-6 md:mb-8 text-justify">
                 {description.split("\n").map((line, i) => (
-                  <p key={i} className="break-words">{line}</p>
+                  <p key={i} className="break-words">
+                    {line}
+                  </p>
                 ))}
               </div>
             )}
@@ -81,7 +83,7 @@ const CourseAbout = ({
                 <div className="text-base sm:text-lg md:text-xl font-bold mb-1 text-[#0F3652]">
                   {stat.display}
                 </div>
-                
+
                 {stat.show == "true" && (
                   <h4 className="text-xs sm:text-sm md:text-base font-normal text-[#0F3652] leading-tight">
                     {stat.title}

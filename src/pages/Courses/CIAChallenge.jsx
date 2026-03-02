@@ -48,8 +48,8 @@ const CIAChallenge = () => {
       <CiaWhyAia />
       <WhatsappCarosal
         title="Unfiltered Reflections from AIA-Trained Professionals"
-        description=" Heartfelt messages shared by professionals after completing their journey with AIA"
-        course="CIAC"
+ description="Heartfelt messages shared by professionals after completing their journey with AIA.
+Each message reflects a different experience. These reflections provide a genuine view of what preparation looks like in real situations, beyond structured testimonials"        course="CIAC"
       />
       <CiaHighlight />
       <CourseMap courseCode="CIAC" />

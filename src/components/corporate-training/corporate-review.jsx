@@ -38,7 +38,7 @@ const CorporateReview = () => {
       <div className="max-w-340 mx-auto">
         <div className="grid md:grid-cols-2">
           <div className="p-2 rounded-lg">
-            <SectionHeading title="What Learners and Organizations Say About AIA" />
+            <SectionHeading title="Real Experience Shared by Professionals" />
 
             <div className="space-y-4 text-[#0F3652]">
               <p className="font-semibold text-justify">
