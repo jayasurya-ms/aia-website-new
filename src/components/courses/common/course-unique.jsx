@@ -16,7 +16,7 @@ export default function CourseUnique({
   return (
     <section
       id="unique-section"
-      className="w-full py-12 md:py-16 lg:py-24 px-4 text-gray-800 relative"
+      className="w-full pb-12 pt-14 px-4 text-gray-800 relative"
     >
       <div className="container mx-auto max-w-6xl relative z-10">
         <div className="flex flex-col items-center mb-4 md:mb-6">

@@ -89,10 +89,7 @@ const HomeResults = ({ title, description }) => {
       description={description}
       testimonials={testimonials}
       customDuration={40}
-      // image={{
-      //   width: "340px",
-      //   height: "220px",
-      // }}
+ 
       imageclassName="w-[280px] h-[180px] md:w-[340px] md:h-[220px]"
     />
   );

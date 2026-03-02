@@ -27,8 +27,8 @@ export function TestimonialsSectionCourse({
   if (!testimonials || testimonials.length === 0) return null;
   return (
     // <section className={cn("py-12 sm:py-16 md:py-18 px-0 bg-[#0F3652] mt-10", className)}>
-    <section className={cn("py-12 sm:py-16 md:py-14 px-0", className)}>
-      <div className="mx-auto flex max-w-340 flex-col items-center gap-4 text-center sm:gap-16">
+    <section className={cn("py-12 sm:py-16 md:py-14 px-0 ", className)}>
+      <div className="mx-auto flex max-w-340 flex-col items-center gap-4 text-center sm:gap-16 ">
         <SectionHeading
           title={title}
           description={description}

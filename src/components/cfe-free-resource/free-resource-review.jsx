@@ -89,7 +89,7 @@ const FreeResourceReview = () => {
                     className="w-12 h-12"
                   />
                   <h2 className="text-3xl font-bold text-[#0F3652]">
-                    290+ Voices – All Rated{" "}
+                    290+ Professional Experiences Shared
                     <span className="text-[#F3831C]">★★★★★</span>
                   </h2>
                 </div>

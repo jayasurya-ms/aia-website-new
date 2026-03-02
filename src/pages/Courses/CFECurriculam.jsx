@@ -51,8 +51,8 @@ const CFECurriculam = () => {
       <CfeWhyAia />
       <WhatsappCarosal
         title="Unfiltered Reflections from AIA-Trained Professionals"
-        description=" Heartfelt messages shared by professionals after completing their journey with AIA"
-        course="CFE"
+ description="Heartfelt messages shared by professionals after completing their journey with AIA.
+Each message reflects a different experience. These reflections provide a genuine view of what preparation looks like in real situations, beyond structured testimonials"        course="CFE"
       />
       <CfeHighlight />
       <CourseMap courseCode="CFE" />

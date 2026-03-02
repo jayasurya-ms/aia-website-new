@@ -8,7 +8,7 @@ const CamsLms = () => {
     "Practice Questions",
     "Live Sessions with Faculty",
     "100% Exam Registration Support",
-    "50+ Hours of Video Lectures",
+    "10+ Hours of Video Lectures",
     "Mock Tests Preparations",
   ];
 
