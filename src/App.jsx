@@ -31,94 +31,94 @@ import NotFound from "./components/common/not-found";
 
 export default function App() {
   const blogRedirects = {
-    "/what-is-money-laundering": "/blog/what-is-money-laundering",
+    "/what-is-money-laundering": "/blogs/what-is-money-laundering",
     "/academy-of-internal-audit-national-recognition":
-      "/blog/academy-of-internal-audit-national-recognition",
-    "/cfe-vs-cams": "/blog/cfe-vs-cams",
-    "/cia-vs-cia-challenge-curriculum": "/blog/cia-vs-cia-challenge-curriculum",
-    "/what-is-fraud": "/blog/what-is-fraud",
+      "/blogs/academy-of-internal-audit-national-recognition",
+    "/cfe-vs-cams": "/blogs/cfe-vs-cams",
+    "/cia-vs-cia-challenge-curriculum": "/blogs/cia-vs-cia-challenge-curriculum",
+    "/what-is-fraud": "/blogs/what-is-fraud",
     "/anti-money-laundering-certificate":
-      "/blog/anti-money-laundering-certificate",
-    "/online-vs-offline-cfe-training": "/blog/online-vs-offline-cfe-training",
-    "/cams-exam-format": "/blog/cams-exam-format",
+      "/blogs/anti-money-laundering-certificate",
+    "/online-vs-offline-cfe-training": "/blogs/online-vs-offline-cfe-training",
+    "/cams-exam-format": "/blogs/cams-exam-format",
     "/anti-money-laundering-jobs-salary":
-      "/blog/anti-money-laundering-jobs-salary",
-    "/certified-fraud-examiner-salary": "/blog/certified-fraud-examiner-salary",
-    "/cia-certification": "/blog/cia-certification",
-    "/cfe-module-4": "/blog/cfe-module-4",
-    "/cia-certification-in-qatar": "/blog/cia-certification-in-qatar",
+      "/blogs/anti-money-laundering-jobs-salary",
+    "/certified-fraud-examiner-salary": "/blogs/certified-fraud-examiner-salary",
+    "/cia-certification": "/blogs/cia-certification",
+    "/cfe-module-4": "/blogs/cfe-module-4",
+    "/cia-certification-in-qatar": "/blogs/cia-certification-in-qatar",
     "/cams-2025-syllabus-update-key-changes-and-preparation-guide":
-      "/blog/cams-syllabus",
-    "/cia-part-3-syllabus-2025": "/blog/cia-part-3-syllabus",
-    "/cia-part-2-syllabus-2025": "/blog/cia-part-2-syllabus",
-    "/internal-audit-101-everything-you-should-know": "/blog/internal-audit",
+      "/blogs/cams-syllabus",
+    "/cia-part-3-syllabus-2025": "/blogs/cia-part-3-syllabus",
+    "/cia-part-2-syllabus-2025": "/blogs/cia-part-2-syllabus",
+    "/internal-audit-101-everything-you-should-know": "/blogs/internal-audit",
     "/cia-part1-syllabus-2025-update-internal-audit-fundamentals":
-      "/blog/cia-part-1-syllabus",
-    "/cfe-exam-home-test-center": "/blog/cfe-exam-home-test-center",
-    "/cfe-exam-fees-and-retake-policy": "/blog/cfe-exam-fees-and-retake-policy",
-    "/cia-exam-syllabus-2025-update": "/blog/cia-exam-syllabus",
+      "/blogs/cia-part-1-syllabus",
+    "/cfe-exam-home-test-center": "/blogs/cfe-exam-home-test-center",
+    "/cfe-exam-fees-and-retake-policy": "/blogs/cfe-exam-fees-and-retake-policy",
+    "/cia-exam-syllabus-2025-update": "/blogs/cia-exam-syllabus",
     "/unlock-your-cfe-exam-success-with-these-proven-strategies":
-      "/blog/cfe-exam-success",
+      "/blogs/cfe-exam-success",
     "/cia-exam-preparation-tips-for-cracking-exam-in-first-attempt":
-      "/blog/cia-exam-preparation-tips",
+      "/blogs/cia-exam-preparation-tips",
     "/how-cams-certification-prepares-you-for-the-aml-career":
-      "/blog/aml-career",
+      "/blogs/aml-career",
     "/curriculum-of-certified-fraud-examiner-module3-investigation":
-      "/blog/cfe-module-3",
+      "/blogs/cfe-module-3",
     "/the-impact-of-digital-tools-and-platforms-on-internal-audit-work":
-      "/blog/internal-audit-work",
+      "/blogs/internal-audit-work",
     "/how-cams-certification-equips-you-for-global-aml-challenges":
-      "/blog/aml-challenges",
+      "/blogs/aml-challenges",
     "/curriculum-of-certified-fraud-examiner-module-2-law":
-      "/blog/cfe-module-2",
+      "/blogs/cfe-module-2",
     "/business-knowledge-for-internal-auditing-cia-part-3-curriculum":
-      "/blog/cia-part-3-curriculum",
+      "/blogs/cia-part-3-curriculum",
     "/job-opportunities-with-certified-fraud-examiner-certification":
-      "/blog/cfe-job-opportunities",
+      "/blogs/cfe-job-opportunities",
     "/cfe-module-1-financial-transactions-and-fraud-schemes":
-      "/blog/cfe-module-1",
+      "/blogs/cfe-module-1",
     "/practice-of-internal-auditing-(cia-part-2-curriculum)":
-      "/blog/cia-part-2-curriculum",
+      "/blogs/cia-part-2-curriculum",
     "/essentials-of-internal-auditing-(cia-part-1-curriculum)":
-      "/blog/cia-part-1-curriculum",
+      "/blogs/cia-part-1-curriculum",
     "/your-guide-to-success-with-a-fraud-analyst-course":
-      "/blog/fraud-analyst-course",
+      "/blogs/fraud-analyst-course",
     "/a-step-by-step-guide-to-the-cia-exam-registration-process":
-      "/blog/cia-exam-registration-process",
+      "/blogs/cia-exam-registration-process",
     "/essential-fraud-examiner-skills-to-avoid-and-spot-fraud":
-      "/blog/cfe-fraud-skills",
+      "/blogs/cfe-fraud-skills",
     "/a-detailed-guide-on-certified-internal-auditor-functions":
-      "/blog/certified-internal-auditor-functions",
+      "/blogs/certified-internal-auditor-functions",
     "/top-10-cams-exam-tips-to-pass-on-your-first-attempt":
-      "/blog/cams-exam-tips",
-    "/how-to-become-the-best-fraud-investigator": "/blog/fraud-investigator",
+      "/blogs/cams-exam-tips",
+    "/how-to-become-the-best-fraud-investigator": "/blogs/fraud-investigator",
     "/what-are-the-cia-course-eligibility-criteria-in-india":
-      "/blog/cia-course-eligibility-criteria",
+      "/blogs/cia-course-eligibility-criteria",
     "/comprehensive-guide-to-understand-and-implement-kyc-compliance":
-      "/blog/kyc-compliance",
+      "/blogs/kyc-compliance",
     "/which-certifications-are-related-to-aml-compliance":
-      "/blog/aml-compliance",
+      "/blogs/aml-compliance",
     "/what-is-the-cams-certification-cost-and-the-benefits":
-      "/blog/cams-certification-cost",
+      "/blogs/cams-certification-cost",
     "/what-is-the-cia-certification-cost-and-duration-in-india":
-      "/blog/cia-certification-cost-duration-india",
+      "/blogs/cia-certification-cost-duration-india",
     "/internal-audits-role-in-fraud-prevention-and-detection":
-      "/blog/role-of-internal-audit-fraud",
+      "/blogs/role-of-internal-audit-fraud",
     "/understanding-the-role-of-a-certified-fraud-examiner-in-todays-business-landscape":
-      "/blog/certified-fraud-examiner-role",
+      "/blogs/certified-fraud-examiner-role",
     "/what-are-the-practical-steps-in-an-internal-audit":
-      "/blog/steps-of-internal-audit",
+      "/blogs/steps-of-internal-audit",
     "/certified-fraud-examiners-everything-you-need-to-know":
-      "/blog/certified-fraud-examiner",
-    "/what-are-the-benefits-of-becoming-cia": "/blog/benefits-of-becoming-cia",
-    "/the-impact-of-cfe-in-corporate-world": "/blog/cfe-in-corporate-world",
-    "/5-key-skills-required-to-pass-cia-exam": "/blog/cia-exam-key-skills",
-    "/cfe-certification-cost-in-india": "/blog/cfe-certification-cost",
+      "/blogs/certified-fraud-examiner",
+    "/what-are-the-benefits-of-becoming-cia": "/blogs/benefits-of-becoming-cia",
+    "/the-impact-of-cfe-in-corporate-world": "/blogs/cfe-in-corporate-world",
+    "/5-key-skills-required-to-pass-cia-exam": "/blogs/cia-exam-key-skills",
+    "/cfe-certification-cost-in-india": "/blogs/cfe-certification-cost",
     "/how-to-achieve-cfe-certification-in-less-than-30-days":
-      "/blog/achieve-cfe-certification",
-    "/why-we-should-become-cfe": "/blog/benefits-of-becoming-cfe",
-    "/steps-to-become-cfe": "/blog/steps-to-become-cfe",
-    "/schedule-of-classes": "/blog/schedule-of-classes",
+      "/blogs/achieve-cfe-certification",
+    "/why-we-should-become-cfe": "/blogs/benefits-of-becoming-cfe",
+    "/steps-to-become-cfe": "/blogs/steps-to-become-cfe",
+    "/schedule-of-classes": "/blogs/schedule-of-classes",
   };
   return (
     <div className="font-sans text-gray-800 min-h-screen flex flex-col">
