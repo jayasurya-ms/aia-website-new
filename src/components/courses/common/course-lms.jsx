@@ -1,5 +1,6 @@
 import { IMAGE_PATH } from "@/api/base-url";
 import SectionHeading from "@/components/SectionHeading/SectionHeading";
+import { Button } from "@/components/ui/button";
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -44,12 +45,35 @@ const CourseLms = ({ courseFeatures, cardTitle, image = "lms2.webp" }) => {
 
   return (
     <>
-      <section className="mt-8 cursor-pointer" onClick={() => navigate("/contact")}>
+      <section className="mt-8">
+        {/* Image */}
         <img
           src={`${IMAGE_PATH}/${image}`}
-          alt="LMS-Image"
+          alt="LMS Image"
           className="w-full h-full object-cover"
         />
+
+        {/* Information Banner */}
+        <div className="py-6 px-6 flex items-center justify-center">
+          <p className="text-[#123653] tracking-[0.2em] text-sm md:text-base font-medium mr-4">
+            FOR MORE INFORMATION
+          </p>
+
+
+          <Button
+            onClick={() => window.open("/contact", "_blank")}
+            className="
+              bg-[#F3831C] text-white
+              px-6 py-2.5 rounded-none
+              font-semibold
+              hover:bg-[#F3831C]/90
+              transition-all
+          cursor-pointer
+            "
+          >
+            Contact US
+          </Button>
+        </div>
       </section>
       <section className="py-12 px-4 bg-white">
         <div className="max-w-340 mx-auto">
@@ -79,7 +103,7 @@ const CourseLms = ({ courseFeatures, cardTitle, image = "lms2.webp" }) => {
                     {feature.title}
                   </h3>
                 </div>
-                <p className="text-sm text-gray-700 pl-11">
+                <p className="text-sm text-gray-700 pl-11 text-justify">
                   {feature.description}
                 </p>
               </div>

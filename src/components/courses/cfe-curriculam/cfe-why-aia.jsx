@@ -9,7 +9,7 @@ const CfeWhyAia = () => {
   return (
     <div className="md:mb-18">
       <CourseWhyAia
-        heading="What sets AIA Apart"
+        heading="Key Advantages of AIA CFE Prep Course"
         items={[
           {
             img: `${IMAGE_PATH}/teacher-svgrepo-com.png`,
@@ -35,7 +35,7 @@ const CfeWhyAia = () => {
       />
 
       <div className="flex justify-center gap-2 mt-8">
-        <CfeJoinDialog course="CFE" buttonlabel="Explore More" />
+        <CfeJoinDialog course="CFE" buttonlabel="Let's Connect" />
 
         <Button
           className="

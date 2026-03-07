@@ -1,4 +1,4 @@
-import { IMAGE_PATH } from "@/api/base-url";
+import { ENROLL_URL, IMAGE_PATH } from "@/api/base-url";
 import { ChevronDown, Mail, Menu, Phone, X } from "lucide-react";
 import { useState } from "react";
 import {
@@ -124,7 +124,10 @@ const Navbar = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
     setActiveDropdown(null);
   };
-
+  const handleMobileLinkClick = () => {
+    setIsMobileMenuOpen(false);
+    setActiveDropdown(null);
+  };
   const toggleDropdown = (index) => {
     setActiveDropdown(activeDropdown === index ? null : index);
   };
@@ -276,7 +279,7 @@ const Navbar = () => {
 
               <li>
                 <Link
-                  to="https://pages.razorpay.com/stores/Enroll-Now"
+                  to={ENROLL_URL}
                   className="
     bg-[#F3831C] text-white
     px-6 py-2.5 rounded-none
@@ -341,11 +344,12 @@ const Navbar = () => {
                         </button>
 
                         {activeDropdown === index && (
-                          <ul className="hover:bg-[#0F3652] rounded-md mb-4">
+                          <ul className="rounded-md mb-4">
                             {item.submenu.map((subItem, subIndex) => (
                               <li key={subIndex}>
                                 <Link
                                   to={subItem.link}
+                                  onClick={handleMobileLinkClick}
                                   className="
     relative inline-block
  px-4 py-2.5
@@ -353,7 +357,6 @@ const Navbar = () => {
     hover:text-[#F3831C]
     transition-colors
     duration-300
-
     after:content-['']
     after:absolute
     after:left-0
@@ -366,7 +369,6 @@ const Navbar = () => {
     after:transition-transform
     after:duration-500
     after:ease-out
-
     hover:after:scale-x-100
     hover:after:origin-left
   "
@@ -391,7 +393,7 @@ const Navbar = () => {
 
                 <div className="mt-6">
                   <Link
-                    to="/enroll-now"
+                    to={ENROLL_URL}
                     className="block w-full bg-[#F3831C] text-white text-center px-6 py-3 rounded-md font-semibold hover:opacity-90 transition-all"
                   >
                     Enroll Now

@@ -10,7 +10,7 @@ import SectionHeading from "../SectionHeading/SectionHeading";
 const HomeCorporatePartner = () => {
   const location = useLocation();
   const {
-    data: effortsData = {},
+    data: effortsData,
     isLoading,
     isError,
   } = useQuery({
@@ -43,14 +43,112 @@ const HomeCorporatePartner = () => {
   const currentTitle = effortsData?.data?.[currentEffortIndex]?.efforts_heading;
   return (
     <div className="w-full">
-      <div className="mx-auto">
+      {/* //small screen */}
+      <div className="bg-white md:hidden">
+        <div className="max-w-full mx-auto">
+          <div className="max-w-full mx-auto">
+            <section className="relative space-y-10 bg-[#0F3652] p-4 overflow-hidden mt-6">
+              <SectionHeading
+                title="AIA Empowers Organisations Through Audit & Fraud Risk Excellences"
+                description="Industry-aligned certification training designed to strengthen fraud prevention, detection, investigation, and audit capabilities across organisations."
+                align="center"
+                titleClass="text-white text-[1.1rem] md:text-3xl"
+                descriptionClass="text-white text-[1.2rem] md:text-3xl"
+                underlineColor="#fff"
+              />
+              <div className="relative z-10 max-w-340 mx-auto">
+                <div className="grid max-w-340 mx-auto md:grid-cols-2 gap-8 items-center mt-10">
+                  <div className="order-2 md:order-1">
+                    <div className="p-1">
+                      <img
+                        src={`${imageBaseUrl}${effortsData?.data?.[2]?.efforts_image}`}
+                        alt={effortsData?.data?.[2]?.efforts_heading}
+                        className="w-full  md:h-[340px]  object-contain"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="order-1">
+                    <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">
+                      {effortsData?.data[2].efforts_heading}
+                    </h3>
+                  </div>
+                  <div className="order-2">
+                    <p className="text-white text-justify text-lg">
+                      {effortsData?.data[2].efforts_description}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section className="p-8 max-w-340 mx-auto">
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                  <h3 className="text-2xl md:text-3xl font-bold text-[#0F3652] mb-3">
+                    {effortsData?.data[0].efforts_heading}
+                  </h3>
+                </div>
+
+                <div>
+                  <div className="p-1">
+                    <img
+                      src={`${imageBaseUrl}${effortsData?.data[0]?.efforts_image}`}
+                      alt={effortsData?.data[0]?.efforts_heading}
+                      className="w-full md:h-[340px] object-contain"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <p className="text-[#0F3652] text-justify  text-lg">
+                    {effortsData?.data[0].efforts_description}
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <section className="relative bg-[#0F3652] p-8 overflow-hidden">
+              <div className="relative z-10 max-w-340 mx-auto">
+                <div className="grid md:grid-cols-2 gap-8 items-center">
+                  <div>
+                    <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">
+                      {effortsData?.data[1].efforts_heading}{" "}
+                    </h3>
+                  </div>
+                  <div>
+                    <div className="p-1">
+                      <img
+                        src={`${imageBaseUrl}${effortsData?.data[1]?.efforts_image}`}
+                        alt={effortsData?.data[1]?.efforts_heading}
+                        className="w-full md:h-[340px]  object-contain"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <p className="text-white text-justify text-lg">
+                      {effortsData?.data[1].efforts_description}{" "}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+      {/* //large screen */}
+      <div className="mx-auto hidden md:block">
         <section className="relative w-full overflow-hidden bg-[#0F3652] pt-6">
-          <SectionHeading
-            title="AIA Empowers Organisations Through Audit & Fraud Risk Excellences"
-            description="Industry-aligned certification training designed to strengthen fraud prevention, detection, investigation, and audit capabilities across organisations."
-            align="center"
-            className="white"
-          />
+          <div className="px-6">
+            <SectionHeading
+              title="AIA Empowers Organisations Through Audit & Fraud Risk Excellences"
+              description="Industry-aligned certification training designed to strengthen fraud prevention, detection, investigation, and audit capabilities across organisations."
+              align="center"
+              titleClass="text-white text-[1.1rem] md:text-3xl"
+              descriptionClass="text-white"
+              underlineColor="#fff"
+            />
+          </div>
           <div className="relative z-10 w-full px-8 pb-4 grid grid-cols-1 md:grid-cols-2 items-center gap-8 max-w-340 mx-auto">
             <div>
               <h3 className="text-3xl font-semibold">

@@ -1,4 +1,5 @@
 import { IMAGE_PATH } from "@/api/base-url";
+import { href } from "react-router-dom";
 
 const AccreditationBadges = () => {
   const badges = [
@@ -7,7 +8,11 @@ const AccreditationBadges = () => {
       alt: "IAO",
       href: "https://www.iao.org/India-Haryana/Academy-of-Internal-Audit",
     },
-    { img: `${IMAGE_PATH}/IIA.png`, alt: "IIA" },
+    {
+      img: `${IMAGE_PATH}/IIA.png`,
+      alt: "IIA",
+      href: "https://iiaindia.co/GlobalCertification/LearningPartner",
+    },
     { img: `${IMAGE_PATH}/ISO.png`, alt: "ISO" },
     { img: `${IMAGE_PATH}/Gleim.png`, alt: "Gleim" },
     {
@@ -73,7 +78,7 @@ export const PaymentAccreditation = () => (
     <div>
       <SectionLabel>Payment</SectionLabel>
 
-      <div className="grid grid-cols-2 gap-3">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
         <div className="p-3 flex items-center justify-center hover:border-[#fa8017]/40 transition-all duration-200">
           <img
             src={`${IMAGE_PATH}/payment.png`}

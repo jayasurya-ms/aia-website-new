@@ -5,24 +5,35 @@ import SectionHeading from "../SectionHeading/SectionHeading";
 const CorporateWhy = () => {
   const statsCards = [
     {
-      value: 94,
+      value: 92,
       suffix: "%",
-      subtitle: "Say employees stay longer at a company",
+      subtitle: "of employees say training improves job engagement",
+      source: "Devlin Peck",
+      link: "https://www.devlinpeck.com/content/employee-training-statistics",
     },
     {
-      value: 74,
+      value: 80,
       suffix: "%",
-      subtitle: "Report higher engagement with structured training",
+      subtitle:
+        "of employees stay longer with companies that invest in training",
+      source: "Nido Project",
+      link: "https://blog.nidoproject.com/employee-training-statistics-trends-and-data-in-2025/",
     },
     {
       value: 30,
       suffix: "%",
-      subtitle: "See improved performance within 3 months",
+      subtitle:
+        "say personalized training programs accelerate skill development",
+      source: "ZipDo",
+      link: "https://zipdo.co/employee-development-statistics/",
     },
     {
-      value: 21,
+      value: 91,
       suffix: "%",
-      subtitle: "of companies report direct profitability gains",
+      subtitle:
+        "of companies report revenue growth after investing in employee training",
+      source: "ZipDo",
+      link: "https://zipdo.co/employee-development-statistics/",
     },
   ];
 
@@ -178,22 +189,20 @@ const CorporateWhy = () => {
           <div className="inline-flex items-center gap-2 mb-6">
             <div className="h-px w-8 bg-gradient-to-r from-transparent to-[#F3831C]"></div>
             <span className="text-[#F3831C] text-sm font-semibold uppercase tracking-[0.2em] px-4 py-2 bg-gradient-to-r from-orange-50 to-transparent rounded-full">
-              Accreditation & Highlights
+              Training Impact & Insights
             </span>
             <div className="h-px w-8 bg-gradient-to-l from-transparent to-[#F3831C]"></div>
           </div>
 
           <SectionHeading
             title="Why Leading Organizations are Investing in Employee Development"
+            description="Because every smart business knows - when your people grow it leads
+            to strong results. Here's the proof"
             align="center"
           />
-          <p className="text-lg text-[#0F3652]/80 leading-relaxed max-w-4xl mx-auto mb-12 wrap-break-word">
-            Because every smart business knows - when your people grow it leads
-            to strong results. Here's the proof
-          </p>
         </div>
 
-        <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-5">
+        {/* <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-5">
           {statsCards.map((item, index) => (
             <div
               key={index}
@@ -213,14 +222,46 @@ const CorporateWhy = () => {
               <p className="text-sm font-medium text-gray-700">
                 {item.subtitle}
               </p>
+              <p>{item.source}</p>
             </div>
           ))}
-        </div>
+        </div> */}
+        <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-5">
+          {statsCards.map((item, index) => (
+            <div
+              key={index}
+              className="relative bg-white rounded-xl p-6 text-center border border-gray-200 hover:border-[#F3831C] cursor-pointer transition-all duration-300 hover:shadow-lg group overflow-hidden"
+            >
+              {/* Top hover line */}
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#0F3652] to-[#F3831C] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
 
-        <div className="mt-12 pt-8 border-t border-gray-100 relative">
-          <div className="absolute left-1/2 transform -translate-x-1/2 -top-3">
-            <div className="w-24 h-1 bg-gradient-to-r from-[#F3831C] via-[#0F3652] to-[#F3831C] rounded-full"></div>
-          </div>
+              {/* Corner decorations */}
+              <div className="absolute top-2 right-2 w-6 h-6 border-t-2 border-r-2 border-[#0F3652]/20 rounded-tr-xl"></div>
+              <div className="absolute bottom-2 left-2 w-6 h-6 border-b-2 border-l-2 border-[#0F3652]/20 rounded-bl-xl"></div>
+
+              {/* Percentage */}
+              <h2 className="text-5xl font-black text-[#0F3652] mb-2">
+                <CountUp end={item.value} suffix={item.suffix} />
+              </h2>
+
+              {/* Divider */}
+              <div className="h-px w-12 bg-gradient-to-r from-transparent via-[#F3831C] to-transparent mx-auto my-4"></div>
+
+              {/* Subtitle */}
+              <p className="text-sm font-medium text-gray-700">
+                {item.subtitle}
+              </p>
+
+              <a
+                href={item.link}
+                target="_blank"
+                rel="nofollow noopener noreferrer"
+                className="mt-3 inline-block text-xs text-[#0F3652] underline  transition-opacity duration-300"
+              >
+                Source: {item.source}
+              </a>
+            </div>
+          ))}
         </div>
       </div>
     </div>

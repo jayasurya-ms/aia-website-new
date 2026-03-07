@@ -9,10 +9,10 @@ const curriculumData = [
     id: 1,
     title: "Internal Audit Fundamentals",
     content: [
-      "CIA Part 1 - Internal Audit Fundamentals provides comprehensive coverage on the fundamentals of Internal Auditing, all about ethical norms and professionalism, core concepts of governance, risk management, and control frameworks.",
-      "Foundation of Internal Auditing(35%)",
+      "CIA Part 1 - Internal Audit Fundamentals provides comprehensive coverage on the fundamentals of internal auditing, all about ethical norms and professionalism, and core concepts of governance, risk management, and control frameworks. ",
+      "Foundation of Internal Auditing (35%)",
       "Ethics & Professionalism (20%)",
-      "Governance, Risk Management and Control (30%)",
+      "Governance, Risk Management, and Control (30%)",
       "Fraud Risks (15%)",
     ],
   },

@@ -6,6 +6,7 @@ import WhatsappCarosal from "@/components/common/whatsapp-carosal";
 import CamsAbout from "@/components/courses/cams/cams-about";
 import CamsConnection from "@/components/courses/cams/cams-connection";
 import CamsCourseCurriculum from "@/components/courses/cams/cams-course-curriculum";
+import CamsCourseLms from "@/components/courses/cams/cams-course-lms";
 import CamsFaq from "@/components/courses/cams/cams-faq";
 import CamsHighlight from "@/components/courses/cams/cams-highlight";
 import CamsJourney from "@/components/courses/cams/cams-journey";
@@ -46,7 +47,8 @@ const CAMS = () => {
       <CamsWhyAia />
       <WhatsappCarosal
         title="Unfiltered Reflections from AIA-Trained Professionals"
-        description=" Heartfelt messages shared by professionals after completing their journey with AIA"
+        description="Heartfelt messages shared by professionals after completing their journey with AIA.
+Each message reflects a different experience. These reflections provide a genuine view of what preparation looks like in real situations, beyond structured testimonials"
         course="CAMS"
       />
       <CamsHighlight />
@@ -57,9 +59,16 @@ const CAMS = () => {
         title="Hear from Our Recently Qualified Professionals on YouTube"
         description="Watch AIA-trained professionals share their CAMS journey, exam strategies, and career insights in exclusive interviews with Puneet Sir on YouTube."
       />
-      <AboutTrainerSection path="faculty_cams.webp" />
-      <CourseYoutubeLecture courseSlug="cams" />
-      <CfeCourseLms
+      <AboutTrainerSection
+        path="faculty_cams.webp"
+        messageimage="message_cams.webp"
+      />
+      <CourseYoutubeLecture
+        courseSlug="cams"
+        title="Master CAMS Concepts with AIA’s Video Learning Series"
+        description="Explore concise video sessions by Puneet Sir covering key CAMS topics, simplified for practical clarity and exam-focused understanding."
+      />
+      <CamsCourseLms
         title="Join AiA CAMS LMS"
         subtitle="Online Training and Certification Course"
         course="CAMS"
@@ -70,6 +79,8 @@ const CAMS = () => {
       <CourseAchivers
         slug="CAMS"
         title="Meet the Professionals Who Successfully Cleared the CAMS with AIA"
+        description="Meet AIA proud achievers who advance their careers by achieving the global CAMS credential with structured prep and real-world expertise."
+        titleClass="!text-[1rem] md:!text-3xl"
       />
       <CourseBlog
         course="CAMS"
@@ -77,7 +88,7 @@ const CAMS = () => {
       />
 
       <CamsConnection
-        title="The Right Certification Starts With the Right Choice"
+        title="The Right Certification Starts With The Right Choice"
         description="Find the certification that aligns with your background and career stage"
         images={[
           { image: "hiw_cfe.webp", link: "/cfe-curriculum" },

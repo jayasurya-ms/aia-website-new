@@ -29,14 +29,14 @@ const CorporateTrainer = () => {
                 <span className="font-bold text-3xl italic text-justify">
                   Puneet Garg
                 </span>{" "}
-                is a distinguished professional with{" "}
-                <strong>over 22 years of leadership experience </strong> in
-                Internal Audit, Risk Management, Compliance, Forensics, and
-                Financial Advisory.{" "}
+                is a distinguished professional with
+                <strong> over 22 years of leadership experience</strong> in
+                internal audit, risk management, compliance, forensics, and
+                financial advisory.
                 <strong>
                   A Chartered Accountant (CA), Company Secretary (CS), and
                   globally certified expert holding the CIA, CFE, and CAMS
-                  credentials
+                  credentials.
                 </strong>
               </p>
 
@@ -56,41 +56,41 @@ const CorporateTrainer = () => {
                 authority in the audit and compliance landscape.
               </p>
               <p className="text-justify">
-                As the{" "}
+                As the
                 <strong>
                   {" "}
                   CEO and Lead Faculty at the Academy of Internal Audit (AIA),
                 </strong>
                 he has designed and delivered specialized training programs for
-                both public and private sector organizations - including
-                regulatory and investigative bodies.
+                both public and private sector organizations—including
+                regulatory and investigative bodies
               </p>
               <p className="text-justify">
                 <strong>
                   His programs go beyond certification, equipping professionals
-                  with practical forensic insights
+                  with practical forensic insights,
                 </strong>
-                ,robust control frameworks, and global compliance standards that
+                robust control frameworks, and global compliance standards that
                 directly strengthen an organization’s internal audit
                 effectiveness, risk management maturity, and fraud resilience.
               </p>
               <p className="text-justify">
                 Puneet’s initiatives to train corporate teams are not limited to
-                helping them earn global credentials, but also to ensure they
+                helping them earn global credentials but also to ensure they
                 acquire real-world analytical and auditing skills that enable
                 them to demonstrate excellence while performing their
-                professional responsibilities
+                professional responsibilities.
               </p>
               <strong className="text-justify">
                 He has trained professionals from prestigious institutions such
-                as CBI, NIA, CAG, NFSU, SPG, Indian security forces, among
+                as CBI, NIA, CAG, NFSU, SPG, and Indian security forces, among
                 others.
               </strong>
               <p className="text-justify">
-                He has also served as an{" "}
-                <strong>Authorized Trainer with the NSE Academy</strong>
-                ,contributing to the professional development of finance and
-                audit professionals across India
+                He has also served as an
+                <strong>authorized trainer with the NSE Academy,</strong>
+                contributing to the professional development of finance and
+                audit professionals across India.
               </p>
               <p className="text-justify mb-6">
                 In recognition of his impact on ethical leadership and
@@ -102,10 +102,10 @@ const CorporateTrainer = () => {
                   className="font-bold text-[#F3831C]"
                 >
                   {" "}
-                  CEO Insights India 
+                  CEO Insights India
                 </a>{" "}
-               featured him among the
-                <strong> Top 10 Impactful Business Leaders in India. </strong>
+                featured him among the
+                <strong>Top 10 Impactful Business Leaders in India.</strong>
               </p>
             </div>
           </div>

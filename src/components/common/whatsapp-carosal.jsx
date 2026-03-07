@@ -24,6 +24,7 @@ export const TestimonialSlider = ({
   const [direction, setDirection] = useState("right");
   const [loadedImages, setLoadedImages] = useState(new Set());
   const timerRef = useRef(null);
+  const [isMdScreen, setIsMdScreen] = useState(false);
 
   const activeReview = reviews[currentIndex];
   const [thumbCount, setThumbCount] = useState(4);
@@ -40,6 +41,16 @@ export const TestimonialSlider = ({
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
+    const checkScreen = () => {
+      setIsMdScreen(window.innerWidth >= 768);
+    };
+
+    checkScreen();
+    window.addEventListener("resize", checkScreen);
+    return () => window.removeEventListener("resize", checkScreen);
   }, []);
   const goTo = useCallback((newIndex, dir) => {
     setDirection(dir);
@@ -70,19 +81,12 @@ export const TestimonialSlider = ({
     startTimer();
   }, [currentIndex, reviews.length, goTo, startTimer]);
 
-  const handleThumbnailClick = useCallback(
-    (index) => {
-      goTo(index, index > currentIndex ? "right" : "left");
-      startTimer();
-    },
-    [currentIndex, goTo, startTimer]
-  );
   const handleLeftThumb = useCallback(
     (idx) => {
       goTo(idx, "left");
       startTimer();
     },
-    [goTo, startTimer]
+    [goTo, startTimer],
   );
 
   const handleRightThumb = useCallback(
@@ -90,7 +94,7 @@ export const TestimonialSlider = ({
       goTo(idx, "right");
       startTimer();
     },
-    [goTo, startTimer]
+    [goTo, startTimer],
   );
 
   const handleImageLoad = useCallback((src) => {
@@ -147,7 +151,7 @@ export const TestimonialSlider = ({
     <div
       className={cn(
         "relative w-full min-h-[650px] md:min-h-[600px] overflow-hidden bg-background text-foreground p-8 md:p-12",
-        className
+        className,
       )}
     >
       {preloadImages.map((src) => (
@@ -194,7 +198,7 @@ export const TestimonialSlider = ({
           </div>
         </div>
         <div className="md:col-span-4 relative h-80 min-h-[400px] md:min-h-[500px] order-2 md:order-2">
-          <AnimatePresence initial={false} custom={direction}>
+          {/* <AnimatePresence initial={false} custom={direction}>
             <motion.img
               key={currentIndex}
               src={activeReview.image}
@@ -212,8 +216,31 @@ export const TestimonialSlider = ({
               className="absolute inset-0 w-full h-full object-cover rounded-lg"
               onLoad={() => handleImageLoad(activeReview.image)}
             />
-          </AnimatePresence>
-
+          </AnimatePresence> */}
+          {isMdScreen ? (
+            <AnimatePresence initial={false} custom={direction}>
+              <motion.img
+                key={currentIndex}
+                src={activeReview.image}
+                alt={activeReview.alt || `Slide ${currentIndex + 1}`}
+                custom={direction}
+                variants={imageVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{ duration: 0.6, ease }}
+                className="absolute inset-0 w-full h-full object-cover rounded-lg"
+                onLoad={() => handleImageLoad(activeReview.image)}
+              />
+            </AnimatePresence>
+          ) : (
+            <img
+              src={activeReview.image}
+              alt={activeReview.alt || `Slide ${currentIndex + 1}`}
+              className="absolute inset-0 w-full h-full object-cover rounded-lg"
+              onLoad={() => handleImageLoad(activeReview.image)}
+            />
+          )}
           {!loadedImages.has(activeReview.image) && (
             <div className="absolute inset-0 bg-muted animate-pulse rounded-lg" />
           )}
@@ -291,7 +318,7 @@ const WhatsappCarosal = ({ title, description, course }) => {
     queryKey: ["screenshot-slider", course],
     queryFn: async () => {
       const res = await axios.get(
-        `${BASE_URL}/api/getScreenshotSlider/${course}`
+        `${BASE_URL}/api/getScreenshotSlider/${course}`,
       );
       return res.data;
     },

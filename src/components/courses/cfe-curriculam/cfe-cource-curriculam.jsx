@@ -33,8 +33,8 @@ const curriculumData = [
     id: 4,
     title: "Fraud Prevention & Deterrence",
     content: [
-      `This <strong>  module focuses on preventing fraud before it occurs by strengthening governance, ethics, and risk management frameworks</strong> . Learners explore criminal behaviour, white-collar crime, corporate governance structures, management accountability, and the role of auditors and compliance functions in fraud prevention. 
-      The curriculum emphasises fraud risk assessment, internal controls, ethical culture, and fraud risk management strategies. Learners <strong> gain the ability to design, evaluate, and improve systems that reduce fraud exposure, enhance transparency, and build long-term organisational integrity across diverse business environments</strong>`,
+      `This <strong>module focuses on preventing fraud before it occurs by strengthening governance, ethics, and risk management frameworks.</strong> .behavior, white-collar crime, corporate governance structures, management accountability, and the role of auditors and compliance functions in fraud prevention. 
+      The curriculum emphasizes fraud risk assessment, internal controls, ethical culture, and fraud risk management strategies. Learners <strong> gain the ability to design, evaluate, and improve systems that reduce exposure to fraud, enhance transparency, and build long-term organizational integrity across diverse business environments. </strong>`,
     ],
   },
 ];
@@ -44,7 +44,7 @@ const CfeCourseCurriculum = () => {
     <>
       <CourseCurriculum
         title="CFE Course Curriculum"
-        description={` The <strong>Certified Fraud Examiner (CFE) credential is globally recognised </strong> as a benchmark for professionals working in fraud detection, investigation, and prevention. The certification <strong>lidates a professional’s ability to understand & identify fraud schemes,</strong>conduct structured investigations, and design effective fraud prevention frameworks across organisations. The <strong>CFE exam is divided into four core modules</strong>that cover financial fraud schemes, legal aspects, investigation techniques, and fraud prevention and deterrence.<br/> \nAt AIA, we design our <strong>CFE training program to ensure that aspirants develop a clear organisational understanding and an investigator mindset.</strong>The course structure helps learners view transactions through a fraud-risk framework, understand how controls fail, and analyse fraud from the perspective of how it occurs.`}
+        description={`The Certified Fraud Examiner (CFE) credential is globally recognized as a benchmark for professionals in fraud detection, investigation, and prevention. The certification<strong> validates a professional’s ability to understand & identify fraud schemes, conduct </strong> structured investigations, and design effective fraud prevention frameworks across organizations. The<strong> CFE exam is divided into four core modules that</strong> cover financial fraud schemes, legal aspects, investigation techniques, and fraud prevention and deterrence. <br/> \nAt AIA, we design our <strong>CFE training program to ensure that aspirants develop a clear organizational understanding and an investigator mindset.</strong>The course structure helps learners view transactions through a fraud-risk framework, understand how controls fail, and analyze fraud from the perspective of how it occurs. `}
         curriculumData={curriculumData}
       />
 

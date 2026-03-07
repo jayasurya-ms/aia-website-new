@@ -9,7 +9,7 @@ export default function Footer() {
         <FooterReviews footer={false} />
       </div>
       <div className="max-w-340 mx-auto px-4  py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-4">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-4">
           <div className="space-y-6">
             <h4 className="text-[#fa8017] font-bold text-xl mb-6 relative inline-block">
               Quick Links
@@ -21,6 +21,8 @@ export default function Footer() {
                 { name: "About AIA", href: "/about-aia" },
                 { name: "Blog", href: "/blogs" },
                 { name: "Our Passout", href: "/our-passouts" },
+                { name: "CFE Free Resources", href: "/cfe-free-resources" },
+                { name: "Corporate Training", href: "/corporate-training" },
                 { name: "Contact Us", href: "/contact" },
                 { name: "Policies", href: "/policies" },
                 { name: "Terms and Conditions", href: "/terms-and-conditions" },
@@ -82,11 +84,11 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-4 col-span-2 md:col-span-1">
             <ContactGrid />
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-6 col-span-2 md:col-span-1">
             <h4 className="text-[#fa8017] font-bold text-xl mb-6 relative inline-block">
               Registered Office
               <span className="absolute bottom-0 left-0 w-12 h-0.5 bg-[#fa8017] -mb-2"></span>

@@ -165,60 +165,100 @@ const PopUp = ({ slug = "home" }) => {
   }
 
   return (
+    // <Dialog open={open} onOpenChange={handleOpenChange} className="z-999">
+    //   <DialogContent className="p-0 overflow-hidden border-0 bg-transparent max-w-xl z-[9999]">
+    //     <div className="relative">
+    //       <DialogHeader className="px-2">
+    //         <div className="flex items-center justify-between gap-2 bg-white">
+    //           <DialogTitle className="flex-1 text-md font-bold text-center text-gray-800 ">
+    //             {popupData.popup_heading}
+    //           </DialogTitle>
+
+    //           <button
+    //             onClick={handleClose}
+    //             className="
+    //     h-6 w-6
+    //     rounded-lg
+    //     bg-[#F3831C]
+    //     hover:bg-[#F3831C]
+    //     shadow-md
+    //     flex items-center justify-center
+    //     focus:outline-none focus:ring-2 focus:ring-[#0F3652]/40
+    //     cursor-pointer
+    //     shrink-0
+    //   "
+    //             aria-label="Close popup"
+    //           >
+    //             <X className="h-4 w-4 text-white" />
+    //           </button>
+    //         </div>
+    //       </DialogHeader>
+
+    //       <div className="px-2">
+    //         <img
+    //           src={imageUrl}
+    //           alt={popupData.popup_image_alt}
+    //           className="w-full h-auto rounded-lg"
+    //           loading="eager"
+    //         />
+    //       </div>
+
+    //       {/* <div className="px-2 pb-3 pt-0">
+    //         <div className="flex items-center space-x-3 border-t border-gray-200 pt-4">
+    //           <Checkbox
+    //             id="dont-show-again-global"
+    //             checked={dontShowAgain}
+    //             onCheckedChange={handleCheckboxChange}
+    //             className="h-5 w-5 data-[state=checked]:bg-[#0F3652] data-[state=checked]:border-[#0F3652]"
+    //           />
+    //           <Label
+    //             htmlFor="dont-show-again-global"
+    //             className="text-sm text-gray-700 cursor-pointer select-none font-medium"
+    //           >
+    //             Don't show this popup again
+    //           </Label>
+    //         </div>
+    //       </div> */}
+    //     </div>
+    //   </DialogContent>
+    // </Dialog>
     <Dialog open={open} onOpenChange={handleOpenChange} className="z-999">
       <DialogContent className="p-0 overflow-hidden border-0 bg-transparent max-w-xl z-[9999]">
-        <div className="relative bg-white">
-          <DialogHeader className="p-2">
-            <div className="flex items-center justify-between gap-2">
-              <DialogTitle className="flex-1 text-md font-bold text-center text-gray-800">
-                {popupData.popup_heading}
-              </DialogTitle>
+        <div className="relative rounded-lg overflow-hidden">
+          {popupData.popup_heading ? (
+            <DialogHeader className="px-2">
+              <div className="flex items-center justify-between gap-2 bg-white p-2 rounded-t-xl ">
+                <DialogTitle className="flex-1 text-md font-bold text-center text-gray-800">
+                  {popupData.popup_heading}
+                </DialogTitle>
 
-              <button
-                onClick={handleClose}
-                className="
-        h-6 w-6
-        rounded-lg
-        bg-[#0F3652]
-        hover:bg-[#F3831C]
-        shadow-md
-        flex items-center justify-center
-        focus:outline-none focus:ring-2 focus:ring-[#0F3652]/40
-        cursor-pointer
-        shrink-0
-      "
-                aria-label="Close popup"
-              >
-                <X className="h-4 w-4 text-white" />
-              </button>
-            </div>
-          </DialogHeader>
+                <button
+                  onClick={handleClose}
+                  className="h-6 w-6 rounded-lg bg-[#F3831C] cursor-pointer shadow-md flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-[#0F3652]/40 shrink-0"
+                  aria-label="Close popup"
+                >
+                  <X className="h-4 w-4 text-white" />
+                </button>
+              </div>
+            </DialogHeader>
+          ) : (
+            <button
+              onClick={handleClose}
+              className="absolute top-3 right-3 z-10 h-7 w-7 rounded-lg cursor-pointer bg-[#F3831C] shadow-lg flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-[#0F3652]/40"
+              aria-label="Close popup"
+            >
+              <X className="h-4 w-4 text-white" />
+            </button>
+          )}
 
-          <div className="p-2">
+          <div className="px-2 pb-2">
             <img
               src={imageUrl}
               alt={popupData.popup_image_alt}
-              className="w-full h-auto rounded-lg"
+              className={`${popupData.popup_heading ? "rounded-b-lg" : "rounded-lg"} w-full h-auto`}
               loading="eager"
             />
           </div>
-
-          {/* <div className="px-2 pb-3 pt-0">
-            <div className="flex items-center space-x-3 border-t border-gray-200 pt-4">
-              <Checkbox
-                id="dont-show-again-global"
-                checked={dontShowAgain}
-                onCheckedChange={handleCheckboxChange}
-                className="h-5 w-5 data-[state=checked]:bg-[#0F3652] data-[state=checked]:border-[#0F3652]"
-              />
-              <Label
-                htmlFor="dont-show-again-global"
-                className="text-sm text-gray-700 cursor-pointer select-none font-medium"
-              >
-                Don't show this popup again
-              </Label>
-            </div>
-          </div> */}
         </div>
       </DialogContent>
     </Dialog>

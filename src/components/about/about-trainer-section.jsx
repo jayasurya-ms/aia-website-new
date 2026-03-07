@@ -1,9 +1,9 @@
 import { IMAGE_PATH } from "@/api/base-url";
 import React from "react";
 
-const AboutTrainerSection = ({ path = "faculty_about.webp" }) => {
+const AboutTrainerSection = ({ path = "faculty_about.webp", messageimage="message_about.webp" }) => {
   return (
-    <div className="bg-linear-to-r from-slate-700 via-slate-600 to-blue-950 ">
+    <div className="bg-linear-to-r from-slate-700 via-slate-600 to-blue-950 mb-12">
       <div className="max-w-340 mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-x-12 items-center">
           <div className="relative px-4 shadow-[4px_0_15px_rgba(0,0,0,0.15)]">
@@ -19,7 +19,7 @@ const AboutTrainerSection = ({ path = "faculty_about.webp" }) => {
               <h2 className="text-2xl md:text-5xl font-bold text-transparent bg-clip-text bg-linear-to-r from-white via-[#F3831C] to-[#F3831C] italic block mt-2">
                 Know Your Trainer
               </h2>
-              <p className="text-xl md:text-2xl mb-4 font-bold">
+              <p className="text-[1rem] md:text-2xl mb-4 font-bold">
                 Not Just a Trainer, But Your Success Coach
               </p>
             </div>
@@ -29,8 +29,8 @@ const AboutTrainerSection = ({ path = "faculty_about.webp" }) => {
                 <span className="font-bold">Puneet Garg</span> is a globally
                 certified audit leader with{" "}
                 <span className="font-bold"> over 22 years of experience </span>{" "}
-                across Internal Audit, Risk Management, Compliance, Forensics,
-                and Finance. Holding prestigious credentials including{" "}
+                across internal audit, risk management, compliance, forensics,
+                and finance . Holding prestigious credentials including{" "}
                 <span className="font-bold"> CA, CS, CIA, CAMS, and CFE</span>,
                 he brings deep technical expertise and practical insight to his
                 role as a mentor and industry expert.
@@ -41,7 +41,7 @@ const AboutTrainerSection = ({ path = "faculty_about.webp" }) => {
                 multinational organizations such as{" "}
                 <span className="font-bold">
                   {" "}
-                  Samsung, Hyundai, Panasonic, and Alchemist, and has served as
+                  Samsung, Hyundai, Panasonic, and Alchemist and has served as
                   the Head of Internal Audit at DCM Shriram Industries Ltd.
                 </span>
                 , where he led enterprise-wide audit, risk, and control
@@ -100,7 +100,7 @@ const AboutTrainerSection = ({ path = "faculty_about.webp" }) => {
               </div>
               <div className="mt-5">
                 <img
-                  src={`${IMAGE_PATH}/message.png`}
+                  src={`${IMAGE_PATH}/${messageimage}`}
                   alt="Student Testimonials"
                   className="w-full rounded-lg"
                 />

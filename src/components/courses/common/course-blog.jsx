@@ -6,7 +6,7 @@ import axios from "axios";
 import { Button } from "@/components/ui/button";
 import { BASE_URL } from "@/api/base-url";
 
-const CourseBlog = ({ course,title }) => {
+const CourseBlog = ({ course, title }) => {
   const carouselRef = React.useRef(null);
   const { data, isLoading, isError } = useQuery({
     queryKey: ["aia-blog", course],
@@ -65,8 +65,8 @@ const CourseBlog = ({ course,title }) => {
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
         <div className="flex flex-col items-center text-center lg:col-span-3 lg:items-start lg:text-left">
           <div className="flex flex-col h-full justify-center">
-            <h2 className="mt-4 text-2xl font-bold text-white">
-           {title}
+            <h2 className="mt-4 text-xl md:text-2xl font-bold text-white">
+              {title}
             </h2>
             <Button
               className="rounded-xl mt-6 px-5 text-base relative cursor-pointer overflow-hidden group"
@@ -112,7 +112,7 @@ const CourseBlog = ({ course,title }) => {
                           <img
                             src={imageUrl}
                             alt={blog.blog_images_alt || blog.blog_heading}
-                            className="h-auto w-full object-contain transition-transform duration-300 group-hover:scale-105 grayscale hover:grayscale-0 "
+                            className="h-auto w-full object-contain transition-transform duration-300 md:group-hover:scale-105 md:grayscale md:hover:grayscale-0 "
                             onError={(e) => {
                               e.target.src = noImageUrl;
                             }}

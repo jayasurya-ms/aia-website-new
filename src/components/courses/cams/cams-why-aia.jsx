@@ -9,7 +9,7 @@ const CamsWhyAia = () => {
   return (
     <div className="md:mb-18">
       <CourseWhyAia
-        heading="What sets AIA Apart"
+        heading="Key Advantages of AIA CAMS Prep Course"
         items={[
           {
             img: `${IMAGE_PATH}/teacher-svgrepo-com.png`,
@@ -39,7 +39,7 @@ const CamsWhyAia = () => {
           title="Join AiA CAMS LMS"
           subtitle="Online Training and Certification Course"
           course="CAMS"
-          buttonlabel="Explore More"
+          buttonlabel="Let's Connect"
         />
 
         <Button

@@ -13,9 +13,9 @@ const CiaCourseLms = () => {
         "AIA provides concise, customized study material designed specifically for the CIA Challenge Exam, focusing on key areas and integrated concepts aligned with IIA requirements.",
     },
     {
-      title: "Practice Questions",
+      title: "AIA Flash Cards",
       description:
-        "Access 1,500+ exam-oriented practice questions with detailed answers and explanations to strengthen application-based understanding.",
+        "300+ exam-focused flash cards designed for quick recall, concept clarity, and verifying exam readiness with clear explanations for quick revision anytime, anywhere",
     },
     {
       title: "Recorded Training Sessions",
@@ -33,9 +33,9 @@ const CiaCourseLms = () => {
         "The CIA Challenge Exam typically requires 6–8 months of focused preparation depending on professional background and time commitment. Faster completion is possible with disciplined study.",
     },
     {
-      title: "Mock Tests",
+      title: "Exclusive Exam Distractors",
       description:
-        "Full-length CIA Challenge mock tests are conducted after syllabus completion to assess readiness, improve time management, and refine exam strategy.",
+        "500+ exam distractors train you to identify traps, understand why options look correct, and improve decision-making accuracy when similar choices appear in an exam.",
     },
     {
       title: "Course Fee",
@@ -43,9 +43,9 @@ const CiaCourseLms = () => {
         "All components including e-books, practice questions, recorded lectures, live sessions, and mock tests are covered under one consolidated course fee.",
     },
     {
-      title: "Regular Content Updates",
+      title: "Full Access to Gleim Software",
       description:
-        "All learning resources are regularly reviewed and updated in line with the latest IIA CIA Challenge Exam framework applicable for 2026.",
+        "Get full Gleim CIA Challenge software access, including practice questions, mock exams, and updated Gleim books to ensure preparation aligned with exam standards.",
     },
   ];
 

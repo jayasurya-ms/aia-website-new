@@ -1,10 +1,9 @@
 import { BASE_URL } from "@/api/base-url";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import { TestimonialsSectionCourse } from "../courses/common/testimonials-with-marquee-course";
 import { TestimonialsSectionColor } from "./testimonialsection-color";
 
 const HomeResults = ({ title, description }) => {
@@ -26,19 +25,6 @@ const HomeResults = ({ title, description }) => {
     const studentImageBaseUrl =
       certificatesData.image_url?.find((item) => item.image_for === "Student")
         ?.image_url || "";
-
-    // const validCertificates = certificatesData.data.filter(
-    //   (item) => item.student_other_certificate_image,
-    // );
-
-    // const order = ["ACFE", "IIA", "ACAMS"];
-
-    // validCertificates.sort((a, b) => {
-    //   const aIndex = order.indexOf(a.student_certificate_issued_by);
-    //   const bIndex = order.indexOf(b.student_certificate_issued_by);
-
-    //   return (aIndex === -1 ? 99 : aIndex) - (bIndex === -1 ? 99 : bIndex);
-    // });
 
     return certificatesData?.data.map((certificate) => ({
       author: {
@@ -89,10 +75,6 @@ const HomeResults = ({ title, description }) => {
       description={description}
       testimonials={testimonials}
       customDuration={40}
-      // image={{
-      //   width: "340px",
-      //   height: "220px",
-      // }}
       imageclassName="w-[280px] h-[180px] md:w-[340px] md:h-[220px]"
     />
   );

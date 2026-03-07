@@ -46,11 +46,19 @@ const FreeResourceReview = () => {
   return (
     <section className="py-12 bg-white">
       <div className="max-w-340 mx-auto w-full px-4 sm:px-6 lg:px-8">
-        <SectionHeading
-          title="Trusted by Learners Across the Globe"
-          description="Real experiences shared by professionals on how AIA helped them achieve their certification goals."
-        />
-
+        <div className="md:hidden">
+          <SectionHeading
+            title="Trusted by Learners Across the Globe"
+            description="Real experiences shared by professionals on how AIA helped them achieve their certification goals."
+            align="center"
+          />
+        </div>
+        <div className="hidden md:block">
+          <SectionHeading
+            title="Trusted by Learners Across the Globe"
+            description="Real experiences shared by professionals on how AIA helped them achieve their certification goals."
+          />
+        </div>
         <div className="flex flex-col lg:flex-row items-center">
           <div className="w-full lg:w-1/2 mb-8 lg:mb-0">
             {/* <div className="flex justify-center">
@@ -89,8 +97,7 @@ const FreeResourceReview = () => {
                     className="w-12 h-12"
                   />
                   <h2 className="text-3xl font-bold text-[#0F3652]">
-                    290+ Voices – All Rated{" "}
-                    <span className="text-[#F3831C]">★★★★★</span>
+                    290+ Professional Experiences Shared
                   </h2>
                 </div>
                 <Swiper

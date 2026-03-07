@@ -9,12 +9,12 @@ const CiaCurrWhyAia = () => {
   return (
     <div className="md:mb-18">
       <CourseWhyAia
-        heading="Why Academy of Internal Audit"
+        heading="Key Advantages of AIA CIA 3-Part Prep Course"
         backgroundImage="https://christuniversity.in/images/bg_2.jpg"
         items={[
           {
             img: `${IMAGE_PATH}/teacher-svgrepo-com.png`,
-            title: "CFE Qualified Instructor",
+            title: "CIA Qualified Instructor",
           },
           {
             img: `${IMAGE_PATH}/support-svgrepo-com.png`,
@@ -40,7 +40,7 @@ const CiaCurrWhyAia = () => {
           title="Join AiA CIA LMS"
           subtitle="Online Training and Certification Course"
           course="CIA"
-          buttonlabel="Explore More"
+          buttonlabel="Let's Connect"
         />
 
         <Button

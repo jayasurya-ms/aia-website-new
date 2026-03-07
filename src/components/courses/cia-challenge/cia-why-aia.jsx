@@ -9,30 +9,52 @@ const CiaWhyAia = () => {
   return (
     <div className="md:mb-18">
       <CourseWhyAia
-        heading="Why Academy of Internal Audit"
+        heading="Key Advantages of AIA CIA Challenge Prep Course"
         backgroundImage="https://christuniversity.in/images/bg_2.jpg"
         items={[
           {
             img: `${IMAGE_PATH}/teacher-svgrepo-com.png`,
-            title: "CIA Qualified Instructor",
+            title: "Gliem Software Access",
           },
           {
-            img: `${IMAGE_PATH}/support-svgrepo-com.png`,
-            title: "Training Support",
+            img: `${IMAGE_PATH}/flash_card.png`,
+            title: "Expert Curated Flash Cards",
           },
           {
             img: `${IMAGE_PATH}/video-record-device-svgrepo-com.png`,
-            title: "Access to Recorded Sessions",
+            title: "Exam Enrolment Support",
           },
           {
-            img: `${IMAGE_PATH}/Learning.png`,
-            title: "IIA India Authorized Learning Partner",
+            img: `${IMAGE_PATH}/exam_distractors.png`,
+            title: "Exclusive Exam Distractors ",
           },
           {
             img: `${IMAGE_PATH}/books-svgrepo-com.png`,
-            title: "Expert Study Notes",
+            title: "IIA India Authorized Learning Partner",
           },
         ]}
+        // items={[
+        //   {
+        //     img: `${IMAGE_PATH}/teacher-svgrepo-com.png`,
+        //     title: "CIA Qualified Instructor",
+        //   },
+        //   {
+        //     img: `${IMAGE_PATH}/support-svgrepo-com.png`,
+        //     title: "Training Support",
+        //   },
+        //   {
+        //     img: `${IMAGE_PATH}/video-record-device-svgrepo-com.png`,
+        //     title: "Access to Recorded Sessions",
+        //   },
+        //   {
+        //     img: `${IMAGE_PATH}/Learning.png`,
+        //     title: "IIA India Authorized Learning Partner",
+        //   },
+        //   {
+        //     img: `${IMAGE_PATH}/books-svgrepo-com.png`,
+        //     title: "Expert Study Notes",
+        //   },
+        // ]}
       />
 
       <div className="flex justify-center gap-2 mt-8">
@@ -40,7 +62,7 @@ const CiaWhyAia = () => {
           title="Join AiA CIA LMS"
           subtitle="Online Training and Certification Course"
           course="CIA"
-          buttonlabel="Explore More"
+          buttonlabel="Let's Connect"
         />
         <Button
           className="

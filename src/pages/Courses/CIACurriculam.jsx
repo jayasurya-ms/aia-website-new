@@ -52,7 +52,8 @@ const CIACurriculam = () => {
       <CiaCurrWhyAia />
       <WhatsappCarosal
         title="Unfiltered Reflections from AIA-Trained Professionals"
-        description=" Heartfelt messages shared by professionals after completing their journey with AIA"
+        description="Heartfelt messages shared by professionals after completing their journey with AIA.
+Each message reflects a different experience. These reflections provide a genuine view of what preparation looks like in real situations, beyond structured testimonials"
         course="CIA"
       />
       <CiaCurrHighlight />
@@ -63,20 +64,28 @@ const CIACurriculam = () => {
         title="Hear from Our Recently Qualified Professionals on YouTube"
         description="Watch AIA-trained professionals share their CFE journey, exam strategies, and career insights in exclusive interviews with Puneet Sir on YouTube."
       />
-      <AboutTrainerSection path="faculty_cia.webp" />
-      <CourseYoutubeLecture courseSlug="cia-curriculum" />
+      <AboutTrainerSection
+        path="faculty_cia.webp"
+        messageimage="message_cia.webp"
+      />
+      <CourseYoutubeLecture
+        courseSlug="cia-curriculum"
+        title="Master CIA Concepts with AIA’s Video Learning Series"
+        description="Explore concise video sessions by Puneet Sir covering key CIA topics, simplified for practical clarity and exam-focused understanding."
+      />
       <CiaCurrCourseLms />
       <CfeCurrUnique />
       <CourseAchivers
         slug="CIA"
         title="From Aspirants to Certified Internal Auditors - Our Recent CIA Achievers"
+        description="Meet AIA proud achievers who advance their careers by achieving the global CIA credential with structured prep and real-world expertise."
       />
       <CourseBlog
         course="CIA"
         title="Expert articles, exam tips, and real-world insights for CIA aspirants."
       />
       <CamsConnection
-        title="The Right Certification Starts With the Right Choice"
+        title="The Right Certification Starts With The Right Choice"
         description="Find the certification that aligns with your background and career stage"
         buttonColors={["#a8e6f3", "#e2ffdc", "#ffe38f"]}
         images={[

@@ -16,6 +16,7 @@ const AboutSection = () => {
             <SectionHeading
               title="About AIA - Where Certifications Meet Real-World Capability"
               description=""
+              align="center"
             />
             <div className="text-[#0F3652] leading-relaxed space-y-4 text-justify">
               <p>
@@ -27,7 +28,7 @@ const AboutSection = () => {
                 practical ability required to perform in real-world audit and
                 risk environments.
               </p>
-              <div className="list-disc pl-6 text-[#fa8017] mb-4 text-2xl">
+              <div className="list-disc md:pl-6 text-[#fa8017] mb-4 text-2xl">
                 <span>
                   <strong>
                     <em>

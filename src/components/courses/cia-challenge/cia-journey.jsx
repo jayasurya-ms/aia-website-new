@@ -34,7 +34,7 @@ const CiaJourney = () => {
         },
         {
           number: 3,
-          title: "CFE EXAM FORMAT",
+          title: "CIA  CHALLENGE EXAM FORMAT",
           items: [
             "Passing Score 80%",
             "No Negative Marking",

@@ -8,6 +8,11 @@ const ContactLocation = () => {
 
   return (
     <section className="relative overflow-hidden pb-10">
+      <SectionHeading
+        title="Find Us"
+        description="Our Office Location"
+        align="center"
+      />
       <div className="relative z-10 max-w-340  mx-auto ">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -15,11 +20,6 @@ const ContactLocation = () => {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="bg-white rounded-xl "
         >
-          <SectionHeading
-            title="Find Us"
-            description="Our Office Location"
-            align="center"
-          />
           <div className="h-100 relative  overflow-hidden border border-gray-200">
             {!mapLoaded && (
               <div className="absolute inset-0 bg-linear-to-r from-[#0F3652]/10 to-gray-100 animate-pulse" />

@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useRef, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
@@ -27,7 +26,6 @@ const CourseYoutubeLecture = ({
       return res.data;
     },
   });
-  console.log(data, "data", courseSlug);
   const tabs = data?.data
     ? Array.from(
         new Set(data.data.map((item) => item.youtube_language)),
@@ -87,11 +85,10 @@ const CourseYoutubeLecture = ({
       </div>
     );
   }
-  console.log(filteredVideos, "filteredVideos");
   if (filteredVideos.length === 0) return null;
 
   return (
-    <div className="w-full  px-4 sm:px-6 lg:px-8 md:py-18">
+    <div className="w-full  px-4 py-8 sm:px-6 lg:px-8 md:py-18">
       <div className="max-w-340 mx-auto">
         <SectionHeading
           title={title || "Visit Our Youtube Channel"}
@@ -103,13 +100,24 @@ const CourseYoutubeLecture = ({
           <div className="mb-8 border-b border-gray-200">
             <div className="flex gap-1 overflow-x-auto scrollbar-hide">
               {tabs.map((tab) => (
+                // <button
+                //   key={tab}
+                //   onClick={() => setActiveTab(tab)}
+                //   className={`px-6 py-3 font-medium text-sm whitespace-nowrap cursor-pointer transition-all duration-200 border-b-2 ${
+                //     activeTab === tab
+                //       ? "border-blue-600 text-blue-600"
+                //       : "border-transparent text-gray-600 hover:text-gray-900 hover:border-gray-300"
+                //   }`}
+                // >
+                //   {tab}
+                // </button>
                 <button
                   key={tab}
                   onClick={() => setActiveTab(tab)}
                   className={`px-6 py-3 font-medium text-sm whitespace-nowrap cursor-pointer transition-all duration-200 border-b-2 ${
                     activeTab === tab
-                      ? "border-blue-600 text-blue-600"
-                      : "border-transparent text-gray-600 hover:text-gray-900 hover:border-gray-300"
+                      ? "border-[#F3831C] text-[#F3831C]"
+                      : "border-transparent text-[#0F3652] hover:text-[#F3831C] hover:border-[#F3831C]/40"
                   }`}
                 >
                   {tab}

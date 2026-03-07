@@ -16,31 +16,51 @@ export function TestimonialsSectionColor({
   const marqueeRef = useRef(null);
   const [duration, setDuration] = useState(40);
 
+  // useEffect(() => {
+  //   if (customDuration) return;
+  //   if (!marqueeRef.current) return;
+
+  //   const marqueeWidth = marqueeRef.current.scrollWidth;
+  //   const SPEED = 150;
+  //   setDuration(marqueeWidth / SPEED);
+  // }, [testimonials]);
   useEffect(() => {
-    if (customDuration) return;
     if (!marqueeRef.current) return;
 
-    const marqueeWidth = marqueeRef.current.scrollWidth;
-    const SPEED = 150;
-    setDuration(marqueeWidth / SPEED);
+    const width = marqueeRef.current.scrollWidth;
+
+    const SPEED = 140;
+
+    const calculatedDuration = width / SPEED;
+
+    // console.log("Testimonials count:", testimonials.length);
+    // console.log("Marquee width:", width);
+    // console.log("Calculated Duration:", calculatedDuration);
+
+    setDuration(calculatedDuration);
   }, [testimonials]);
-  const finalDuration = customDuration || duration;
+  // const finalDuration = customDuration || duration;
+  const finalDuration = duration;
   if (!testimonials || testimonials.length === 0) return null;
 
   return (
     <section
       className={cn(
         "py-12 sm:py-16 md:py-18 px-0 bg-[#0F3652] mt-10",
-        className
+        className,
       )}
     >
       <div className="mx-auto flex max-w-340 flex-col items-center gap-4 text-center sm:gap-16">
-        <SectionHeading
-          title={title}
-          description={description}
-          align="center"
-          className="white"
-        />
+        <div className="px-4">
+          <SectionHeading
+            title={title}
+            description={description}
+            align="center"
+            titleClass="text-white text-[1rem] md:text-3xl"
+            descriptionClass="text-white"
+            underlineColor="#fff"
+          />
+        </div>
         <div className="relative flex w-full overflow-hidden">
           <div
             className="group flex gap-4"
@@ -86,8 +106,9 @@ export function TestimonialsSectionColor({
           </div>
 
           {/* Fade edges */}
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-background" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-background" />
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-background hidden md:block" />
+
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-background hidden md:block" />
         </div>
       </div>
       {sucessstory && (

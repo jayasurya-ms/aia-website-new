@@ -16,7 +16,11 @@ const FreeResources = () => {
       <HomeHero slug="cfe-free-resources" />
       {/* <FreeResourceBanner /> */}
       {/* <FreeResourceYoutube /> */}
-      <CourseYoutubeLecture courseSlug="CFE-Free-Resources" />
+      <CourseYoutubeLecture
+        courseSlug="CFE-Free-Resources"
+        title="Master Exams Key Concepts with AIA’s Video Learning Series"
+        description="Explore concise video sessions by Puneet Sir covering key topics, simplified for practical clarity and exam-focused understanding."
+      />
       <FreeResourceFlashCard />
       <FreeResourcePracticeQuestion />
       {/* <CfeCourseLms image="lms1.webp" /> */}

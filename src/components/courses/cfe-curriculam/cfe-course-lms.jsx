@@ -51,7 +51,7 @@ const CfeCourseLms = ({ title, subtitle, course, buttonlabel, image }) => {
   return (
     <>
       <CourseLms
-        cardTitle="What's Included in the AIA CFE Prep Course"
+        cardTitle="What's Included in the AIA CFE Prep Course ?"
         courseFeatures={courseFeatures}
         image={image}
       />

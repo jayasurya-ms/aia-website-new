@@ -20,10 +20,10 @@ const CourseTopStudent = ({
     isError,
     refetch,
   } = useQuery({
-    queryKey: ["recent-passout-students"],
+    queryKey: ["recent-passout-students", courseSlug],
     queryFn: async () => {
       const res = await axios.get(
-        `${BASE_URL}/api/getTopStudentbyCourse/${courseSlug}`
+        `${BASE_URL}/api/getTopStudentbyCourse/${courseSlug}`,
       );
       return res.data;
     },
@@ -33,10 +33,10 @@ const CourseTopStudent = ({
     if (!camsPassoutData?.data) return [];
 
     const studentImageUrlObj = camsPassoutData.image_url?.find(
-      (item) => item.image_for === "Student"
+      (item) => item.image_for === "Student",
     );
     const studentNoImageUrlObj = camsPassoutData.image_url?.find(
-      (item) => item.image_for === "No Image"
+      (item) => item.image_for === "No Image",
     );
     const studentImageUrl = studentImageUrlObj?.image_url || "";
 

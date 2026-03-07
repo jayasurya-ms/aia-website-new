@@ -45,13 +45,10 @@ const HomePassout = () => {
     (item) => item.course != "CFE" && item.course != "CAMS",
   );
   const thirdColumn = testimonials.filter((item) => item.course === "CAMS");
-  console.log(firstColumn.length, "firstColumn");
-  console.log(secondColumn.length, "secondColumn");
-  console.log(thirdColumn.length, "thirdColumn");
   return (
     <section className="bg-linear-to-b from-[#0F3652]/10 via-transparent to-transparent relative pb-10">
       <div className="mx-auto pt-10 max-w-340 z-10">
-        <div className="flex flex-col items-center justify-center  mx-auto">
+        <div className="flex flex-col items-center justify-center  mx-auto px-6">
           <SectionHeading
             title="AIA Certified Achievers"
             description="Professionals who turned global certifications into career milestones with AIA."

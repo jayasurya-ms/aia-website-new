@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import TextCaptcha from "../custom-captcha/text-captcha";
+import { toast } from "sonner";
 
 const HomeContact = () => {
   const [showCaptcha, setShowCaptcha] = useState(false);
@@ -22,8 +23,8 @@ const HomeContact = () => {
     phone: "",
     email: "",
     message: "",
-    userCourse: "Home",
     userLocation: "",
+    userCourse: "",
     userType: "Home",
   });
 
@@ -49,7 +50,8 @@ const HomeContact = () => {
       name: formData.name.trim(),
       phone: formData.phone.trim(),
       email: formData.email.trim(),
-      message: formData.message.trim(),
+      userCourse: formData.userCourse.trim(),
+      // message: formData.message.trim(),
     };
 
     const allRequiredFieldsFilled = Object.values(requiredFields).every(
@@ -57,7 +59,8 @@ const HomeContact = () => {
     );
 
     if (!allRequiredFieldsFilled) {
-      alert("Please fill all required fields");
+      // toast.error("Please fill all required fields");
+      setSubmitError("Please fill all required fields");
       return;
     }
 
@@ -99,6 +102,7 @@ const HomeContact = () => {
           name: "",
           phone: "",
           email: "",
+          userCourse: "",
           message: "",
         });
 
@@ -165,7 +169,7 @@ const HomeContact = () => {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 col-span-1 lg:col-span-2">
                 <div className="border-b-4 border-[#F3831C] pb-3 text-center">
                   <div className="text-lg font-bold text-[#0F3652]">
-                    50k+ hours{" "}
+                    10k+ hours{" "}
                   </div>
                   <div className="text-xs md:text-sm text-[#0F3652] mt-1">
                     Expert-Led Training Delivered
@@ -176,7 +180,7 @@ const HomeContact = () => {
                     2,000+ Professionals
                   </div>
                   <div className="text-xs md:text-sm text-[#0F3652] mt-1">
-                    Professional (Trained & Certified)
+                    Trained & Certified
                   </div>
                 </div>
                 <div className="border-b-4 border-[#F3831C] pb-3 text-center">
@@ -192,7 +196,7 @@ const HomeContact = () => {
 
             <div>
               <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <input
                     type="text"
                     name="name"
@@ -232,6 +236,33 @@ const HomeContact = () => {
                     className="w-full px-4 py-3 border border-[#0F3652] rounded focus:outline-none focus:ring-2 focus:ring-[#F3831C] text-sm resize-none"
                     disabled={isSubmitting}
                   />
+                  <div className="col-span-1 md:col-span-2">
+                    <select
+                      name="userCourse"
+                      value={formData.userCourse}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 border border-[#0F3652] rounded focus:outline-none focus:ring-2 focus:ring-[#F3831C] text-sm resize-none"
+                    >
+                      <option value="">Service Interested In *</option>
+                      <option value="Certified Fraud Examiner">
+                        Certified Fraud Examiner
+                      </option>
+                      <option value="Certified Internal Auditor">
+                        Certified Internal Auditor
+                      </option>
+                      <option value="Certified Anti Money Laundering Specialist">
+                        Certified Anti Money Laundering Specialist
+                      </option>
+                      <option value="CIA Challenge Exam">
+                        CIA Challenge Exam
+                      </option>
+                    </select>
+                    {/* {errors.userCourse && (
+                      <p className="text-red-500 text-xs">
+                        {errors.userCourse}
+                      </p>
+                    )} */}
+                  </div>
                 </div>
 
                 <div className="flex flex-col sm:flex-row justify-between gap-4">

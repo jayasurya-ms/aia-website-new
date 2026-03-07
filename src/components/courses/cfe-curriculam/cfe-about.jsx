@@ -6,7 +6,7 @@ const CfeAbout = ({}) => {
     <>
       <CourseAbout
         badgeText="Prepare for the CFE Exam with Confidence - Guided by AIA"
-        heading="CFE Preparation That Builds Real Fraud Expertise in You"
+        heading="CFE Preparation That Builds Real Fraud Examiner Expertise in You"
         description={`
 Certified Fraud Examiner (CFE) is a globally respected credential awarded by the ACFE, USA.\n At AIA, we help you understand fraud by learning how fraud schemes are planned, executed, detected, and investigated in real organisational settings. Our CFE preparation program combines structured learning, exam-focused practice, and expert guidance to help you build a practical fraud examiner’s mindset. \n This course is ideal for professionals from audit, finance, compliance, risk, or consulting who aim to clear the CFE exam and strengthen their credibility in fraud examination.`}
         aboutStats={[
@@ -16,9 +16,10 @@ Certified Fraud Examiner (CFE) is a globally respected credential awarded by the
             show: "true",
           },
           {
-            display: "Practice Questions",
+            display: "Practice \n Questions",
             title: "(1,500+ expert curated questions)",
             show: "true",
+            lineBreak: "sm",
           },
           {
             display: "Simplified Study Notes",

@@ -29,14 +29,14 @@ const CfeJourney = () => {
             "Interview Skills",
             "Criminology",
             "Global Best Practices",
-            "Industry Specific Fraud Risks",
+            "Industry-Specific Fraud Risks",
           ],
         },
         {
           number: 3,
           title: "CFE EXAM FORMAT",
           items: [
-            "Multiple Choice Questions",
+            "Multiple-Choice Questions ",
             "No Negative Marking",
             "Passing Score (75 Marks)",
             "Two Hours (Exam Time)",

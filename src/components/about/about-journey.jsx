@@ -118,7 +118,7 @@ const AboutJourney = () => {
           <div className="text-center mb-16">
             <SectionHeading title="Our Journey" align="center" />
             <div className="mx-auto space-y-4 text-[#0F3652] text-lg leading-relaxed">
-              <p>
+              <p className="text-justify">
                 AIA started its journey in 2020 with a simple idea of sharing
                 knowledge through YouTube has steadily evolved into a trusted
                 global learning ecosystem. Each year at AIA marks a deliberate

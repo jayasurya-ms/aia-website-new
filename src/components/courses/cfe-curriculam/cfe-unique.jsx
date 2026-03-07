@@ -38,7 +38,7 @@ const CfeUnique = () => {
             ),
             title: "Structured & Practical Fraud-Focused Learning",
             description:
-              "Our CFE prep follows a clear, structured learning path built around practical fraud scenarios. Each concept is explain learners in depth about how fraud actually occurs.",
+              "Our CFE prep follows a clear, structured learning path built around practical fraud scenarios. Each concept is explain learners how fraud actually occurs in depth. about how fraud actually occurs.",
             position: "left",
           },
           {

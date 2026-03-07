@@ -45,13 +45,13 @@ const CFECurriculam = () => {
         queryKey="cfe-certificates"
         title="Verified CFE Exam Results Achieved by AIA Learners"
         description="Each certificate represents a real CFE exam achievement, verified by ACFE, highlighting their successful completion of the globally recognized certification."
-   
       />
       <CfeJourney />
       <CfeWhyAia />
       <WhatsappCarosal
         title="Unfiltered Reflections from AIA-Trained Professionals"
-        description=" Heartfelt messages shared by professionals after completing their journey with AIA"
+        description="Heartfelt messages shared by professionals after completing their journey with AIA.
+Each message reflects a different experience. These reflections provide a genuine view of what preparation looks like in real situations, beyond structured testimonials"
         course="CFE"
       />
       <CfeHighlight />
@@ -62,7 +62,10 @@ const CFECurriculam = () => {
         title="Hear from Our Recently Qualified Professionals on YouTube"
         description="Watch AIA-trained professionals share their CFE journey, exam strategies, and career insights in exclusive interviews with Puneet Sir on YouTube."
       />
-      <AboutTrainerSection path="faculty_cfe.webp" />
+      <AboutTrainerSection
+        path="faculty_cfe.webp"
+        messageimage="message_cfe.webp"
+      />
       <CourseYoutubeLecture
         courseSlug="cfe-curriculum"
         title="Master CFE Concepts with AIA’s Video Learning Series"
@@ -80,7 +83,7 @@ const CFECurriculam = () => {
         title="Expert articles, exam tips, and real-world insights for CFE aspirants."
       />
       <CamsConnection
-        title="The Right Certification Starts With the Right Choice"
+        title="The Right Certification Starts With The Right Choice"
         description="Find the certification that aligns with your background and career stage"
         images={[
           { image: "hiw_cia.webp", link: "/cia-curriculum" },

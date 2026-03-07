@@ -99,8 +99,81 @@ export const TestimonialSlider = ({ reviews, className }) => {
           fetchPriority="low"
         />
       ))}
+      {/* Mobile Layout */}
+      <div className="md:hidden flex flex-col space-y-6">
+        <div className="grid grid-cols-3 gap-4 items-center">
+          <div className="relative h-[280px] col-span-2">
+            <AnimatePresence initial={false}>
+              <motion.img
+                key={currentIndex}
+                src={activeReview.imageSrc}
+                alt={activeReview.name}
+                // initial={{ opacity: 0, y: 20 }}
+                // animate={{ opacity: 1, y: 0 }}
+                // exit={{ opacity: 0, y: -20 }}
+                // transition={{ duration: 0.4 }}
+                className="absolute inset-0 w-full h-full object-cover rounded-lg"
+                onLoad={() => handleImageLoad(activeReview.imageSrc)}
+              />
+            </AnimatePresence>
+          </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 h-full">
+          {/* Thumbnails */}
+          <div className="flex flex-col space-y-3">
+            {thumbnailReviews.map((review) => {
+              const originalIndex = reviews.findIndex(
+                (r) => r.id === review.id,
+              );
+
+              return (
+                <button
+                  key={review.id}
+                  onClick={() => handleThumbnailClick(originalIndex)}
+                  className="overflow-hidden rounded-md w-full h-20 opacity-70 hover:opacity-100"
+                >
+                  <img
+                    src={review.thumbnailSrc}
+                    alt={review.name}
+                    className="w-full h-full object-cover"
+                  />
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Navigation Buttons */}
+        <div className="flex justify-center space-x-4">
+          <Button
+            variant="outline"
+            size="icon"
+            className="rounded-full w-12 h-12"
+            onClick={handlePrev}
+          >
+            <ArrowLeftIcon className="w-5 h-5" />
+          </Button>
+
+          <Button
+            variant="default"
+            size="icon"
+            className="rounded-full w-12 h-12"
+            onClick={handleNext}
+          >
+            <ArrowRightIcon className="w-5 h-5" />
+          </Button>
+        </div>
+
+        <div>
+          <p className="text-sm font-medium text-muted-foreground">
+            {activeReview.affiliation}
+          </p>
+          <h3 className="text-2xl font-semibold mt-1">{activeReview.name}</h3>
+          <blockquote className="text-lg leading-snug text-justify">
+            "{activeReview.quote}"
+          </blockquote>
+        </div>
+      </div>
+      <div className="hidden md:grid grid-cols-1 md:grid-cols-12 gap-8 h-full">
         <div className="md:col-span-3 flex flex-col justify-between order-2 md:order-1">
           <div className="flex flex-row md:flex-col justify-between md:justify-start space-x-4 md:space-x-0 md:space-y-4">
             <span className="text-sm text-muted-foreground font-mono">
@@ -113,7 +186,7 @@ export const TestimonialSlider = ({ reviews, className }) => {
             </h2>
           </div>
 
-          <div className="flex space-x-2 mt-8 md:mt-0 ">
+          <div className="hidden md:flex space-x-2 mt-8 md:mt-0">
             {thumbnailReviews.map((review) => {
               const originalIndex = reviews.findIndex(
                 (r) => r.id === review.id,
@@ -140,7 +213,7 @@ export const TestimonialSlider = ({ reviews, className }) => {
           </div>
         </div>
 
-        <div className="md:col-span-4 relative h-80 min-h-[400px] md:min-h-[500px] order-1 md:order-2 ">
+        <div className="md:col-span-4 relative h-80 min-h-[400px] md:min-h-[500px] order-2">
           <AnimatePresence initial={false} custom={direction}>
             <motion.img
               key={currentIndex}
@@ -166,7 +239,54 @@ export const TestimonialSlider = ({ reviews, className }) => {
           )}
         </div>
 
-        <div className="md:col-span-5 flex flex-col justify-between md:pl-8 order-3 md:order-3 ">
+        <div className="flex md:hidden justify-between items-center mt-8 order-3">
+          <div className="flex space-x-2">
+            {thumbnailReviews.map((review) => {
+              const originalIndex = reviews.findIndex(
+                (r) => r.id === review.id,
+              );
+              return (
+                <button
+                  key={review.id}
+                  onClick={() => handleThumbnailClick(originalIndex)}
+                  className="overflow-hidden rounded-md w-16 h-20 opacity-70 hover:opacity-100 transition-opacity duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
+                  aria-label={`View review from ${review.name}`}
+                >
+                  <img
+                    src={review.thumbnailSrc}
+                    alt={review.name}
+                    loading="lazy"
+                    className="w-full h-full object-cover"
+                    onLoad={() => handleImageLoad(review.thumbnailSrc)}
+                  />
+                </button>
+              );
+            })}
+          </div>
+
+          <div className="flex items-center space-x-2">
+            <Button
+              variant="outline"
+              size="icon"
+              className="rounded-full w-12 h-12 border-muted-foreground/50"
+              onClick={handlePrev}
+              aria-label="Previous review"
+            >
+              <ArrowLeftIcon className="w-5 h-5" />
+            </Button>
+
+            <Button
+              variant="default"
+              size="icon"
+              className="rounded-full w-12 h-12 border-muted-foreground/50"
+              onClick={handleNext}
+              aria-label="Next review"
+            >
+              <ArrowRightIcon className="w-5 h-5" />
+            </Button>
+          </div>
+        </div>
+        <div className="md:col-span-5 flex flex-col justify-between md:pl-8 order-1 md:order-3 ">
           <div className="relative overflow-hidden pt-4  min-h-[200px]">
             <AnimatePresence initial={false} custom={direction} mode="wait">
               <motion.div
@@ -184,14 +304,15 @@ export const TestimonialSlider = ({ reviews, className }) => {
                 <h3 className="text-3xl font-semibold mt-1">
                   {activeReview.name}
                 </h3>
-                <blockquote className="mt-6 text-xl md:text-2xl  leading-snug">
+                <blockquote className="mt-6 text-xl md:text-2xl  leading-snug text-justify">
                   "{activeReview.quote}"
                 </blockquote>
               </motion.div>
             </AnimatePresence>
           </div>
 
-          <div className="flex items-center space-x-2 mt-8 md:mt-0">
+          <div className="hidden md:flex items-center space-x-2 mt-8 md:mt-0">
+            {" "}
             <Button
               variant="outline"
               size="icon"
