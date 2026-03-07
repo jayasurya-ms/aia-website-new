@@ -307,3 +307,12 @@ body {
     background-position: 200% 0;
   }
 }
+#nprogress .bar {
+  background: #f3831c !important;
+  height: 4px !important;
+  z-index: 99999 !important;
+}
+
+#nprogress .spinner {
+  display: none !important;
+}
