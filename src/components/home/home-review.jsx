@@ -92,22 +92,25 @@ const HomeReview = () => {
             {!isLoading && !isError && testimonials.length > 0 && (
               <>
                 <Helmet>
-                  {testimonials.length > 0 && (
-                    <script type="application/ld+json">
-                      {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "Organization",
-                        name: "Academy of Internal Audit",
-                        url: "https://aia.in.net/",
-                        review: testimonials.map((t) => ({
-                          "@type": "Review",
-                          author: { "@type": "Person", name: t.name },
-                          reviewBody: t.message,
-                          url: t.link,
-                        })),
-                      })}
-                    </script>
-                  )}
+                  <script type="application/ld+json">
+                    {JSON.stringify({
+                      "@context": "https://schema.org",
+                      "@type": "Organization",
+                      name: "Academy of Internal Audit",
+                      url: "https://aia.in.net/",
+                      aggregateRating: {
+                        "@type": "AggregateRating",
+                        ratingValue: "5",
+                        reviewCount: testimonials.length.toString(),
+                      },
+                      review: testimonials.map((t) => ({
+                        "@type": "Review",
+                        author: { "@type": "Person", name: t.name },
+                        reviewBody: t.message,
+                        url: t.link,
+                      })),
+                    })}
+                  </script>
                 </Helmet>
                 <div className="mb-6 flex gap-2">
                   <img
