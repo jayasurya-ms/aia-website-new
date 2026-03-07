@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+<url>
+  <loc>https://aia.in.net</loc>
+  <priority>1.0</priority>
+</url>
+
+
+  <url>
+    <loc>https://aia.in.net/about-us</loc>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://aia.in.net/cfe-curriculum</loc>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://aia.in.net/cia-curriculum</loc>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://aia.in.net/cia-challenge-curriculum</loc>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://aia.in.net/cams</loc>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://aia.in.net/cfe-free-resources</loc>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://aia.in.net/blogs</loc>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://aia.in.net/passed-out</loc>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://aia.in.net/contact</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://aia.in.net/enroll-now</loc>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://aia.in.net/corporate-training</loc>
+    <priority>0.90</priority>
+  </url>
+
+</urlset>
