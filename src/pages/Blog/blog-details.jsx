@@ -290,7 +290,6 @@ const BlogDetails = () => {
 
     if (isScrollingProgrammatically.current) return;
 
-    console.log("Clicked TOC index:", index);
     setActiveSection(index);
 
     isScrollingProgrammatically.current = true;
@@ -469,6 +468,7 @@ const BlogDetails = () => {
                     onError={(e) => {
                       e.target.src = `${IMAGE_PATH}/no_image.jpg`;
                     }}
+                    loading="lazy"
                   />
                 ) : (
                   <div className="w-full h-full flex flex-col items-center justify-center">
@@ -694,6 +694,7 @@ const BlogDetails = () => {
                               onError={(e) => {
                                 e.target.src = `${IMAGE_PATH}/no_image.jpg`;
                               }}
+                              loading="lazy"
                             />
                           </div>
 
@@ -750,6 +751,7 @@ const BlogDetails = () => {
                                   onError={(e) => {
                                     e.target.src = `${IMAGE_PATH}/no_image.jpg`;
                                   }}
+                                  loading="lazy"
                                 />
 
                                 <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/0 to-transparent"></div>

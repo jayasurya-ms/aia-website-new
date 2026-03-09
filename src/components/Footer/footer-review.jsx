@@ -73,9 +73,7 @@ const FooterReviews = ({ footer = true }) => {
         max-h-18 rounded-lg overflow-hidden 
         hover:scale-105 transition-transform duration-300 
         cursor-pointer shadow-lg
-        ${
-          isLast && isOdd ? "col-span-2 justify-self-center sm:w-1/2" : ""
-        }
+        ${isLast && isOdd ? "col-span-2 justify-self-center sm:w-1/2" : ""}
         `}
                   >
                     <div className="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center border-r border-white/10">
@@ -83,6 +81,7 @@ const FooterReviews = ({ footer = true }) => {
                         src={item.img}
                         className="w-14 h-14"
                         alt={item.alt}
+                        loading="lazy"
                       />
                     </div>
 
@@ -122,9 +121,7 @@ const FooterReviews = ({ footer = true }) => {
         max-h-14 rounded-lg overflow-hidden 
         hover:scale-105 transition-transform duration-300 
         cursor-pointer shadow-lg
-        ${
-          isLast && isOdd ? "col-span-2 justify-self-center md:w-1/2" : ""
-        }
+        ${isLast && isOdd ? "col-span-2 justify-self-center md:w-1/2" : ""}
         `}
                     >
                       <div className="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center border-r border-white/10">
@@ -132,6 +129,7 @@ const FooterReviews = ({ footer = true }) => {
                           src={item.img}
                           className="w-10 h-10 md:w-14 md:h-14"
                           alt={item.alt}
+                          loading="lazy"
                         />
                       </div>
 
@@ -182,6 +180,7 @@ shadow-lg`}
                           src={item.img}
                           className="w-14 h-14"
                           alt={item.alt}
+                          loading="lazy"
                         />
                       </div>
                       <div className="px-4 md:px-6 py-3 md:py-4 flex items-center gap-2">

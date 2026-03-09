@@ -42,6 +42,7 @@ const ServiceCard = ({ testimonial, i, progress, total, imageUrl }) => {
                   onError={(e) => {
                     e.target.src = `${IMAGE_PATH}/no_image.jpg`;
                   }}
+                  loading="lazy"
                 />
               </div>
 
@@ -163,7 +164,7 @@ const CourseReview = ({ slug }) => {
               src={`${IMAGE_PATH}/rated.jpg`}
               alt="Rated testimonial"
               className="w-full h-80 md:h-[62vh] object-contain transform -scale-x-100 mb-0"
-              // style={{ maxHeight: "62vh" }}
+              loading="lazy"
             />
 
             <div className="flex justify-center">

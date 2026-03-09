@@ -33,9 +33,9 @@ const CfeCourseLms = ({ title, subtitle, course, buttonlabel, image }) => {
         "With a structured study plan and focused preparation, you can complete all four CFE modules in approximately 30 days by dedicating one week per module, subject to study time availability.",
     },
     {
-      title: "8 Full-Length Mock Tests",
+      title: "6 Full-Length Mock Tests",
       description:
-        "Attempt eight full-length mock tests, two per module, designed to replicate the real CFE exam pattern and help assess readiness, improve time management, and refine exam strategy.",
+        "Attempt six full-length mock tests, two per module, designed to simulate the real CFE exam environment, which helps to improve time management and refine exam strategy.",
     },
     {
       title: "CFE Exam Registration Support",
@@ -45,7 +45,7 @@ const CfeCourseLms = ({ title, subtitle, course, buttonlabel, image }) => {
     {
       title: "Updated Study Material",
       description:
-        "All study content is regularly reviewed and updated to reflect the latest CFE syllabus and regulatory changes, ensuring your preparation remains relevant and aligned with exam expectations.",
+        "All study content is regularly reviewed and updated to reflect the <strong> 2026 CFE exam structure and syllabus updates,</strong>  ensuring your preparation remains relevant and aligned with exam expectations.",
     },
   ];
   return (

@@ -111,7 +111,7 @@ export const PrCardCarousel = ({
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         .carousel-nav-btn {
           position: absolute;
           top: 50%;

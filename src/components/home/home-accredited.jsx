@@ -25,6 +25,7 @@ const HomeAccredited = () => {
                 src={`${IMAGE_PATH}/IAO.png`}
                 alt="IAO logo"
                 className="w-40 h-40 object-contain"
+                loading="lazy"
               />
             </a>
           </div>
@@ -38,6 +39,7 @@ const HomeAccredited = () => {
                 src={`${IMAGE_PATH}/IIA.png`}
                 alt="IIA logo"
                 className="w-48 h-48 object-contain"
+                loading="lazy"
               />
             </a>
           </div>
@@ -47,6 +49,7 @@ const HomeAccredited = () => {
               src={`${IMAGE_PATH}/ISO.png`}
               alt="ISO logo"
               className="w-40 h-40 object-contain"
+              loading="lazy"
             />
           </div>
 
@@ -55,6 +58,7 @@ const HomeAccredited = () => {
               src={`${IMAGE_PATH}/Gleim.png`}
               alt="Gleim logo"
               className="w-40 h-40 object-contain"
+              loading="lazy"
             />
           </div>
 
@@ -67,6 +71,7 @@ const HomeAccredited = () => {
                 src={`${IMAGE_PATH}/GSAAA.png`}
                 alt="GSAAA logo"
                 className="w-40 h-40 object-contain"
+                loading="lazy"
               />
             </a>
           </div>
@@ -96,6 +101,7 @@ const HomeAccredited = () => {
                 src={`${IMAGE_PATH}/IIA.png`}
                 alt="IIA logo"
                 className="w-full h-full object-contain"
+                loading="lazy"
               />
             </a>
           </div>
@@ -105,6 +111,7 @@ const HomeAccredited = () => {
               src={`${IMAGE_PATH}/ISO.png`}
               alt="ISO logo"
               className="w-full h-full object-contain"
+              loading="lazy"
             />
           </div>
 
@@ -113,6 +120,7 @@ const HomeAccredited = () => {
               src={`${IMAGE_PATH}/Gleim.png`}
               alt="Gleim logo"
               className="w-full h-full object-contain"
+              loading="lazy"
             />
           </div>
 
@@ -125,6 +133,7 @@ const HomeAccredited = () => {
                 src={`${IMAGE_PATH}/GSAAA.png`}
                 alt="GSAAA logo"
                 className="w-[180px] h-[180px] object-contain"
+                loading="lazy"
               />
             </a>
           </div>

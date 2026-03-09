@@ -102,6 +102,7 @@ const CamsLms = () => {
                 alt="LMS"
                 className="w-10 h-10 object-contain"
                 draggable={false}
+                loading="lazy"
               />
             </div>
           </foreignObject>

@@ -26,13 +26,15 @@ const BannerBlogCard = ({ blog, handleBlogClick, imageBaseUrl }) => {
               onError={(e) => {
                 e.target.src = `${IMAGE_PATH}/no_image.jpg`;
               }}
+              loading="lazy"
             />
           </div>
           <div className="absolute top-1 left-1 lg:top-2 lg:left-2">
-            <span
+            {/* <span
               className="text-xs md:text-sm font-medium px-4 py-1 lg:px-4 lg:py-1 rounded "
               style={{ backgroundColor: getCourseColor(blog.blog_course) }}
-            >
+            > */}
+            <span className="bg-[#0F3652] text-white text-xs md:text-sm font-medium px-4 py-1 lg:px-4 lg:py-1 rounded border border-[#0F3652]">
               {blog.blog_course}
             </span>
           </div>

@@ -233,6 +233,7 @@ const CourseHighLight = ({
                     src={logo.img}
                     alt="Brand logo"
                     className="max-w-full max-h-32 object-contain"
+                     loading="lazy"
                   />
                 </Wrapper>
               );

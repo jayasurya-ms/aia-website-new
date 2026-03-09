@@ -248,7 +248,7 @@ export const CardCarousel = ({
           </div>
         </div>
       </div>
-      <style jsx>{`
+      <style>{`
         .carousel-nav-btn {
           position: absolute;
           top: 50%;

@@ -149,7 +149,7 @@ const PassoutBanner = () => {
     //     </div>
     //   </div>
 
-    //   <style jsx>{`
+    //   <style>{`
     //     @keyframes marquee-up {
     //       0% {
     //         transform: translateY(0);
@@ -253,7 +253,7 @@ const PassoutBanner = () => {
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         @keyframes marquee-up {
           0% {
             transform: translateY(0);

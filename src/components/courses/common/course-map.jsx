@@ -260,7 +260,7 @@ const CourseMap = ({ courseCode }) => {
         style={{ height: "100vh", width: "95.5%" }}
         className="mx-auto"
       /> */}
-      <img src={`${IMAGE_PATH}/map.webp`} />
+      <img src={`${IMAGE_PATH}/map.webp`} loading="lazy" />
     </div>
   );
 };

@@ -61,13 +61,7 @@ const FreeResourceReview = () => {
         </div>
         <div className="flex flex-col lg:flex-row items-center">
           <div className="w-full lg:w-1/2 mb-8 lg:mb-0">
-            {/* <div className="flex justify-center">
-              <img
-                src={`${IMAGE_PATH}/testimonials-seven.png`}
-                alt="testimonials"
-                className="max-w-full h-auto"
-              />
-            </div> */}
+
             <HomeMap />
           </div>
 

@@ -56,7 +56,7 @@ const CiaCourseCurriculum = () => {
         <CfeJoinDialog
           title="Join AiA CIA LMS"
           subtitle="Online Training and Certification Course"
-          course="CIA"
+          course="CIAC"
           buttonlabel="Know More"
         />
         <Button

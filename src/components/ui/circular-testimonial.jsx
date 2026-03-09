@@ -38,7 +38,7 @@ export const CircularTestimonials = ({
   const testimonialsLength = useMemo(() => testimonials.length, [testimonials]);
   const activeTestimonial = useMemo(
     () => testimonials[activeIndex],
-    [activeIndex, testimonials]
+    [activeIndex, testimonials],
   );
 
   // Notify parent when index changes
@@ -201,9 +201,10 @@ export const CircularTestimonials = ({
             <img
               key={testimonial.src}
               src={testimonial.src}
-              alt={testimonial.name}
+              alt={testimonial.name || "Testimonial image"}
               className="absolute left-1/2 w-[280px] md:w-[400px] h-full -translate-x-1/2 rounded-3xl object-contain transition-all duration-700"
               style={getImageStyle(index)}
+              loading="lazy"
             />
           ))}
 

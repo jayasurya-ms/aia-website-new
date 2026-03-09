@@ -68,6 +68,7 @@ const ContactCard = ({ country, contacts }) => {
                     src={zalo}
                     alt="Zalo"
                     className="w-3.5 h-3.5 rounded-sm"
+                    loading="lazy"
                   />
                 </div>
               )}

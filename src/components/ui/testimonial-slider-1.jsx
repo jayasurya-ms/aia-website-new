@@ -135,6 +135,7 @@ export const TestimonialSlider = ({ reviews, className }) => {
                     src={review.thumbnailSrc}
                     alt={review.name}
                     className="w-full h-full object-cover"
+                    loading="lazy"
                   />
                 </button>
               );

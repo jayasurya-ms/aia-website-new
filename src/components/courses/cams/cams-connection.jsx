@@ -86,15 +86,15 @@ const CamsConnection = ({
     <div className="py-8">
       {images.length > 0 && (
         <>
-        <div className="px-4">
+          <div className="px-4">
             <SectionHeading
-            title={title || ""}
-            highlight1={highlight1 || ""}
-            align="center"
-            description={description || ""}
-            description1={description1 || ""}
-          />
-        </div>
+              title={title || ""}
+              highlight1={highlight1 || ""}
+              align="center"
+              description={description || ""}
+              description1={description1 || ""}
+            />
+          </div>
 
           <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-6 px-4 sm:px-8 md:px-16">
             {images.map((item, index) => (
@@ -106,6 +106,7 @@ const CamsConnection = ({
                   src={`${IMAGE_PATH}/${item.image}`}
                   alt={`Cams Image ${index + 1}`}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
                 />
 
                 {/* Button: always anchored to bottom-left with %-based spacing */}

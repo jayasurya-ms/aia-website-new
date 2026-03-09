@@ -35,7 +35,7 @@ The CIA Challenge Exam is a fast-track pathway, offered by the Institute of Inte
         ]}
         formtitle="Join AiA CIA LMS"
         formsubtitle="Online Training and Certification Course"
-        formcourse="CIA"
+        formcourse="CIAC"
         formbuttonlabel="More Info"
       />
     </>
