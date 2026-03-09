@@ -94,7 +94,6 @@ const HomeContact = () => {
       );
 
       if (response.status === 200 || response.status === 201) {
-        console.log("Form submitted successfully:", response.data);
         setSubmitSuccess(true);
 
         setFormData({

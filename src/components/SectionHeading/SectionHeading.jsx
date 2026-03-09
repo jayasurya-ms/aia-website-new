@@ -16,6 +16,9 @@ const SectionHeading = ({
   underlineColor = "#0F3652",
 
   highlightclassName,
+
+  preheadingclassName,
+  preheading,
 }) => {
   const isCenter = align == "center";
 
@@ -38,6 +41,13 @@ const SectionHeading = ({
         <h2
           className={`text-xl md:text-4xl font-bold text-[#0F3652] ${titleClass}`}
         >
+          <span
+            className={` ${
+              preheadingclassName ? preheadingclassName : "text-[#F3831C]"
+            } ${preheadingclassName}`}
+          >
+            {preheading}
+          </span>{" "}
           {title} <span className="text-[#F3831C]">{highlight1}</span>
         </h2>
 

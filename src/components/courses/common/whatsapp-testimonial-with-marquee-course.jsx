@@ -42,6 +42,7 @@ export function WhatsappTestimonialsSectionCourse({
           src={testimonial.image}
           alt={testimonial.alt || "Testimonial"}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          loading="lazy"
         />
       </div>
     </a>
@@ -79,7 +80,12 @@ export function WhatsappTestimonialsSectionCourse({
               willChange: "transform",
             }}
           >
-            {[...testimonials, ...testimonials, ...testimonials, ...testimonials].map((testimonial, i) => (
+            {[
+              ...testimonials,
+              ...testimonials,
+              ...testimonials,
+              ...testimonials,
+            ].map((testimonial, i) => (
               <CardItem key={`item-${i}`} testimonial={testimonial} />
             ))}
           </div>

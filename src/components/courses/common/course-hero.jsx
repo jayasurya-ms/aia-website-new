@@ -7,6 +7,7 @@ const CourseHero = ({ path }) => {
         src={`${IMAGE_PATH}/${path}`}
         alt="CAMS Hero Banner"
         className=" inset-0 w-full h-full object-cover"
+        loading="lazy"
       />
     </div>
   );

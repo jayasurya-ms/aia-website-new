@@ -5,6 +5,7 @@ import BlogSubscribeSection from "@/components/blog/blog-subscription";
 import PopUp from "@/components/common/pop-up";
 import CourseTopStudent from "@/components/home/home-pr-carousel";
 import SectionHeading from "@/components/SectionHeading/SectionHeading";
+import { getCourseColor } from "@/utils/courseColor";
 import axios from "axios";
 import {
   ArrowRight,
@@ -34,7 +35,7 @@ const Blog = () => {
       setBlogs(response.data.data || []);
 
       const blogImageConfig = response.data.image_url?.find(
-        (item) => item.image_for === "Blog"
+        (item) => item.image_for === "Blog",
       );
       if (blogImageConfig) {
         setImageBaseUrl(blogImageConfig?.image_url);
@@ -72,7 +73,7 @@ const Blog = () => {
   });
 
   const trendingBlogs = filteredBlogs.filter(
-    (blog) => blog.blog_trending === "yes"
+    (blog) => blog.blog_trending === "yes",
   );
 
   const searchSuggestions = searchTerm.trim()
@@ -115,7 +116,7 @@ const Blog = () => {
     if (!showAllTrending && trendingBlogs.length > 1) {
       const interval = setInterval(() => {
         setCurrentSlide(
-          (prev) => (prev + 1) % Math.min(4, trendingBlogs.length)
+          (prev) => (prev + 1) % Math.min(4, trendingBlogs.length),
         );
       }, 5000);
 
@@ -243,6 +244,7 @@ const Blog = () => {
                         onError={(e) => {
                           e.currentTarget.src = `${IMAGE_PATH}/no_image.jpg`;
                         }}
+                        loading="lazy"
                       />
 
                       <div className="flex flex-col">
@@ -385,7 +387,10 @@ const Blog = () => {
                 return (
                   <div
                     key={category}
-                    className="mb-16 p-4 border-2 rounded-lg bg-[#0F3652]/5"
+                    className="mb-16 p-4 border-2 rounded-lg "
+                    style={{
+                      backgroundColor: getCourseColor(category),
+                    }}
                   >
                     <div className="flex items-center justify-between mb-8">
                       <div className="flex items-center gap-3">

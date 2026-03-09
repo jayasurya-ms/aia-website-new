@@ -11,6 +11,7 @@ const CorporateTrainer = () => {
               src={`${IMAGE_PATH}/faculty_cfe.webp`}
               alt="Puneet Garg - Trainer"
               className="w-full h-auto relative z-0"
+              loading="lazy"
             />
           </div>
 

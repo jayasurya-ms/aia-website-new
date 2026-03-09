@@ -6,7 +6,7 @@ const certificationCourses = [
       "The Certified Fraud Examiner (CFE) credential is a globally recognised certification designed for professionals involved in fraud prevention, detection, and investigation. It equips learners with strong knowledge of fraud schemes, investigative techniques, legal frameworks, and ethical practices. This certification is highly valued across audit, compliance, risk management, and forensic roles. It helps professionals identify red flags, prevent financial misconduct, and strengthen organisational fraud risk controls.",
     description2: "How AIA Supports Your CFE Journey",
     features: [
-      "250-page exam-focused, concise notes curated by experts",
+      "250 pages updated, concise notes curated by experts",
       "60+ hours of structured, concept-driven video lectures",
       "1,500+ exam-oriented practice questions",
       "Live doubt-clearing sessions with experienced faculty",

@@ -2,7 +2,6 @@ import { IMAGE_PATH } from "@/api/base-url";
 import { getCourseColor } from "@/utils/courseColor";
 import { ArrowRight, Calendar, Clock } from "lucide-react";
 
-
 const BlogCard = ({ imageBaseUrl = "", blog, handleBlogClick }) => {
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -20,7 +19,7 @@ const BlogCard = ({ imageBaseUrl = "", blog, handleBlogClick }) => {
   return (
     <div
       onClick={() => handleBlogClick(blog.blog_slug)}
-      className="h-full flex flex-col cursor-pointer group border transition-colors duration-200"
+      className="h-full flex flex-col cursor-pointer group border transition-colors duration-200 bg-white"
     >
       {/* Image */}
       <div className="relative overflow-hidden rounded-md">
@@ -32,14 +31,16 @@ const BlogCard = ({ imageBaseUrl = "", blog, handleBlogClick }) => {
             onError={(e) => {
               e.currentTarget.src = `${IMAGE_PATH}/no_image.jpg`;
             }}
+             loading="lazy"
           />
         </div>
 
         <div className="absolute top-1.5 left-2">
-          <span
+          {/* <span
             className="text-xs font-medium px-3 py-1.5 rounded"
             style={{ backgroundColor: getCourseColor(blog.blog_course) }}
-          >
+          > */}
+          <span className="bg-[#0F3652] text-white text-xs font-medium px-3 py-1.5 rounded border border-[#0F3652]">
             {blog.blog_course}
           </span>
         </div>

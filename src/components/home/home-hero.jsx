@@ -163,6 +163,7 @@ export default function HomeHero({ slug, bottombar = false }) {
                   e.target.src =
                     "https://via.placeholder.com/1200x400?text=Banner";
                 }}
+                loading="lazy"
               />
             </a>
           ))}

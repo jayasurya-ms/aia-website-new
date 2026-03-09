@@ -164,12 +164,13 @@ const AboutJourney = () => {
             <img
               src={`${IMAGE_PATH}/certified.webp`}
               alt="Our Journey"
+               loading="lazy"
               className="w-full h-full object-cover"
             />
           </div>
         </div>
       </div>
-      <style jsx>{`
+      <style>{`
         .direction-rtl {
           direction: rtl;
         }

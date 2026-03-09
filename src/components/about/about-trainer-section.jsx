@@ -1,7 +1,10 @@
 import { IMAGE_PATH } from "@/api/base-url";
 import React from "react";
 
-const AboutTrainerSection = ({ path = "faculty_about.webp", messageimage="message_about.webp" }) => {
+const AboutTrainerSection = ({
+  path = "faculty_about.webp",
+  messageimage = "message_about.webp",
+}) => {
   return (
     <div className="bg-linear-to-r from-slate-700 via-slate-600 to-blue-950 mb-12">
       <div className="max-w-340 mx-auto px-4 sm:px-6 lg:px-8">
@@ -11,6 +14,7 @@ const AboutTrainerSection = ({ path = "faculty_about.webp", messageimage="messag
               src={`${IMAGE_PATH}/${path}`}
               alt="Puneet Garg - Trainer"
               className="w-full h-full relative z-0 "
+              loading="lazy"
             />
           </div>
 
@@ -103,6 +107,7 @@ const AboutTrainerSection = ({ path = "faculty_about.webp", messageimage="messag
                   src={`${IMAGE_PATH}/${messageimage}`}
                   alt="Student Testimonials"
                   className="w-full rounded-lg"
+                  loading="lazy"
                 />
               </div>
             </div>

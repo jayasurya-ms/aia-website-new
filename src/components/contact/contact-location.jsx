@@ -31,6 +31,8 @@ const ContactLocation = () => {
               }`}
               loading="lazy"
               allowFullScreen
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Academy of Internal Audit Location"
               onLoad={() => setMapLoaded(true)}
             />
           </div>

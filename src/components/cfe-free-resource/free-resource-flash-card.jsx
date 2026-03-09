@@ -173,7 +173,11 @@ const FreeResourceFlashCard = () => {
               <div className="relative group">
                 <button className="cursor-pointer relative mb-3 flex h-28 w-28 items-center justify-center rounded-full transition-all duration-300 hover:scale-110 shadow-xl sm:h-32 sm:w-32 md:h-36 md:w-36">
                   {/* <span className="relative z-10 text-8xl">{module.icon}</span> */}
-                  <img src={module.icon} className="h-26 w-26 object-contain" />
+                  <img
+                    src={module.icon}
+                    className="h-26 w-26 object-contain"
+                    loading="lazy"
+                  />
                 </button>
               </div>
               <div className="flex flex-col flex-1 items-center w-full">
@@ -302,7 +306,7 @@ const FreeResourceFlashCard = () => {
         </DrawerContent>
       </Drawer>
 
-      <style jsx>{`
+      <style>{`
         .perspective {
           perspective: 1000px;
         }

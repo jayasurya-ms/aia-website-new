@@ -47,6 +47,7 @@ rotate(${isCenter ? 0 : position > 0 ? -2.5 : 2.5}deg)
           style={{
             boxShadow: "3px 3px 0px hsl(var(--background))",
           }}
+           loading="lazy"
         />
       </div>
 

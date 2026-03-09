@@ -29,7 +29,7 @@ const CfeWhyAia = () => {
           },
           {
             img: `${IMAGE_PATH}/books-svgrepo-com.png`,
-            title: "Updated CFE Material",
+            title: "2026 Updated CFE Material",
           },
         ]}
       />

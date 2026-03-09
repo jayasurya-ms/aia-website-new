@@ -51,6 +51,7 @@ const CourseLms = ({ courseFeatures, cardTitle, image = "lms2.webp" }) => {
           src={`${IMAGE_PATH}/${image}`}
           alt="LMS Image"
           className="w-full h-full object-cover"
+          loading="lazy"
         />
 
         {/* Information Banner */}
@@ -58,7 +59,6 @@ const CourseLms = ({ courseFeatures, cardTitle, image = "lms2.webp" }) => {
           <p className="text-[#123653] tracking-[0.2em] text-sm md:text-base font-medium mr-4">
             FOR MORE INFORMATION
           </p>
-
 
           <Button
             onClick={() => window.open("/contact", "_blank")}
@@ -103,8 +103,13 @@ const CourseLms = ({ courseFeatures, cardTitle, image = "lms2.webp" }) => {
                     {feature.title}
                   </h3>
                 </div>
-                <p className="text-sm text-gray-700 pl-11 text-justify">
-                  {feature.description}
+                <p
+                  className="text-sm text-gray-700 pl-11 text-justify"
+                  dangerouslySetInnerHTML={{
+                    __html: feature.description,
+                  }}
+                >
+                  {/* {feature.description} */}
                 </p>
               </div>
             ))}

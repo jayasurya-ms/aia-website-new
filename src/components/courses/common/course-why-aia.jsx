@@ -43,7 +43,12 @@ const DiamondCard = ({ img, title }) => (
         {/* Inner Content */}
         <div className="absolute inset-0 -rotate-45 flex flex-col items-center justify-center px-4 text-center">
           <div className="w-14 h-14 md:w-16 md:h-16 bg-[#0F3652]/10 rounded-full flex items-center justify-center mb-3">
-            <img src={img} alt={title} className="w-8 md:w-10 object-contain" />
+            <img
+              src={img}
+              alt={title}
+              className="w-8 md:w-10 object-contain"
+              loading="lazy"
+            />
           </div>
 
           <h3 className="text-xs md:text-sm font-semibold text-[#0F3652] leading-tight">

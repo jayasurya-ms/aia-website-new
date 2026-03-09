@@ -11,7 +11,21 @@ import {
   FaYoutube,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
-
+const routePrefetch = {
+  "/": () => import("../pages/Home/Home"),
+  "/about-aia": () => import("../pages/About/About"),
+  "/cfe-curriculum": () => import("../pages/Courses/CFECurriculam"),
+  "/cia-curriculum": () => import("../pages/Courses/CIACurriculam"),
+  "/cia-challenge-curriculum": () => import("../pages/Courses/CIAChallenge"),
+  "/cams": () => import("../pages/Courses/CAMS"),
+  "/cfe-free-resources": () =>
+    import("../pages/free-resources/cfe-free-resources"),
+  "/blogs": () => import("../pages/Blog/Blog"),
+  "/our-passouts": () => import("../pages/OurPassout/OurPassout"),
+  "/corporate-training": () =>
+    import("../pages/corporate-training/corporate-training"),
+  "/contact": () => import("../pages/contact/contact"),
+};
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
@@ -131,7 +145,11 @@ const Navbar = () => {
   const toggleDropdown = (index) => {
     setActiveDropdown(activeDropdown === index ? null : index);
   };
-
+  const prefetchRoute = (path) => {
+    if (routePrefetch[path]) {
+      routePrefetch[path]();
+    }
+  };
   return (
     <div className="w-full sticky top-0 z-9999">
       <div className="flex justify-center md:justify-between bg-[#0F3652]">
@@ -199,13 +217,14 @@ const Navbar = () => {
         <div className="max-w-7xl mx-auto px-4 py-3">
           <div className="flex justify-between items-center">
             <div className="flex-shrink-0">
-              <a href="/">
+              <Link to="/">
                 <img
                   src={`${IMAGE_PATH}/new_logo.webp`}
                   alt="Academy of Internal Audit"
                   className="h-8 md:h-10 w-auto"
+                  loading="lazy"
                 />
-              </a>
+              </Link>
             </div>
 
             <ul className="hidden lg:flex items-center gap-6">
@@ -217,6 +236,7 @@ const Navbar = () => {
                   onMouseLeave={() => item.submenu && setActiveDropdown(null)}
                 >
                   <Link
+                    onMouseEnter={() => prefetchRoute(item.link)}
                     to={item.link}
                     className="
     flex items-center gap-1
@@ -322,6 +342,7 @@ const Navbar = () => {
                   src={`${IMAGE_PATH}/new_logo.webp`}
                   alt="Academy of Internal Audit"
                   className="h-8 md:h-10 w-auto"
+                  loading="lazy"
                 />
               </div>
 

@@ -94,8 +94,13 @@ function ServiceItem({ icon, secondaryIcon, title, description }) {
           {title}
         </h3>
       </div>
-      <p className="text-xs md:text-sm text-[#0F3652] leading-relaxed pl-10 md:pl-12 pr-2 text-justify">
-        {description}
+      <p
+        className="text-xs md:text-sm text-[#0F3652] leading-relaxed pl-10 md:pl-12 pr-2 text-justify"
+        dangerouslySetInnerHTML={{
+          __html: description,
+        }}
+      >
+        {/* {description} */}
       </p>
     </div>
   );

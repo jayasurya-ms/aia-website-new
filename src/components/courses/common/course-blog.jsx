@@ -116,6 +116,7 @@ const CourseBlog = ({ course, title }) => {
                             onError={(e) => {
                               e.target.src = noImageUrl;
                             }}
+                             loading="lazy"
                           />
                           <div className="absolute bottom-2 right-2 rounded-md bg-[#F3831C] px-2 py-1 text-xs font-semibold text-white">
                             {blog.blog_course}

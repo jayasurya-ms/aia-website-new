@@ -37,6 +37,7 @@ const ServiceCard = React.forwardRef(
                     onError={(e) => {
                       e.target.src = `${IMAGE_PATH}/no_image.jpg`;
                     }}
+                    loading="lazy"
                   />
                 </div>
                 <div>

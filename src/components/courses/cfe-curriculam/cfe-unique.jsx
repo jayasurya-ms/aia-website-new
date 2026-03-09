@@ -28,7 +28,7 @@ const CfeUnique = () => {
             ),
             title: "Expert-Curated CFE Study Material",
             description:
-              "AIA simplifies CFE prep with exam-focused 250-page concrete notes that cover relevant concepts only, helping professionals study effectively.",
+              "AIA simplifies CFE prep with exam-focused <strong>250-pages concrete notes that cover relevant and up-to-date concepts only,</strong> helping professionals study effectively.",
             position: "left",
           },
           {
@@ -68,7 +68,7 @@ const CfeUnique = () => {
             ),
             title: "Proven Exam-Oriented Training Methodology",
             description:
-              "Our training aligns with the latest CFE exam framework & fraud risk practices, explaining concepts from a fraudster’s perspective for practical understanding.",
+              "<strong>Our training aligns with the latest 2026 CFE exam framework </strong> & fraud risk practices, explaining concepts from a fraudster’s perspective for practical understanding.",
             position: "right",
           },
           {

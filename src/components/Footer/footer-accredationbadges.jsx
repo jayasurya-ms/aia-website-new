@@ -28,7 +28,12 @@ const AccreditationBadges = () => {
         const isLast = index === badges.length - 1;
         const inner = (
           <div className="bg-white border border-gray-700 rounded-lg p-2 w-full h-20 flex items-center justify-center transition-all duration-200 group-hover:border-[#fa8017] group-hover:scale-105">
-            <img src={img} alt={alt} className="w-full h-full object-contain" />
+            <img
+              src={img}
+              alt={alt}
+              className="w-full h-full object-contain"
+              loading="lazy"
+            />
           </div>
         );
 
@@ -84,6 +89,7 @@ export const PaymentAccreditation = () => (
             src={`${IMAGE_PATH}/payment.png`}
             alt="Payment methods"
             className="w-full h-20 object-contain"
+            loading="lazy"
           />
         </div>
 
@@ -95,6 +101,7 @@ export const PaymentAccreditation = () => (
             src={`${IMAGE_PATH}/toll free.png`}
             alt="Toll Free"
             className="w-full h-20 object-contain group-hover:scale-105 transition-transform duration-200"
+            loading="lazy"
           />
         </a>
       </div>

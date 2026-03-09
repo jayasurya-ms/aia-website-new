@@ -49,6 +49,7 @@ const AboutPartner = () => {
                       src={`${imageBaseUrl}${efforts[2]?.efforts_image}`}
                       alt={efforts[2]?.efforts_heading}
                       className="w-full md:h-[340px]  object-contain"
+                      loading="lazy"
                     />
                   </div>
                 </div>
@@ -92,6 +93,7 @@ const AboutPartner = () => {
                     src={`${imageBaseUrl}${efforts[0]?.efforts_image}`}
                     alt={efforts[0]?.efforts_heading}
                     className="w-full md:h-[340px] object-contain"
+                    loading="lazy"
                   />
                 </div>
               </div>

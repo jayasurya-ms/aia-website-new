@@ -64,6 +64,7 @@ const HomeCorporatePartner = () => {
                         src={`${imageBaseUrl}${effortsData?.data?.[2]?.efforts_image}`}
                         alt={effortsData?.data?.[2]?.efforts_heading}
                         className="w-full  md:h-[340px]  object-contain"
+                        loading="lazy"
                       />
                     </div>
                   </div>
@@ -96,6 +97,7 @@ const HomeCorporatePartner = () => {
                       src={`${imageBaseUrl}${effortsData?.data[0]?.efforts_image}`}
                       alt={effortsData?.data[0]?.efforts_heading}
                       className="w-full md:h-[340px] object-contain"
+                      loading="lazy"
                     />
                   </div>
                 </div>
@@ -121,6 +123,7 @@ const HomeCorporatePartner = () => {
                         src={`${imageBaseUrl}${effortsData?.data[1]?.efforts_image}`}
                         alt={effortsData?.data[1]?.efforts_heading}
                         className="w-full md:h-[340px]  object-contain"
+                        loading="lazy"
                       />
                     </div>
                   </div>

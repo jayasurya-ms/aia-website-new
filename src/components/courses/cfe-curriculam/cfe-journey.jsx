@@ -34,14 +34,14 @@ const CfeJourney = () => {
         },
         {
           number: 3,
-          title: "CFE EXAM FORMAT",
+          title: "CFE Exam Format (2026)",
           items: [
-            "Multiple-Choice Questions ",
+            "M1 & M2 120 Ques. / 2.5 Hr",
+            "M3 70 Ques. / 1.5 hr",
+            "75% Passing Score",
+            "Multiple-Choice Questions",
             "No Negative Marking",
-            "Passing Score (75 Marks)",
-            "Two Hours (Exam Time)",
-            "One Exam Per Module (4 Modules)",
-            "100 Questions (One Mark Each)",
+            "One Exam for each module",
           ],
         },
       ]}

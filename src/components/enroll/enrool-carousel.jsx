@@ -98,6 +98,7 @@ export const EnroolCardCarousel = ({
                                 src={student.companyLogo}
                                 alt={student.companyLogoAlt}
                                 className="max-w-full border border-white !rounded-none  max-h-full object-contain"
+                                loading="lazy"
                               />
                             </div>
                           </div>

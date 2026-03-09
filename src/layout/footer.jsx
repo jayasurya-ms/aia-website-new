@@ -142,14 +142,15 @@ export default function Footer() {
             </div>
             <div className="w-full h-22 rounded-xl overflow-hidden shadow-2xl border-2 border-gray-700 hover:border-[#fa8017] transition-all duration-300">
               <iframe
+                src="https://maps.google.com/maps?q=Academy%20of%20Internal%20Audit,%20SRS%20City,%20Sector%2087,%20Faridabad,%20Haryana%20121002&z=10&output=embed"
+                className="w-full h-full"
                 width="100%"
                 height="100%"
-                src="https://maps.google.com/maps?q=Academy of Internal Audit, SRS City, Sector 87, Faridabad, Haryana 121002&t=&z=10&ie=UTF8&iwloc=&output=embed"
-                frameBorder="0"
-                scrolling="no"
-                className="w-full h-full"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
                 title="AIA Location"
-              />
+              ></iframe>
             </div>
           </div>
         </div>

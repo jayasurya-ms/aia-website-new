@@ -125,6 +125,7 @@ const HomeMap = ({ courseCode }) => {
             src="${student.imageUrl}"
             alt="${student.name}"
             style="width:100%;height:100%;object-fit:cover;display:block;"
+             loading="lazy"
           />
         </div>
       `;

@@ -1,17 +1,7 @@
 import SectionHeading from "@/components/SectionHeading/SectionHeading";
-import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import CfeJoinDialog from "../cfe-curriculam/join-prep";
-const getWhitespaceClass = (size) => {
-  switch (size) {
-    case "sm":
-      return "whitespace-pre-line";
-    case "lg":
-      return "lg:whitespace-pre-line whitespace-normal";
-    default:
-      return "whitespace-normal";
-  }
-};
+
 const CourseAbout = ({
   badgeText,
   heading,
@@ -24,6 +14,7 @@ const CourseAbout = ({
   formcourse,
   formbuttonlabel,
   lineBreak = "lg",
+  preheading,
 }) => {
   const location = useLocation();
 
@@ -32,6 +23,7 @@ const CourseAbout = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           title={heading}
+          preheading={preheading}
           align="center"
           titleClass="!text-[1.1rem] md:!text-3xl"
         />
@@ -71,60 +63,54 @@ const CourseAbout = ({
             {aboutStats?.map((stat, index) => (
               <div
                 key={index}
-                className="
-                  relative
-                  border-2
-                  hover:border-[#0F3652]
-                  hover:bg-linear-to-br
-                  from-[#F3831C]/20
-                  via-[#F3831C]/10
-                  to-[#F3831C]/30
-                  min-h-[100px] sm:min-h-[110px] md:min-h-[120px] lg:h-26.5
-                  py-4 sm:py-6 md:py-7 lg:py-9
-                  px-2 sm:px-3
-                  rounded-lg
-                  flex
-                  flex-col
-                  items-center
-                  justify-center
-                  text-center
-                  transition-all
-                  duration-300
-                  border-[#0F3652]
-                  cursor-pointer
-                "
+                className="relative border-2 hover:border-[#0F3652] hover:bg-linear-to-br
+  from-[#F3831C]/20 via-[#F3831C]/10 to-[#F3831C]/30
+  min-h-[100px] sm:min-h-[110px] md:min-h-[120px] lg:h-26.5
+  py-4 sm:py-6 md:py-7 lg:py-9 px-2 sm:px-3 rounded-lg flex flex-col
+  items-center justify-center text-center transition-all duration-300
+  border-[#0F3652] cursor-pointer"
               >
-                {/* <div className="text-base sm:text-lg md:text-xl font-bold mb-1 text-[#0F3652]">
-                  {stat.display}
-                </div> */}
+                {stat.badge && (
+                  <div className="absolute -top-1 -left-4 ">
+                    <div className="relative inline-block">
+                      <svg
+                        className="absolute top-1 -left-[12px] w-5 h-5 text-[#F3831C]"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="3"
+                        strokeLinecap="round"
+                      >
+                        <line x1="12" y1="5" x2="9" y2="2" />
+                        <line x1="8" y1="8" x2="4" y2="6" />
+                        <line x1="10" y1="12" x2="6" y2="14" />
+                      </svg>
+
+                      <div className="bg-[#F3831C] text-white text-[10px] sm:text-xs font-bold px-2 py-0.5 rotate-[-28deg] rounded shadow">
+                        {stat.badge}
+                      </div>
+                    </div>
+                  </div>
+                )}
+
                 <div
-                  className={`
-  text-base sm:text-lg md:text-xl font-bold mb-1 text-[#0F3652]
-  ${stat.lineBreak === "sm" ? "whitespace-pre-line md:whitespace-normal" : "whitespace-normal lg:whitespace-pre-line"}
-`}
+                  className={`text-base sm:text-lg md:text-xl font-bold mb-1 text-[#0F3652]
+      ${
+        stat.lineBreak === "sm"
+          ? "whitespace-pre-line md:whitespace-normal"
+          : "whitespace-normal lg:whitespace-pre-line"
+      }`}
                 >
                   {stat.display}
                 </div>
+
                 {stat.show == "true" && (
                   <h4 className="text-xs sm:text-sm md:text-base font-normal text-[#0F3652] leading-tight">
                     {stat.title}
                   </h4>
                 )}
 
-                <div
-                  className="
-                    absolute
-                    bottom-0
-                    left-0
-                    right-0
-                    h-1 sm:h-1.5
-                    bg-linear-to-r
-                    from-[#F3831C]
-                    via-[#F3831C]/80
-                    to-[#F3831C]/60
-                    rounded-b-lg
-                  "
-                />
+                <div className="absolute bottom-0 left-0 right-0 h-1 sm:h-1.5 bg-linear-to-r from-[#F3831C] via-[#F3831C]/80 to-[#F3831C]/60 rounded-b-lg" />
               </div>
             ))}
           </div>

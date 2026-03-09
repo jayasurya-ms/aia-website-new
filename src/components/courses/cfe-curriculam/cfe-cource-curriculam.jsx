@@ -7,43 +7,43 @@ import { ENROLL_URL } from "@/api/base-url";
 const curriculumData = [
   {
     id: 1,
-    title: "Financial Transactions & Fraud Schemes",
+    title: "Fraud Schemes and Financial Crimes",
     content: [
-      `This module builds a strong foundation in understanding<strong> how fraud actually occurs within financial transactions </strong>. Learners examine core accounting and financial concepts through a fraud examiner’s lens, uncovering how numbers are manipulated and controls are bypassed. <strong>The curriculum explores key fraud schemes, including financial statement fraud, asset misappropriation, bribery and corruption, identity theft, and procurement-related schemes</strong>. 
-       Strong emphasis is placed on identifying red flags, transactional patterns, and understanding how fraudsters exploit system weaknesses <strong> across industries such as banking, insurance, healthcare, and PSUs.</strong>`,
+      `This <strong>module focuses on the different ways fraud and financial crimes occur within organizations and against individuals.</strong>It introduces learners to <strong>common fraud schemes</strong>across industries and  <strong> explains how they are typically executed .</strong>`,
+      `The section further explores financial statement manipulation, asset misappropriation, and other occupational fraud risks. Through these topics,<strong>learners develop the ability to recognise warning signs, understand how fraud schemes operate in practice, and apply practical approaches to detect and prevent fraudulent activities.</strong>`,
     ],
   },
   {
     id: 2,
-    title: "Law",
+    title: "Fraud Investigation and Legal Considerations",
     content: [
-      `The Law module provides a practical and applied understanding of legal principles essential for fraud examinations. Learners <strong> gain clarity on criminal and civil law concepts, individual rights, rules of evidence, and legal processes that govern fraud investigations</strong>. The module covers areas such as money laundering, tax fraud, securities fraud, and bankruptcy-related offences, while explaining how cases move through the legal system.
-       Emphasis is placed on conducting investigations lawfully, ethically, and professionally, ensuring <strong>evidence collection, documentation, and reporting stand up to legal scrutiny and support prosecution or litigation</strong> when required`,
+      `This module <strong> concentrates on the practical process of conducting a fraud investigation while staying within appropriate legal boundaries .</strong> It covers the key stages involved in examining suspected fraud, including planning an investigation, gathering information, and evaluating evidence. Learners also <strong>study proper methods for collecting and preserving documentation and digital data,</strong> as well as techniques for analysing findings .
+       The curriculum also addresses interview approaches used during investigations and how to present results in a clear and professional investigative report. In addition, this section introduces the basic functioning of legal systems in different jurisdictions, explains <strong>how fraud cases are pursued through criminal or civil actions,</strong> and outlines the <strong>responsibilities involved when presenting professional opinions </strong> or expert testimony.`,
     ],
   },
   {
     id: 3,
-    title: "Investigation",
+    title: "Fraud Prevention and Risk Management ",
     content: [
-      `This module<strong> develops the core investigative skills required to conduct effective and defensible fraud investigations</strong>. Learners are trained in investigation planning, information gathering, interviewing and interrogation techniques, document examination, data analysis, and digital forensics fundamentals
-      The module also covers tracing illicit funds, analysing complex transaction trails, and identifying concealed assets. Strong focus is placed on evidence handling, documentation standards, and professional report writing,<strong> enabling learners to translate investigation findings into clear, logical, and court-ready reports that support decision-making and legal action</strong>.`,
+      `This area<strong> focuses on understanding the underlying factors that lead individuals to commit fraud and the strategies organisations can implement to reduce such risks.</strong>It discusses the importance of strong governance, ethical culture, and effective oversight in minimising fraudulent behaviour .<strong> Learners explore the responsibilities of management, auditors, and compliance professionals</strong>in maintaining an environment that discourages misconduct. 
+      The section also explains <strong> how to perform a structured fraud risk assessment, implement appropriate control measures, and design a proactive fraud prevention framework </strong> Ethical decision-making and professional responsibility are also emphasised as key elements in maintaining integrity within organisations.`,
     ],
   },
-  {
-    id: 4,
-    title: "Fraud Prevention & Deterrence",
-    content: [
-      `This <strong>module focuses on preventing fraud before it occurs by strengthening governance, ethics, and risk management frameworks.</strong> .behavior, white-collar crime, corporate governance structures, management accountability, and the role of auditors and compliance functions in fraud prevention. 
-      The curriculum emphasizes fraud risk assessment, internal controls, ethical culture, and fraud risk management strategies. Learners <strong> gain the ability to design, evaluate, and improve systems that reduce exposure to fraud, enhance transparency, and build long-term organizational integrity across diverse business environments. </strong>`,
-    ],
-  },
+  // {
+  //   id: 4,
+  //   title: "Fraud Prevention & Deterrence",
+  //   content: [
+  //     `This <strong>module focuses on preventing fraud before it occurs by strengthening governance, ethics, and risk management frameworks.</strong> .behavior, white-collar crime, corporate governance structures, management accountability, and the role of auditors and compliance functions in fraud prevention. 
+  //     The curriculum emphasizes fraud risk assessment, internal controls, ethical culture, and fraud risk management strategies. Learners <strong> gain the ability to design, evaluate, and improve systems that reduce exposure to fraud, enhance transparency, and build long-term organizational integrity across diverse business environments. </strong>`,
+  //   ],
+  // },
 ];
 
 const CfeCourseCurriculum = () => {
   return (
     <>
       <CourseCurriculum
-        title="CFE Course Curriculum"
+        title="2026 Updated CFE Curriculum"
         description={`The Certified Fraud Examiner (CFE) credential is globally recognized as a benchmark for professionals in fraud detection, investigation, and prevention. The certification<strong> validates a professional’s ability to understand & identify fraud schemes, conduct </strong> structured investigations, and design effective fraud prevention frameworks across organizations. The<strong> CFE exam is divided into four core modules that</strong> cover financial fraud schemes, legal aspects, investigation techniques, and fraud prevention and deterrence. <br/> \nAt AIA, we design our <strong>CFE training program to ensure that aspirants develop a clear organizational understanding and an investigator mindset.</strong>The course structure helps learners view transactions through a fraud-risk framework, understand how controls fail, and analyze fraud from the perspective of how it occurs. `}
         curriculumData={curriculumData}
       />
