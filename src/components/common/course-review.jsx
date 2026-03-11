@@ -165,18 +165,9 @@ const CourseReview = ({ slug, title }) => {
               worstRating: "1",
               ratingCount: testimonials.length,
             },
-          })}
-        </script>
-
-        {testimonials.map((t, index) => (
-          <script key={index} type="application/ld+json">
-            {JSON.stringify({
-              "@context": "https://schema.org",
+            // ✅ Nest reviews directly inside Course
+            review: testimonials.map((t) => ({
               "@type": "Review",
-              itemReviewed: {
-                "@type": "Course",
-                name: slug,
-              },
               author: {
                 "@type": "Person",
                 name: t.student_name,
@@ -189,9 +180,9 @@ const CourseReview = ({ slug, title }) => {
                 bestRating: "5",
                 worstRating: "1",
               },
-            })}
-          </script>
-        ))}
+            })),
+          })}
+        </script>
       </Helmet>
       <div
         className={`${
