@@ -35,6 +35,7 @@ const HomeReview = () => {
       course: item.student_course,
       message: item.student_testimonial,
       link: item.student_testimonial_link,
+      update: item.updated_at,
       image: item.student_image
         ? `${studentImageBase}${item.student_image}`
         : noImageUrl,
@@ -98,9 +99,17 @@ const HomeReview = () => {
                       },
                       review: testimonials.map((t) => ({
                         "@type": "Review",
-                        author: { "@type": "Person", name: t.name },
+                        author: {
+                          "@type": "Person",
+                          name: t.name,
+                        },
                         reviewBody: t.message,
                         url: t.link,
+                        datePublished: t.update,
+                        reviewRating: {
+                          "@type": "Rating",
+                          ratingValue: "5",
+                        },
                       })),
                     })}
                   </script>
