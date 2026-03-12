@@ -5,9 +5,11 @@ import path from "path";
 const BASE_URL = "https://aia.in.net";
 const API_URL = "https://aia.in.net/webapi/public/api/getSitemap";
 
-// ─── Shared XML Generator ─────────────────────────────────────────────────────
+// ─── Shared XML Generator (fetches fresh data from API) ───────────────────────
 async function generateSitemapXML() {
-  const response = await axios.get(API_URL);
+  const response = await axios.get(API_URL, {
+    headers: { "Cache-Control": "no-cache" },
+  });
 
   const pages = response.data.data || [];
   const blogs = response.data.blog || [];
@@ -84,13 +86,14 @@ ${urls}
 </urlset>`;
 }
 
-// ─── DEV Middleware (serves /sitemap.xml on localhost) ─────────────────────────
+// ─── DEV Middleware (serves fresh /sitemap.xml on localhost) ───────────────────
 export function sitemapMiddleware() {
   return async (req, res, next) => {
     if (req.url === "/sitemap.xml") {
       try {
         const xml = await generateSitemapXML();
         res.setHeader("Content-Type", "application/xml");
+        res.setHeader("Cache-Control", "no-store, no-cache, must-revalidate");
         res.end(xml);
         console.log("✅ Sitemap served in dev");
       } catch (err) {
@@ -105,6 +108,8 @@ export function sitemapMiddleware() {
 }
 
 // ─── BUILD Plugin (writes dist/sitemap.xml during `vite build`) ───────────────
+// Every time you deploy (run `npm run build`), this fetches fresh data
+// from the API and writes an up-to-date sitemap.xml into dist/.
 export function sitemapBuildPlugin() {
   return {
     name: "vite-plugin-sitemap",

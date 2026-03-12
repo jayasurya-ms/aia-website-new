@@ -1,6 +1,7 @@
 
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { lazy, Suspense } from "react";
+import SitemapPage from "./pages/SitemapPage";
 import Layout from "./layout/Layout";
 
 const CAMS = lazy(() => import("./pages/Courses/CAMS"));
@@ -43,7 +44,15 @@ import CanonicalTag from "./components/common/canonical-tag";
 import blogRedirects from "./routes/blog-redirects";
 import SuspenseLoader from "./components/common/suspense-loader";
 
+
 export default function App() {
+  const location = useLocation();
+
+  // Serve sitemap as raw XML — no Layout, no navbar, no footer
+  if (location.pathname === "/sitemap.xml") {
+    return <SitemapPage />;
+  }
+
   return (
     <div className="font-sans text-gray-800 min-h-screen flex flex-col">
       <ScrollToTop />
@@ -117,3 +126,4 @@ export default function App() {
     </div>
   );
 }
+
