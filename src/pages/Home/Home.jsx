@@ -86,111 +86,130 @@ const HomeBlogs = lazy(() => import("@/components/home/home-blogs"));
 const HomeFaq = lazy(() => import("@/components/home/home-faq"));
 
 export default function Home() {
-  const sectionRefs = {
-    popup: useRef(null),
-    home: useRef(null),
-    about: useRef(null),
-    contact: useRef(null),
-    courses: useRef(null),
-    passout: useRef(null),
-    results: useRef(null),
-    accredited: useRef(null),
-    whatsapp: useRef(null),
-    review: useRef(null),
-    youtube: useRef(null),
-    partners: useRef(null),
-    pr: useRef(null),
-    alumni: useRef(null),
-    lecture: useRef(null),
-    blogs: useRef(null),
-    faq: useRef(null),
-  };
+  const aboutRef = useRef(null);
+  const contactRef = useRef(null);
+  const coursesRef = useRef(null);
+  const passoutRef = useRef(null);
+  const resultsRef = useRef(null);
+  const accreditedRef = useRef(null);
+  const whatsappRef = useRef(null);
+  const reviewRef = useRef(null);
+  const youtubeRef = useRef(null);
+  const partnersRef = useRef(null);
+  const prRef = useRef(null);
+  const alumniRef = useRef(null);
+  const lectureRef = useRef(null);
+  const blogsRef = useRef(null);
+  const faqRef = useRef(null);
 
-  const [loadedSections, setLoadedSections] = useState({});
+  const [visible, setVisible] = useState({
+    about: false,
+    contact: false,
+    courses: false,
+    passout: false,
+    results: false,
+    accredited: false,
+    whatsapp: false,
+    review: false,
+    youtube: false,
+    partners: false,
+    pr: false,
+    alumni: false,
+    lecture: false,
+    blogs: false,
+    faq: false,
+  });
 
   useEffect(() => {
-    const observers = {};
+    const sections = [
+      ["about", aboutRef],
+      ["contact", contactRef],
+      ["courses", coursesRef],
+      ["passout", passoutRef],
+      ["results", resultsRef],
+      ["accredited", accreditedRef],
+      ["whatsapp", whatsappRef],
+      ["review", reviewRef],
+      ["youtube", youtubeRef],
+      ["partners", partnersRef],
+      ["pr", prRef],
+      ["alumni", alumniRef],
+      ["lecture", lectureRef],
+      ["blogs", blogsRef],
+      ["faq", faqRef],
+    ];
 
-    const options = {
-      root: null,
-      rootMargin: "300px",
-      threshold: 0.1,
-    };
-
-    Object.keys(sectionRefs).forEach((section) => {
-      observers[section] = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver(
+      (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setLoadedSections((prev) => ({
+            const key = entry.target.dataset.section;
+
+            setVisible((prev) => ({
               ...prev,
-              [section]: true,
+              [key]: true,
             }));
 
-            observers[section].disconnect();
+            observer.unobserve(entry.target);
           }
         });
-      }, options);
+      },
+      {
+        rootMargin: "150px",
+        threshold: 0.1,
+      }
+    );
 
-      if (sectionRefs[section].current) {
-        observers[section].observe(sectionRefs[section].current);
+    sections.forEach(([key, ref]) => {
+      if (ref.current) {
+        ref.current.dataset.section = key;
+        observer.observe(ref.current);
       }
     });
 
-    return () => {
-      Object.values(observers).forEach((observer) => observer.disconnect());
-    };
+    return () => observer.disconnect();
   }, []);
 
   return (
     <div className="font-sans text-gray-800">
-      <div ref={sectionRefs.popup}>
-        {loadedSections.popup && (
-          <Suspense fallback={null}>
-            <PopUp slug="home" />
-          </Suspense>
-        )}
-      </div>
-      <div ref={sectionRefs.home}>
-        {loadedSections.home && (
-          <Suspense fallback={null}>
-            <HomeHero slug="home" bottombar="true" />
-          </Suspense>
-        )}
-      </div>
-      <div ref={sectionRefs.about}>
-        {loadedSections.about && (
+      {/* Above the fold */}
+      <PopUp slug="home" />
+      <HomeHero slug="home" bottombar="true" />
+
+      <div ref={aboutRef}>
+        {visible.about && (
           <Suspense fallback={null}>
             <HomeAbout />
           </Suspense>
         )}
       </div>
 
-      <div ref={sectionRefs.contact}>
-        {loadedSections.contact && (
+      <div ref={contactRef}>
+        {visible.contact && (
           <Suspense fallback={null}>
             <HomeContact />
           </Suspense>
         )}
       </div>
 
-      <div ref={sectionRefs.courses}>
-        {loadedSections.courses && (
+      <div ref={coursesRef}>
+        {visible.courses && (
           <Suspense fallback={null}>
             <HomeCourses certificationCourses={certificationCourses} />
           </Suspense>
         )}
       </div>
 
-      <div ref={sectionRefs.passout}>
-        {loadedSections.passout && (
+      <div ref={passoutRef}>
+        {visible.passout && (
           <Suspense fallback={null}>
             <HomePassout />
           </Suspense>
         )}
       </div>
 
-      <div ref={sectionRefs.results}>
-        {loadedSections.results && (
+      <div ref={resultsRef}>
+        {visible.results && (
           <Suspense fallback={null}>
             <HomeResults
               title="We Stand by Results - Actual Certificates Earned by AIA Learners"
@@ -200,89 +219,80 @@ export default function Home() {
         )}
       </div>
 
-      <div ref={sectionRefs.accredited}>
-        {loadedSections.accredited && (
+      <div ref={accreditedRef}>
+        {visible.accredited && (
           <Suspense fallback={null}>
             <HomeAccredited />
           </Suspense>
         )}
       </div>
 
-      <div ref={sectionRefs.whatsapp}>
-        {loadedSections.whatsapp && (
+      <div ref={whatsappRef}>
+        {visible.whatsapp && (
           <Suspense fallback={null}>
-            <WhatsappCarosal
-              title="Unfiltered Reflections from AIA-Trained Professionals"
-              description={`Heartfelt messages shared by professionals after completing their journey with AIA.
-Each message reflects a different experience. These reflections provide a genuine view of what preparation looks like in real situations, beyond structured testimonials`}
-              course="all"
-            />
+            <WhatsappCarosal course="all" />
           </Suspense>
         )}
       </div>
 
-      <div ref={sectionRefs.review}>
-        {loadedSections.review && (
+      <div ref={reviewRef}>
+        {visible.review && (
           <Suspense fallback={null}>
             <HomeReview />
           </Suspense>
         )}
       </div>
 
-      <div ref={sectionRefs.youtube}>
-        {loadedSections.youtube && (
+      <div ref={youtubeRef}>
+        {visible.youtube && (
           <Suspense fallback={null}>
             <AllYoutube />
           </Suspense>
         )}
       </div>
 
-      <div ref={sectionRefs.partners}>
-        {loadedSections.partners && (
+      <div ref={partnersRef}>
+        {visible.partners && (
           <Suspense fallback={null}>
             <HomeCorporatePartner />
           </Suspense>
         )}
       </div>
 
-      <div ref={sectionRefs.pr}>
-        {loadedSections.pr && (
+      <div ref={prRef}>
+        {visible.pr && (
           <Suspense fallback={null}>
             <HomePrCarousel />
           </Suspense>
         )}
       </div>
 
-      <div ref={sectionRefs.alumni}>
-        {loadedSections.alumni && (
+      <div ref={alumniRef}>
+        {visible.alumni && (
           <Suspense fallback={null}>
             <HomeAlumniWork />
           </Suspense>
         )}
       </div>
 
-      <div ref={sectionRefs.lecture}>
-        {loadedSections.lecture && (
+      <div ref={lectureRef}>
+        {visible.lecture && (
           <Suspense fallback={null}>
-            <CourseYoutubeLecture
-              courseSlug="home"
-              title="Watch & Learn! Everything You Need to"
-              highlight1="Crack the CFE, CIA & CAMS"
-            />
+            <CourseYoutubeLecture courseSlug="home" />
           </Suspense>
         )}
       </div>
 
-      <div ref={sectionRefs.blogs}>
-        {loadedSections.blogs && (
+      <div ref={blogsRef}>
+        {visible.blogs && (
           <Suspense fallback={null}>
             <HomeBlogs />
           </Suspense>
         )}
       </div>
 
-      <div ref={sectionRefs.faq}>
-        {loadedSections.faq && (
+      <div ref={faqRef}>
+        {visible.faq && (
           <Suspense fallback={null}>
             <HomeFaq />
           </Suspense>
