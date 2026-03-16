@@ -37,35 +37,10 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 export default defineConfig({
-  plugins: [
-    tailwindcss(),
-    react(),
-    viteCompression({
-      algorithm: "gzip",
-      ext: ".gz",
-    }),
-    viteCompression({
-      algorithm: "brotliCompress",
-      ext: ".br",
-    }),
-  ],
+  plugins: [tailwindcss(), react()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "src"),
     },
-  },
-  build: {
-    rollupOptions: {
-      output: {
-        manualChunks(id) {
-          if (id.includes("node_modules")) {
-            if (id.includes("framer-motion")) return "vendor-framer-motion";
-            if (id.includes("lucide-react")) return "vendor-lucide";
-            if (id.includes("react")) return "vendor-react";
-          }
-        },
-      },
-    },
-    chunkSizeWarningLimit: 1000,
   },
 });
