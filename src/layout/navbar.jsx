@@ -11,6 +11,7 @@ import {
   FaYoutube,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import OptimizedImage from "@/components/common/optmized-image";
 const routePrefetch = {
   "/": () => import("../pages/Home/Home"),
   "/about-aia": () => import("../pages/About/About"),
@@ -218,11 +219,11 @@ const Navbar = () => {
           <div className="flex justify-between items-center">
             <div className="flex-shrink-0">
               <Link to="/">
-                <img
+                <OptimizedImage
                   src={`${IMAGE_PATH}/new_logo.webp`}
                   alt="Academy of Internal Audit"
                   className="h-8 md:h-10 w-auto"
-                  loading="lazy"
+                  priority={true}
                 />
               </Link>
             </div>
@@ -342,7 +343,8 @@ const Navbar = () => {
                   src={`${IMAGE_PATH}/new_logo.webp`}
                   alt="Academy of Internal Audit"
                   className="h-8 md:h-10 w-auto"
-                  loading="lazy"
+                  fetchPriority="high"
+                  decoding="async"
                 />
               </div>
 

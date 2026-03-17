@@ -34,7 +34,7 @@ const HomeResults = ({ title, description }) => {
         certificate.student_other_certificate_image_alt || "Certificate Image",
       youtubeLink: certificate.student_linkedin_link || "",
       course: certificate.student_course || "",
-    }));
+    })).slice(0, 24); // Limit to 24 items for DOM performance
   }, [certificatesData]);
 
   if (isLoading) {

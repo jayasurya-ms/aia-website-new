@@ -56,7 +56,6 @@
 //   );
 // }
 import React, { lazy, Suspense, useEffect, useRef, useState } from "react";
-
 import PopUp from "@/components/common/pop-up";
 import HomeHero from "@/components/home/home-hero";
 import certificationCourses from "@/data/certificationCourses";
@@ -67,237 +66,130 @@ const HomeCourses = lazy(() => import("@/components/home/home-courses"));
 const HomePassout = lazy(() => import("@/components/home/home-passout"));
 const HomeResults = lazy(() => import("@/components/home/home-results"));
 const HomeAccredited = lazy(() => import("@/components/home/home-accredited"));
-const WhatsappCarosal = lazy(() =>
-  import("@/components/common/whatsapp-carosal")
+const WhatsappCarosal = lazy(
+  () => import("@/components/common/whatsapp-carosal"),
 );
 const HomeReview = lazy(() => import("@/components/home/home-review"));
 const AllYoutube = lazy(() => import("@/components/common/get-all-youtube"));
-const HomeCorporatePartner = lazy(() =>
-  import("@/components/home/home-corporate-partner")
+const HomeCorporatePartner = lazy(
+  () => import("@/components/home/home-corporate-partner"),
 );
 const HomePrCarousel = lazy(() => import("@/components/home/home-pr-carousel"));
-const HomeAlumniWork = lazy(() =>
-  import("@/components/home/home-alumini-work")
+const HomeAlumniWork = lazy(
+  () => import("@/components/home/home-alumini-work"),
 );
-const CourseYoutubeLecture = lazy(() =>
-  import("@/components/courses/common/course-youtube-lecture")
+const CourseYoutubeLecture = lazy(
+  () => import("@/components/courses/common/course-youtube-lecture"),
 );
 const HomeBlogs = lazy(() => import("@/components/home/home-blogs"));
 const HomeFaq = lazy(() => import("@/components/home/home-faq"));
 
-export default function Home() {
-  const aboutRef = useRef(null);
-  const contactRef = useRef(null);
-  const coursesRef = useRef(null);
-  const passoutRef = useRef(null);
-  const resultsRef = useRef(null);
-  const accreditedRef = useRef(null);
-  const whatsappRef = useRef(null);
-  const reviewRef = useRef(null);
-  const youtubeRef = useRef(null);
-  const partnersRef = useRef(null);
-  const prRef = useRef(null);
-  const alumniRef = useRef(null);
-  const lectureRef = useRef(null);
-  const blogsRef = useRef(null);
-  const faqRef = useRef(null);
-
-  const [visible, setVisible] = useState({
-    about: false,
-    contact: false,
-    courses: false,
-    passout: false,
-    results: false,
-    accredited: false,
-    whatsapp: false,
-    review: false,
-    youtube: false,
-    partners: false,
-    pr: false,
-    alumni: false,
-    lecture: false,
-    blogs: false,
-    faq: false,
-  });
+const LazySection = ({ children, threshold = 0.1, rootMargin = "150px" }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef(null);
 
   useEffect(() => {
-    const sections = [
-      ["about", aboutRef],
-      ["contact", contactRef],
-      ["courses", coursesRef],
-      ["passout", passoutRef],
-      ["results", resultsRef],
-      ["accredited", accreditedRef],
-      ["whatsapp", whatsappRef],
-      ["review", reviewRef],
-      ["youtube", youtubeRef],
-      ["partners", partnersRef],
-      ["pr", prRef],
-      ["alumni", alumniRef],
-      ["lecture", lectureRef],
-      ["blogs", blogsRef],
-      ["faq", faqRef],
-    ];
-
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const key = entry.target.dataset.section;
-
-            setVisible((prev) => ({
-              ...prev,
-              [key]: true,
-            }));
-
-            observer.unobserve(entry.target);
-          }
-        });
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
       },
-      {
-        rootMargin: "150px",
-        threshold: 0.1,
-      }
+      { threshold, rootMargin },
     );
 
-    sections.forEach(([key, ref]) => {
-      if (ref.current) {
-        ref.current.dataset.section = key;
-        observer.observe(ref.current);
-      }
-    });
-
+    if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
-  }, []);
+  }, [threshold, rootMargin]);
 
   return (
+    <div ref={ref}>
+      {isVisible ? (
+        <Suspense fallback={null}>{children}</Suspense>
+      ) : (
+        <div className="h-20" />
+      )}
+    </div>
+  );
+};
+
+export default function Home() {
+  return (
     <div className="font-sans text-gray-800">
-      {/* Above the fold */}
       <PopUp slug="home" />
       <HomeHero slug="home" bottombar="true" />
 
-      <div ref={aboutRef}>
-        {visible.about && (
-          <Suspense fallback={null}>
-            <HomeAbout />
-          </Suspense>
-        )}
-      </div>
+      <LazySection>
+        <HomeAbout />
+      </LazySection>
 
-      <div ref={contactRef}>
-        {visible.contact && (
-          <Suspense fallback={null}>
-            <HomeContact />
-          </Suspense>
-        )}
-      </div>
+      <LazySection>
+        <HomeContact />
+      </LazySection>
 
-      <div ref={coursesRef}>
-        {visible.courses && (
-          <Suspense fallback={null}>
-            <HomeCourses certificationCourses={certificationCourses} />
-          </Suspense>
-        )}
-      </div>
+      <LazySection>
+        <HomeCourses certificationCourses={certificationCourses} />
+      </LazySection>
 
-      <div ref={passoutRef}>
-        {visible.passout && (
-          <Suspense fallback={null}>
-            <HomePassout />
-          </Suspense>
-        )}
-      </div>
+      <LazySection>
+        <HomePassout />
+      </LazySection>
 
-      <div ref={resultsRef}>
-        {visible.results && (
-          <Suspense fallback={null}>
-            <HomeResults
-              title="We Stand by Results - Actual Certificates Earned by AIA Learners"
-              description="Actual certificates earned by professionals across CFE, CIA, and CAMS after structured preparation with AIA."
-            />
-          </Suspense>
-        )}
-      </div>
+      <LazySection>
+        <HomeResults
+          title="We Stand by Results - Actual Certificates Earned by AIA Learners"
+          description="Actual certificates earned by professionals across CFE, CIA, and CAMS after structured preparation with AIA."
+        />
+      </LazySection>
 
-      <div ref={accreditedRef}>
-        {visible.accredited && (
-          <Suspense fallback={null}>
-            <HomeAccredited />
-          </Suspense>
-        )}
-      </div>
+      <LazySection>
+        <HomeAccredited />
+      </LazySection>
 
-      <div ref={whatsappRef}>
-        {visible.whatsapp && (
-          <Suspense fallback={null}>
-            <WhatsappCarosal course="all" />
-          </Suspense>
-        )}
-      </div>
+      <LazySection>
+        <WhatsappCarosal
+          course="all"
+          title="Unfiltered Reflections from AIA-Trained Professionals"
+          description="Heartfelt messages shared by professionals after completing their journey with AIA. Each message reflects a different experience. These reflections provide a genuine view of what preparation looks like in real situations, beyond structured testimonials"
+        />
+      </LazySection>
 
-      <div ref={reviewRef}>
-        {visible.review && (
-          <Suspense fallback={null}>
-            <HomeReview />
-          </Suspense>
-        )}
-      </div>
+      <LazySection>
+        <HomeReview />
+      </LazySection>
 
-      <div ref={youtubeRef}>
-        {visible.youtube && (
-          <Suspense fallback={null}>
-            <AllYoutube />
-          </Suspense>
-        )}
-      </div>
+      <LazySection>
+        <AllYoutube />
+      </LazySection>
 
-      <div ref={partnersRef}>
-        {visible.partners && (
-          <Suspense fallback={null}>
-            <HomeCorporatePartner />
-          </Suspense>
-        )}
-      </div>
+      <LazySection>
+        <HomeCorporatePartner />
+      </LazySection>
 
-      <div ref={prRef}>
-        {visible.pr && (
-          <Suspense fallback={null}>
-            <HomePrCarousel />
-          </Suspense>
-        )}
-      </div>
+      <LazySection>
+        <HomePrCarousel />
+      </LazySection>
 
-      <div ref={alumniRef}>
-        {visible.alumni && (
-          <Suspense fallback={null}>
-            <HomeAlumniWork />
-          </Suspense>
-        )}
-      </div>
+      <LazySection>
+        <HomeAlumniWork />
+      </LazySection>
 
-      <div ref={lectureRef}>
-        {visible.lecture && (
-          <Suspense fallback={null}>
-            <CourseYoutubeLecture courseSlug="home" />
-          </Suspense>
-        )}
-      </div>
+      <LazySection>
+        <CourseYoutubeLecture
+          courseSlug="home"
+          title="Watch & Learn! Everything You Need to"
+          highlight1="Crack the CFE, CIA & CAMS"
+        />
+      </LazySection>
 
-      <div ref={blogsRef}>
-        {visible.blogs && (
-          <Suspense fallback={null}>
-            <HomeBlogs />
-          </Suspense>
-        )}
-      </div>
+      <LazySection>
+        <HomeBlogs />
+      </LazySection>
 
-      <div ref={faqRef}>
-        {visible.faq && (
-          <Suspense fallback={null}>
-            <HomeFaq />
-          </Suspense>
-        )}
-      </div>
+      <LazySection>
+        <HomeFaq />
+      </LazySection>
     </div>
   );
 }

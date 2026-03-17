@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import OptimizedImage from "../common/optmized-image";
 
 const SQRT_5000 = Math.sqrt(5000);
 
@@ -180,14 +181,13 @@ const TestimonialCard = ({ position, testimonial, handleMove, cardSize }) => {
           height: 2,
         }}
       />
-      <img
+      <OptimizedImage
         src={testimonial.imgSrc}
         alt={`${testimonial.by.split(",")[0]}`}
         className="mb-4 h-14 w-12 bg-muted object-cover object-top"
         style={{
           boxShadow: "3px 3px 0px hsl(var(--background))",
         }}
-        loading="lazy"
       />
       <h3
         className={cn(
@@ -195,7 +195,7 @@ const TestimonialCard = ({ position, testimonial, handleMove, cardSize }) => {
           isCenter ? "text-primary-foreground" : "text-foreground",
         )}
       >
-        "{testimonial.testimonial}"
+        &quot;{testimonial.testimonial}&quot;
       </h3>
       <p
         className={cn(

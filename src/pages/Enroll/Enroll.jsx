@@ -38,13 +38,13 @@ const HomeReview = lazy(() => import("@/components/home/home-review"));
 const EnrollFaq = lazy(() => import("@/components/enroll/enroll-faq"));
 
 const Enrool = () => {
-  const refs = {
-    topStudent: useRef(null),
-    alumni: useRef(null),
-    youtube: useRef(null),
-    review: useRef(null),
-    faq: useRef(null),
-  };
+  const refs = useRef({
+    topStudent: { current: null },
+    alumni: { current: null },
+    youtube: { current: null },
+    review: { current: null },
+    faq: { current: null },
+  }).current;
 
   const [visible, setVisible] = useState({});
 
@@ -80,7 +80,7 @@ const Enrool = () => {
     });
 
     return () => observer.disconnect();
-  }, []);
+  }, [refs]);
 
   return (
     <div>

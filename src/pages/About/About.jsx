@@ -74,20 +74,20 @@ const CourseYoutubeLecture = lazy(() =>
 );
 
 const AboutPage = () => {
-  const sectionRefs = {
-    about: useRef(null),
-    trainer: useRef(null),
-    testimonial: useRef(null),
-    mission: useRef(null),
-    highlight: useRef(null),
-    pr: useRef(null),
-    journey: useRef(null),
-    courses: useRef(null),
-    partner: useRef(null),
-    youtube: useRef(null),
-    review: useRef(null),
-    celebration: useRef(null),
-  };
+  const sectionRefs = useRef({
+    about: { current: null },
+    trainer: { current: null },
+    testimonial: { current: null },
+    mission: { current: null },
+    highlight: { current: null },
+    pr: { current: null },
+    journey: { current: null },
+    courses: { current: null },
+    partner: { current: null },
+    youtube: { current: null },
+    review: { current: null },
+    celebration: { current: null },
+  }).current;
 
   const [visibleSections, setVisibleSections] = useState({});
 
@@ -123,7 +123,7 @@ const AboutPage = () => {
     });
 
     return () => observer.disconnect();
-  }, []);
+  }, [sectionRefs]);
 
   return (
     <div className="min-h-screen bg-white">

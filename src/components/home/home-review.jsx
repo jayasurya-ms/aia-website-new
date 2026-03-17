@@ -2,10 +2,10 @@ import { BASE_URL, IMAGE_PATH } from "@/api/base-url";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { AlertCircle, RefreshCcw } from "lucide-react";
+import { useMemo } from "react";
 import { Helmet } from "react-helmet-async";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
-import { useLocation } from "react-router-dom";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Autoplay, Pagination } from "swiper/modules";
@@ -14,8 +14,7 @@ import SectionHeading from "../SectionHeading/SectionHeading";
 import HomeMap from "./home-map";
 
 const HomeReview = () => {
-  const location = useLocation();
-  const { data, isLoading, isError, refetch } = useQuery({
+  const { data, isLoading, isError } = useQuery({
     queryKey: ["aia-testimonials"],
     queryFn: async () => {
       const res = await axios.get(`${BASE_URL}/api/getAllTestimonials`);
@@ -23,26 +22,38 @@ const HomeReview = () => {
     },
   });
 
-  const studentImageBase =
-    data?.image_url?.find((img) => img.image_for === "Student")?.image_url ||
-    "";
+  const studentImageBase = useMemo(
+    () =>
+      data?.image_url?.find((img) => img.image_for === "Student")?.image_url ||
+      "",
+    [data?.image_url],
+  );
 
-  const noImageUrl =
-    data?.image_url?.find((img) => img.image_for === "No Image")?.image_url ||
-    "";
+  const noImageUrl = useMemo(
+    () =>
+      data?.image_url?.find((img) => img.image_for === "No Image")?.image_url ||
+      "",
+    [data?.image_url],
+  );
 
-  const testimonials =
-    data?.data?.map((item) => ({
-      name: item.student_name,
-      course: item.student_course,
-      message: item.student_testimonial,
-      link: item.student_testimonial_link,
-      update: item.updated_at,
-      image: item.student_image
-        ? `${studentImageBase}${item.student_image}`
-        : noImageUrl,
-      alt: item.student_image_alt || item.student_name,
-    })) || [];
+  const testimonials = useMemo(
+    () =>
+      data?.data?.map((item) => ({
+        name: item.student_name,
+        course: item.student_course,
+        message: item.student_testimonial,
+        link: item.student_testimonial_link,
+        update: item.updated_at,
+        image: item.student_image
+          ? `${studentImageBase}${item.student_image}`
+          : noImageUrl,
+        alt: item.student_image_alt || item.student_name,
+      })) || [],
+    [data?.data, studentImageBase, noImageUrl],
+  );
+
+  // Limit to 25 items to reduce DOM size (3300+ elements reported)
+  const displayedTestimonials = useMemo(() => testimonials.slice(0, 25), [testimonials]);
   const truncateText = (text, limit = 430) => {
     if (text.length <= limit) return text;
     return text.slice(0, limit) + "...";
@@ -142,7 +153,7 @@ const HomeReview = () => {
                   loop
                   className="testimonial-swiper"
                 >
-                  {testimonials.map((item, index) => (
+                  {displayedTestimonials.map((item, index) => (
                     <SwiperSlide key={index}>
                       <div className="bg-white rounded-xl p-4 md:p-6 border border-[#F3831C]/20">
                         <div className="flex items-start gap-4 mb-4">

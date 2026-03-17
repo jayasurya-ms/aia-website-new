@@ -95,19 +95,19 @@ const CorporateReview = lazy(() =>
 );
 
 const CorporateTraining = () => {
-  const refs = {
-    whyAia: useRef(null),
-    partner: useRef(null),
-    quote1: useRef(null),
-    deliver: useRef(null),
-    carousel: useRef(null),
-    connection: useRef(null),
-    quote2: useRef(null),
-    highlight: useRef(null),
-    faq: useRef(null),
-    trainer: useRef(null),
-    review: useRef(null),
-  };
+  const refs = useRef({
+    whyAia: { current: null },
+    partner: { current: null },
+    quote1: { current: null },
+    deliver: { current: null },
+    carousel: { current: null },
+    connection: { current: null },
+    quote2: { current: null },
+    highlight: { current: null },
+    faq: { current: null },
+    trainer: { current: null },
+    review: { current: null },
+  }).current;
 
   const [visible, setVisible] = useState({});
 
@@ -143,7 +143,7 @@ const CorporateTraining = () => {
     });
 
     return () => observer.disconnect();
-  }, []);
+  }, [refs]);
 
   return (
     <>

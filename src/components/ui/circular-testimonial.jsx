@@ -1,6 +1,7 @@
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Button } from "./button";
+import OptimizedImage from "../common/optmized-image";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 function calculateGap(width) {
   const minWidth = 1024;
@@ -18,28 +19,16 @@ function calculateGap(width) {
 export const CircularTestimonials = ({
   testimonials,
   autoplay = true,
-  colors = {},
   onIndexChange, // Add this prop
 }) => {
-  // Color & font config
-  const colorArrowBg = colors.arrowBackground ?? "#141414";
-  const colorArrowFg = colors.arrowForeground ?? "#f1f1f7";
-  const colorArrowHoverBg = colors.arrowHoverBackground ?? "#00a6fb";
-
   // State
   const [activeIndex, setActiveIndex] = useState(0);
-  const [hoverPrev, setHoverPrev] = useState(false);
-  const [hoverNext, setHoverNext] = useState(false);
   const [containerWidth, setContainerWidth] = useState(1200);
 
   const imageContainerRef = useRef(null);
   const autoplayIntervalRef = useRef(null);
 
   const testimonialsLength = useMemo(() => testimonials.length, [testimonials]);
-  const activeTestimonial = useMemo(
-    () => testimonials[activeIndex],
-    [activeIndex, testimonials],
-  );
 
   // Notify parent when index changes
   useEffect(() => {
@@ -77,16 +66,6 @@ export const CircularTestimonials = ({
     };
   }, [autoplay, testimonialsLength, activeIndex, onIndexChange]);
 
-  // Keyboard navigation
-  useEffect(() => {
-    const handleKey = (e) => {
-      if (e.key === "ArrowLeft") handlePrev();
-      if (e.key === "ArrowRight") handleNext();
-    };
-    window.addEventListener("keydown", handleKey);
-    return () => window.removeEventListener("keydown", handleKey);
-  }, [activeIndex, testimonialsLength]);
-
   // Navigation handlers
   const handleNext = useCallback(() => {
     const newIndex = (activeIndex + 1) % testimonialsLength;
@@ -110,6 +89,8 @@ export const CircularTestimonials = ({
     }
   }, [activeIndex, testimonialsLength, autoplay, onIndexChange]);
 
+
+
   const handlePrev = useCallback(() => {
     const newIndex =
       (activeIndex - 1 + testimonialsLength) % testimonialsLength;
@@ -132,7 +113,15 @@ export const CircularTestimonials = ({
       }
     }
   }, [activeIndex, testimonialsLength, autoplay, onIndexChange]);
-
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKey = (e) => {
+      if (e.key === "ArrowLeft") handlePrev();
+      if (e.key === "ArrowRight") handleNext();
+    };
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, [activeIndex, testimonialsLength, handleNext, handlePrev]);
   // Compute transforms for each image
   function getImageStyle(index) {
     const gap = calculateGap(containerWidth);
@@ -198,13 +187,12 @@ export const CircularTestimonials = ({
           className="relative w-full w-[280px] min-w-[400px] h-60 md:h-96 perspective-[1000px] overflow-visible"
         >
           {testimonials.map((testimonial, index) => (
-            <img
+            <OptimizedImage
               key={testimonial.src}
               src={testimonial.src}
               alt={testimonial.name || "Testimonial image"}
               className="absolute left-1/2 w-[280px] md:w-[400px] h-full -translate-x-1/2 rounded-3xl object-contain transition-all duration-700"
               style={getImageStyle(index)}
-              loading="lazy"
             />
           ))}
 

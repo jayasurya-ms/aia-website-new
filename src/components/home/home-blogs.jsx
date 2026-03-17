@@ -5,6 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { Button } from "@/components/ui/button";
 import { BASE_URL } from "@/api/base-url";
+import OptimizedImage from "../common/optmized-image";
 
 const HomeBlog = () => {
   const carouselRef = React.useRef(null);
@@ -108,14 +109,13 @@ const HomeBlog = () => {
                     >
                       <div className="overflow-hidden rounded-lg border border-[#F3831C]/20 bg-white shadow-sm">
                         <div className="relative ">
-                          <img
+                          <OptimizedImage
                             src={imageUrl}
                             alt={blog.blog_images_alt || blog.blog_heading}
                             className="h-auto w-full object-contain transition-transform duration-300 md:group-hover:scale-105 md:grayscale md:hover:grayscale-0 "
                             onError={(e) => {
                               e.target.src = noImageUrl;
                             }}
-                             loading="lazy"
                           />
                           <div className="absolute bottom-2 right-2 rounded-md bg-[#F3831C] px-2 py-1 text-xs font-semibold text-white">
                             {blog.blog_course}

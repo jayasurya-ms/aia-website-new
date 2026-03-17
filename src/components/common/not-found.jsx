@@ -2,11 +2,6 @@ import { ArrowLeft } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-const styles = {
-  "@import":
-    "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap",
-};
-
 const ORANGE = "#F3831C";
 const NAVY = "#0F3652";
 
@@ -155,8 +150,8 @@ export default function NotFound() {
                 marginBottom: 40,
               }}
             >
-              The page you're looking for may have been moved, renamed, or is
-              temporarily unavailable. Let's get you back on track.
+              The page you&apos;re looking for may have been moved, renamed, or is
+              temporarily unavailable. Let&apos;s get you back on track.
             </p>
           </FadeUp>
 

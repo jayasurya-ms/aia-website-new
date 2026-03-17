@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import OptimizedImage from "../common/optmized-image";
 
 export const TestimonialsColumn = (props, className) => {
   const getCourseName = (course) => {
@@ -102,10 +103,9 @@ export const TestimonialsColumn = (props, className) => {
                     <div
                       className={`h-[28vw] sm:h-[18vw] md:h-44 lg:h-56  w-full relative ${className}`}
                     >
-                      <img
+                      <OptimizedImage
                         src={image}
                         alt={alt}
-                        decoding="async"
                         className="h-full w-full object-top object-cover"
                       />
                       <div
@@ -125,11 +125,11 @@ export const TestimonialsColumn = (props, className) => {
                             {student_designation}
                           </span>
                         </div>
-                        <img
+                        <OptimizedImage
                           src={comapany_image}
                           alt={company_alt}
-                          decoding="async"
                           className="h-5 w-5 sm:h-6 sm:w-6 lg:h-8 lg:w-8 object-contain flex-shrink-0"
+                          sizes="32px"
                         />
                       </div>
                     </div>

@@ -3,6 +3,7 @@ import { ChevronLeft, ChevronRight, ArrowUpRight } from "lucide-react";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import { BASE_URL } from "@/api/base-url";
+import OptimizedImage from "@/components/common/optmized-image";
 
 export default function HomeHero({ slug, bottombar = false }) {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -155,15 +156,15 @@ export default function HomeHero({ slug, bottombar = false }) {
                   : "opacity-0 absolute inset-0 z-0"
               }`}
             >
-              <img
+              <OptimizedImage
                 src={slide.imageUrl}
                 alt={slide.alt}
+                priority={index === 0}
                 className="w-full h-auto object-cover"
                 onError={(e) => {
                   e.target.src =
                     "https://via.placeholder.com/1200x400?text=Banner";
                 }}
-                loading="lazy"
               />
             </a>
           ))}

@@ -16,17 +16,14 @@ import {
   TrendingUp,
 } from "lucide-react";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 const Blog = () => {
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [imageBaseUrl, setImageBaseUrl] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("ALL");
   const [showAllTrending, setShowAllTrending] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [searchTerm, setSearchTerm] = useState("");
-  const navigate = useNavigate();
   const [showDropdown, setShowDropdown] = useState(false);
 
   const fetchBlogs = async () => {
@@ -91,15 +88,6 @@ const Blog = () => {
     CFE: "Certified Fraud Examiner",
     CIA: "Certified Internal Auditor",
     CAMS: "Certified Anti Money Laundering Specialist",
-  };
-
-  const formatDate = (dateString) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString("en-US", {
-      month: "short",
-      day: "numeric",
-      year: "numeric",
-    });
   };
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -325,6 +313,7 @@ const Blog = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
                     {trendingBlogs.map((blog) => (
                       <BlogCard
+                        key={blog.id}
                         blog={blog}
                         handleBlogClick={handleBlogClick}
                         imageBaseUrl={imageBaseUrl}
@@ -367,11 +356,7 @@ const Blog = () => {
                   <button
                     key={category}
                     onClick={() => handleCategoryClick(category)}
-                    className={`px-6 py-2 cursor-pointer rounded-md text-sm transition-colors duration-200 ${
-                      selectedCategory === category
-                        ? "bg-[#0F3652] text-white"
-                        : "bg-[#0F3652]/10 text-[#0F3652] hover:bg-[#0F3652]/20"
-                    }`}
+                    className={`px-6 py-2 cursor-pointer rounded-md text-sm transition-colors duration-200 bg-[#0F3652]/10 text-[#0F3652] hover:bg-[#0F3652]/20`}
                     title={category}
                   >
                     {displayName}
@@ -381,8 +366,7 @@ const Blog = () => {
             </div>
           </div>
 
-          {selectedCategory === "ALL"
-            ? uniqueCategories.map((category) => {
+          {uniqueCategories.map((category) => {
                 const categoryBlogs = filteredBlogs
                   .filter((blog) => blog.blog_course === category)
                   .slice(0, 4);
@@ -416,13 +400,12 @@ const Blog = () => {
                     </div>
                   </div>
                 );
-              })
-            : null}
+              })}
           {filteredBlogs.length === 0 && (
             <div className="text-center py-12 border border-[#0F3652]/20 rounded-md bg-[#0F3652]/5">
               <BookOpen className="w-12 h-12 text-[#0F3652] mx-auto mb-4" />
               <p className="text-[#0F3652] text-lg font-medium">
-                No blogs found for "{searchTerm}"
+                No blogs found for &quot;{searchTerm}&quot;
               </p>
             </div>
           )}

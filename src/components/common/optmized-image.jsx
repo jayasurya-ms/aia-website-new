@@ -2,7 +2,7 @@
  * OptimizedImage.jsx
  * Drop-in replacement for <img> that:
  * 1. Generates responsive srcSet so browser downloads only the size it needs
- * 2. Adds fetchpriority, loading, decoding automatically based on priority prop
+ * 2. Adds fetchPriority, loading, decoding automatically based on priority prop
  * 3. Reduces 1920px banner being downloaded for a 1335px slot — saves ~246 KiB per banner
  *
  * Usage:
@@ -72,7 +72,7 @@ const OptimizedImage = ({
       width={width}
       height={height}
       loading={priority ? "eager" : "lazy"}
-      fetchpriority={priority ? "high" : "low"}
+      fetchPriority={priority ? "high" : "low"}
       decoding={priority ? "sync" : "async"}
       onError={onError}
       {...rest}

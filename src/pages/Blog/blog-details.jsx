@@ -5,16 +5,14 @@ import {
   ArrowLeft,
   Calendar,
   Clock,
-  Copy,
-  Image as ImageIcon,
+  Image as ImageIcon
 } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { ShareButtons } from "./share-button";
 
 const BlogDetails = () => {
   const { id } = useParams();
-  const navigate = useNavigate();
   const isScrollingProgrammatically = useRef(false);
   const scrollTimeout = useRef(null);
   const [blog, setBlog] = useState(null);
@@ -30,7 +28,7 @@ const BlogDetails = () => {
   const [email, setEmail] = useState("");
   const [subscriptionStatus, setSubscriptionStatus] = useState("");
   const [isSubscribing, setIsSubscribing] = useState(false);
-
+  const navigate = useNavigate()
   useEffect(() => {
     if (id) {
       fetchBlogDetails();
@@ -110,22 +108,22 @@ const BlogDetails = () => {
     document.head.appendChild(script);
 
     return () => {
-      if (metaDescription && metaDescription.parentNode === document.head) {
+      if (metaDescription && document.head.contains(metaDescription)) {
         document.head.removeChild(metaDescription);
       }
       const keywordsMeta = document.querySelector('meta[name="keywords"]');
-      if (keywordsMeta && keywordsMeta.parentNode === document.head) {
+      if (keywordsMeta && document.head.contains(keywordsMeta)) {
         document.head.removeChild(keywordsMeta);
       }
-      if (canonicalLink && canonicalLink.parentNode === document.head) {
+      if (canonicalLink && document.head.contains(canonicalLink)) {
         document.head.removeChild(canonicalLink);
       }
-      if (script && script.parentNode === document.head) {
+      if (script && document.head.contains(script)) {
         document.head.removeChild(script);
       }
       document.title = "AIA | Academy of Internal Audit";
     };
-  }, [blog, imageBaseUrl]);
+  }, [blog, imageBaseUrl, id]);
   useEffect(() => {
     const handleScroll = () => {
       if (isScrollingProgrammatically.current) return;
@@ -157,7 +155,7 @@ const BlogDetails = () => {
       if (scrollTimeout.current) clearTimeout(scrollTimeout.current);
     };
   }, []);
-  const fetchBlogDetails = async () => {
+  const fetchBlogDetails = useCallback(async () => {
     try {
       setLoading(true);
       const response = await axios.get(`${BASE_URL}/api/getBlogbySlug/${id}`);
@@ -184,15 +182,18 @@ const BlogDetails = () => {
       console.error("Error fetching blog details:", error);
       setLoading(false);
     }
-  };
+  }, [id]);
 
   const faqHeading = faq?.[0]?.faq_heading || "FAQs";
-  const faqItems =
-    faq?.map((item, index) => ({
-      id: `item-${index + 1}`,
-      question: item.faq_que,
-      answer: item.faq_ans,
-    })) || [];
+  const faqItems = useMemo(
+    () =>
+      faq?.map((item, index) => ({
+        id: `item-${index + 1}`,
+        question: item.faq_que,
+        answer: item.faq_ans,
+      })) || [],
+    [faq],
+  );
 
   useEffect(() => {
     if (faqItems.length > 0) {
@@ -271,8 +272,8 @@ const BlogDetails = () => {
       if (error.response) {
         setSubscriptionStatus(
           error.response.data.message ||
-            error.response.data.error ||
-            "Subscription failed. Please try again.",
+          error.response.data.error ||
+          "Subscription failed. Please try again.",
         );
       } else if (error.request) {
         setSubscriptionStatus("Network error. Please check your connection.");
@@ -319,7 +320,7 @@ const BlogDetails = () => {
 
       return () => clearInterval(interval);
     }
-  }, [students]);
+  }, [students.length]);
 
   const nextStudent = () => {
     setCurrentStudentIndex((prevIndex) =>
@@ -497,11 +498,10 @@ const BlogDetails = () => {
                       <li key={sub.id}>
                         <button
                           onClick={(e) => scrollToSection(index, e)}
-                          className={`w-full text-left p-1 rounded text-sm transition-colors ${
-                            activeSection === index
-                              ? "bg-[#F3831C]/10 text-[#F3831C] border-l-4 border-[#F3831C]"
-                              : "text-[#0F3652] hover:bg-[#0F3652]/5"
-                          }`}
+                          className={`w-full text-left p-1 rounded text-sm transition-colors ${activeSection === index
+                            ? "bg-[#F3831C]/10 text-[#F3831C] border-l-4 border-[#F3831C]"
+                            : "text-[#0F3652] hover:bg-[#0F3652]/5"
+                            }`}
                         >
                           {sub.blog_sub_heading || `Section ${index + 1}`}
                         </button>
@@ -529,11 +529,10 @@ const BlogDetails = () => {
                       <button
                         type="submit"
                         disabled={isSubscribing}
-                        className={`w-full py-3 ${
-                          isSubscribing
-                            ? "bg-[#F3831C]/70"
-                            : "bg-[#F3831C] hover:bg-[#F3831C]/90"
-                        } text-white font-semibold rounded-2xl transition-colors disabled:cursor-not-allowed`}
+                        className={`w-full py-3 ${isSubscribing
+                          ? "bg-[#F3831C]/70"
+                          : "bg-[#F3831C] hover:bg-[#F3831C]/90"
+                          } text-white font-semibold rounded-2xl transition-colors disabled:cursor-not-allowed`}
                       >
                         {isSubscribing ? "Subscribing..." : "Subscribe"}
                       </button>
@@ -541,11 +540,10 @@ const BlogDetails = () => {
 
                     {subscriptionStatus && (
                       <div
-                        className={`text-sm ${
-                          subscriptionStatus.includes("Success")
-                            ? "text-[#F3831C]"
-                            : "text-[#F3831C]"
-                        } font-medium text-center`}
+                        className={`text-sm ${subscriptionStatus.includes("Success")
+                          ? "text-[#F3831C]"
+                          : "text-[#F3831C]"
+                          } font-medium text-center`}
                       >
                         {subscriptionStatus}
                       </div>
@@ -561,11 +559,10 @@ const BlogDetails = () => {
           <main
             className={`
             ${blog.web_blog_subs?.length > 0 ? "lg:w-3/4" : "w-full"} 
-            ${
-              blog.web_blog_subs?.length > 0 && relatedBlogs.length > 0
+            ${blog.web_blog_subs?.length > 0 && relatedBlogs.length > 0
                 ? "lg:w-2/4"
                 : ""
-            }
+              }
           `}
           >
             {/* {blog.web_blog_subs?.length > 0 ? (
@@ -633,9 +630,8 @@ const BlogDetails = () => {
                       className="scroll-mt-[120px]"
                     >
                       <HeadingTag
-                        className={`${sizeClasses[HeadingTag]} mb-6 text-[#0F3652] ${
-                          HeadingTag !== "p" ? "pb-3 border-b" : ""
-                        }`}
+                        className={`${sizeClasses[HeadingTag]} mb-6 text-[#0F3652] ${HeadingTag !== "p" ? "pb-3 border-b" : ""
+                          }`}
                       >
                         {sub.blog_sub_heading || `Section ${index + 1}`}
                       </HeadingTag>
@@ -733,9 +729,8 @@ const BlogDetails = () => {
                         <div
                           className="flex transition-transform duration-700 ease-out"
                           style={{
-                            transform: `translateX(-${
-                              currentStudentIndex * 100
-                            }%)`,
+                            transform: `translateX(-${currentStudentIndex * 100
+                              }%)`,
                           }}
                         >
                           {students.map((student, index) => (

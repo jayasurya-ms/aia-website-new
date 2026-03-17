@@ -17,7 +17,6 @@ const CourseTopStudent = ({
     data: prdata,
     isLoading,
     isError,
-    refetch,
   } = useQuery({
     queryKey: ["pr-data"],
     queryFn: async () => {

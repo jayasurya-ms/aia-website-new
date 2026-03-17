@@ -55,9 +55,10 @@ const PopUp = ({ slug = "home" }) => {
   };
 
   useEffect(() => {
+    // Reduced initial delay for fetching popup data
     const timer = setTimeout(() => {
       fetchPopupData();
-    }, 3000);
+    }, 1000);
 
     return () => clearTimeout(timer);
   }, [slug]);
@@ -107,9 +108,10 @@ const PopUp = ({ slug = "home" }) => {
 
   useEffect(() => {
     if (showPopupAfterLoad) {
+      // Significantly reduced delay after image is loaded
       const timer = setTimeout(() => {
         setOpen(true);
-      }, 5000);
+      }, 500);
 
       return () => clearTimeout(timer);
     }
@@ -214,6 +216,7 @@ const PopUp = ({ slug = "home" }) => {
                 alt={popupData.popup_image_alt}
                 className={`${popupData.popup_heading ? "rounded-b-lg" : "rounded-lg"} w-full h-auto`}
                 loading="eager"
+                fetchPriority="high"
               />
             )}
           </div>

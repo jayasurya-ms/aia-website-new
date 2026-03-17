@@ -1,11 +1,11 @@
 import { BASE_URL } from "@/api/base-url";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import FaqSection from "../common/faq-section";
 
 const HomeFaq = () => {
-  const { data, isLoading, isError, refetch } = useQuery({
+  const { data, isLoading, isError } = useQuery({
     queryKey: ["aia-faq"],
     queryFn: async () => {
       const res = await axios.get(`${BASE_URL}/api/getFAQbySlug/home`);
@@ -13,14 +13,17 @@ const HomeFaq = () => {
     },
   });
   const faqHeading = data?.data?.[0]?.faq_heading;
-  const faqItems =
-    data?.data?.map((item, index) => ({
-      id: `item-${index + 1}`,
-      question: item.faq_que,
-      answer: item.faq_ans,
-      heading: item.faq_heading,
-      sort: item.faq_sort,
-    })) || [];
+  const faqItems = useMemo(
+    () =>
+      data?.data?.map((item, index) => ({
+        id: `item-${index + 1}`,
+        question: item.faq_que,
+        answer: item.faq_ans,
+        heading: item.faq_heading,
+        sort: item.faq_sort,
+      })) || [],
+    [data?.data],
+  );
   useEffect(() => {
     if (faqItems.length > 0) {
       const existingScript = document.querySelector(

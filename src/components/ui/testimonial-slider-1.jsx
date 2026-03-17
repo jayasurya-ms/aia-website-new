@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react";
 import { useCallback, useMemo, useState } from "react";
+import OptimizedImage from "../common/optmized-image";
 export const TestimonialSlider = ({ reviews, className }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState("right");
@@ -131,11 +132,11 @@ export const TestimonialSlider = ({ reviews, className }) => {
                   onClick={() => handleThumbnailClick(originalIndex)}
                   className="overflow-hidden rounded-md w-full h-20 opacity-70 hover:opacity-100"
                 >
-                  <img
+                  <OptimizedImage
                     src={review.thumbnailSrc}
                     alt={review.name}
                     className="w-full h-full object-cover"
-                    loading="lazy"
+                    sizes="100px"
                   />
                 </button>
               );
@@ -170,7 +171,7 @@ export const TestimonialSlider = ({ reviews, className }) => {
           </p>
           <h3 className="text-2xl font-semibold mt-1">{activeReview.name}</h3>
           <blockquote className="text-lg leading-snug text-justify">
-            "{activeReview.quote}"
+            &quot;{activeReview.quote}&quot;
           </blockquote>
         </div>
       </div>
@@ -199,14 +200,14 @@ export const TestimonialSlider = ({ reviews, className }) => {
                   className="overflow-hidden rounded-md w-16 h-20 md:w-20 md:h-24 opacity-70 hover:opacity-100 transition-opacity duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
                   aria-label={`View review from ${review.name}`}
                 >
-                  <img
+                  <OptimizedImage
                     src={review.thumbnailSrc}
                     alt={review.name}
-                    loading="lazy"
                     width="80"
                     height="96"
                     className="w-full h-full object-cover"
                     onLoad={() => handleImageLoad(review.thumbnailSrc)}
+                    sizes="80px"
                   />
                 </button>
               );
@@ -253,12 +254,12 @@ export const TestimonialSlider = ({ reviews, className }) => {
                   className="overflow-hidden rounded-md w-16 h-20 opacity-70 hover:opacity-100 transition-opacity duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
                   aria-label={`View review from ${review.name}`}
                 >
-                  <img
+                  <OptimizedImage
                     src={review.thumbnailSrc}
                     alt={review.name}
-                    loading="lazy"
                     className="w-full h-full object-cover"
                     onLoad={() => handleImageLoad(review.thumbnailSrc)}
+                    sizes="64px"
                   />
                 </button>
               );
@@ -306,7 +307,7 @@ export const TestimonialSlider = ({ reviews, className }) => {
                   {activeReview.name}
                 </h3>
                 <blockquote className="mt-6 text-xl md:text-2xl  leading-snug text-justify">
-                  "{activeReview.quote}"
+                  &quot;{activeReview.quote}&quot;
                 </blockquote>
               </motion.div>
             </AnimatePresence>

@@ -10,7 +10,6 @@ export function TestimonialsSectionColor({
   testimonials,
   className,
   sucessstory,
-  customDuration,
   imageclassName,
 }) {
   const marqueeRef = useRef(null);

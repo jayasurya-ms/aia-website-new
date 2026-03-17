@@ -6,6 +6,7 @@ import axios from "axios";
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import SectionHeading from "../SectionHeading/SectionHeading";
+import OptimizedImage from "../common/optmized-image";
 
 const HomeCorporatePartner = () => {
   const location = useLocation();
@@ -60,11 +61,10 @@ const HomeCorporatePartner = () => {
                 <div className="grid max-w-340 mx-auto md:grid-cols-2 gap-8 items-center mt-10">
                   <div className="order-2 md:order-1">
                     <div className="p-1">
-                      <img
+                      <OptimizedImage
                         src={`${imageBaseUrl}${effortsData?.data?.[2]?.efforts_image}`}
                         alt={effortsData?.data?.[2]?.efforts_heading}
                         className="w-full  md:h-[340px]  object-contain"
-                        loading="lazy"
                       />
                     </div>
                   </div>
@@ -93,11 +93,10 @@ const HomeCorporatePartner = () => {
 
                 <div>
                   <div className="p-1">
-                    <img
+                    <OptimizedImage
                       src={`${imageBaseUrl}${effortsData?.data[0]?.efforts_image}`}
                       alt={effortsData?.data[0]?.efforts_heading}
                       className="w-full md:h-[340px] object-contain"
-                      loading="lazy"
                     />
                   </div>
                 </div>
@@ -119,11 +118,10 @@ const HomeCorporatePartner = () => {
                   </div>
                   <div>
                     <div className="p-1">
-                      <img
+                      <OptimizedImage
                         src={`${imageBaseUrl}${effortsData?.data[1]?.efforts_image}`}
                         alt={effortsData?.data[1]?.efforts_heading}
                         className="w-full md:h-[340px]  object-contain"
-                        loading="lazy"
                       />
                     </div>
                   </div>

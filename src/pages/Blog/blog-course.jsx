@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useCallback, useMemo } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import axios from "axios";
-import { Calendar, ArrowRight, Clock, ArrowLeft, Search } from "lucide-react";
 import { BASE_URL, IMAGE_PATH } from "@/api/base-url";
+import axios from "axios";
+import { ArrowRight, Calendar, Clock } from "lucide-react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
+import { useParams } from "react-router-dom";
 
 const BlogCard = React.memo(({ blog, imageBaseUrl, onClick }) => {
   const formatDate = useCallback((dateString) => {
@@ -124,6 +124,12 @@ const EmptyState = ({ searchQuery, categoryName, onClearSearch }) => (
   </div>
 );
 
+const COURSE_NAME_MAP = {
+  CFE: "Certified Fraud Examiner",
+  CIA: "Certified Internal Auditor",
+  CAMS: "Certified Anti Money Laundering Specialist",
+};
+
 const BlogCourse = () => {
   const { courseName } = useParams();
   const course = courseName?.toUpperCase();
@@ -188,12 +194,8 @@ const BlogCourse = () => {
     };
 
     filterBlogs();
-  }, [searchQuery, blogs, course]);
-  const COURSE_NAME_MAP = {
-    CFE: "Certified Fraud Examiner",
-    CIA: "Certified Internal Auditor",
-    CAMS: "Certified Anti Money Laundering Specialist",
-  };
+  }, [searchQuery, blogs, course, courseName]);
+
 
   const displayCategoryName = useMemo(() => {
     if (!course) return "";
