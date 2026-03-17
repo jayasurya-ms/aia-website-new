@@ -58,14 +58,14 @@ const FreeResourceReview = lazy(() =>
 );
 
 const FreeResources = () => {
-  const refs = {
-    youtube: useRef(null),
-    flash: useRef(null),
-    practice: useRef(null),
-    achievers: useRef(null),
-    alumni: useRef(null),
-    review: useRef(null),
-  };
+  const refs = useRef({
+    youtube: { current: null },
+    flash: { current: null },
+    practice: { current: null },
+    achievers: { current: null },
+    alumni: { current: null },
+    review: { current: null },
+  }).current;
 
   const [visible, setVisible] = useState({});
 
@@ -101,7 +101,7 @@ const FreeResources = () => {
     });
 
     return () => observer.disconnect();
-  }, []);
+  }, [refs]);
 
   return (
     <>

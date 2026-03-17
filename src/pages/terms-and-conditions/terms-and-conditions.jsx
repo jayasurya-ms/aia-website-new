@@ -37,13 +37,13 @@ const TermsAndConditions = () => {
             </p>
             <div className="space-y-6 text-justify text-gray-800">
               <p>
-                The Website Owner, including subsidiaries and affiliates ("Website" or "Website Owner" or "we" or "us" or "our") provides the information contained on the website or any of the pages comprising the website ("website") to visitors ("visitors") (cumulatively referred to as "you" or "your" hereinafter) subject to the terms and conditions set out in these website terms and conditions, the privacy policy and any other relevant terms and conditions, policies and notices which may be applicable to a specific section or module of the website.
+                The Website Owner, including subsidiaries and affiliates (&quot;Website&quot; or &quot;Website Owner&quot; or &quot;we&quot; or &quot;us&quot; or &quot;our&quot;) provides the information contained on the website or any of the pages comprising the website (&quot;website&quot;) to visitors (&quot;visitors&quot;) (cumulatively referred to as &quot;you&quot; or &quot;your&quot; hereinafter) subject to the terms and conditions set out in these website terms and conditions, the privacy policy and any other relevant terms and conditions, policies and notices which may be applicable to a specific section or module of the website.
               </p>
               <p>
-                Welcome to our website. If you continue to browse and use this website you are agreeing to comply with and be bound by the following terms and conditions of use, which together with our privacy policy govern Academy of Internal Audit's relationship with you in relation to this website.
+                Welcome to our website. If you continue to browse and use this website you are agreeing to comply with and be bound by the following terms and conditions of use, which together with our privacy policy govern Academy of Internal Audit&apos;s relationship with you in relation to this website.
               </p>
               <p>
-                The term 'Academy of Internal Audit' or 'us' or 'we' refers to the owner of the website whose registered/operational office is C-826, 8th Floor, Vipul Plaza, Sec-81, Faridabad, Haryana, India Faridabad HARYANA 121002. The term 'you' refers to the user or viewer of our website.
+                The term &apos;Academy of Internal Audit&apos; or &apos;us&apos; or &apos;we&apos; refers to the owner of the website whose registered/operational office is C-826, 8th Floor, Vipul Plaza, Sec-81, Faridabad, Haryana, India Faridabad HARYANA 121002. The term &apos;you&apos; refers to the user or viewer of our website.
               </p>
             </div>
           </div>
@@ -76,7 +76,7 @@ const TermsAndConditions = () => {
                 <span className="pl-2">From time to time this website may also include links to other websites. These links are provided for your convenience to provide further information.</span>
               </li>
               <li className="relative pl-2 before:absolute before:left-0 before:top-3 before:h-1.5 before:w-1.5 before:rounded-full before:bg-gray-800">
-                <span className="pl-2">You may not create a link to this website from another website or document without AIA Academy's prior written consent.</span>
+                <span className="pl-2">You may not create a link to this website from another website or document without AIA Academy&apos;s prior written consent.</span>
               </li>
               <li className="relative pl-2 before:absolute before:left-0 before:top-3 before:h-1.5 before:w-1.5 before:rounded-full before:bg-gray-800">
                 <span className="pl-2">Your use of this website and any dispute arising out of such use of the website is subject to the laws of India or other regulatory authority.</span>

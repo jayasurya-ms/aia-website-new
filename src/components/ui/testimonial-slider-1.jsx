@@ -171,7 +171,7 @@ export const TestimonialSlider = ({ reviews, className }) => {
           </p>
           <h3 className="text-2xl font-semibold mt-1">{activeReview.name}</h3>
           <blockquote className="text-lg leading-snug text-justify">
-            "{activeReview.quote}"
+            &quot;{activeReview.quote}&quot;
           </blockquote>
         </div>
       </div>
@@ -307,7 +307,7 @@ export const TestimonialSlider = ({ reviews, className }) => {
                   {activeReview.name}
                 </h3>
                 <blockquote className="mt-6 text-xl md:text-2xl  leading-snug text-justify">
-                  "{activeReview.quote}"
+                  &quot;{activeReview.quote}&quot;
                 </blockquote>
               </motion.div>
             </AnimatePresence>

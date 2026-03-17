@@ -195,7 +195,7 @@ const TestimonialCard = ({ position, testimonial, handleMove, cardSize }) => {
           isCenter ? "text-primary-foreground" : "text-foreground",
         )}
       >
-        "{testimonial.testimonial}"
+        &quot;{testimonial.testimonial}&quot;
       </h3>
       <p
         className={cn(

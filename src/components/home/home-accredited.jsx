@@ -20,7 +20,7 @@ const HomeAccredited = () => {
           <div className="grayscale hover:grayscale-0 flex items-center justify-center transition-transform duration-300 hover:scale-110">
             <a
               href="https://www.iao.org/India-Haryana/Academy-of-Internal-Audit"
-              target="_blank"
+              target="_blank" rel="noreferrer"
             >
               <OptimizedImage
                 src={`${IMAGE_PATH}/IAO.png`}
@@ -35,7 +35,7 @@ const HomeAccredited = () => {
           <div className="grayscale hover:grayscale-0 flex items-center justify-center transition-transform duration-300  scale-150 hover:scale-175">
             <a
               href="https://iiaindia.co/GlobalCertification/LearningPartner"
-              target="_blank"
+              target="_blank" rel="noreferrer"
             >
               <OptimizedImage
                 src={`${IMAGE_PATH}/IIA.png`}
@@ -70,7 +70,7 @@ const HomeAccredited = () => {
           <div className="grayscale hover:grayscale-0 flex items-center justify-center transition-transform duration-300 hover:scale-110">
             <a
               href="https://www.gsaaa.org/india/academy-of-internal-audit"
-              target="_blank"
+              target="_blank" rel="noreferrer"
             >
               <OptimizedImage
                 src={`${IMAGE_PATH}/GSAAA.png`}
@@ -88,7 +88,7 @@ const HomeAccredited = () => {
           <div className=" flex items-center justify-center">
             <a
               href="https://www.iao.org/India-Haryana/Academy-of-Internal-Audit"
-              target="_blank"
+              target="_blank" rel="noreferrer"
             >
               <OptimizedImage
                 src={`${IMAGE_PATH}/IAO.png`}
@@ -101,7 +101,7 @@ const HomeAccredited = () => {
           <div className="flex items-center justify-center">
             <a
               href="https://iiaindia.co/GlobalCertification/LearningPartner"
-              target="_blank"
+              target="_blank" rel="noreferrer"
             >
               <OptimizedImage
                 src={`${IMAGE_PATH}/IIA.png`}
@@ -130,7 +130,7 @@ const HomeAccredited = () => {
           <div className="col-span-2 flex items-center justify-center">
             <a
               href="https://www.gsaaa.org/india/academy-of-internal-audit"
-              target="_blank"
+              target="_blank" rel="noreferrer"
             >
               <OptimizedImage
                 src={`${IMAGE_PATH}/GSAAA.png`}

@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import SectionHeading from "../SectionHeading/SectionHeading";
 
-const ServiceCard = ({ service, i, progress, range, total }) => {
+const ServiceCard = ({ service, i, progress, total }) => {
   const start = i / total;
   const end = (i + 1) / total;
 
@@ -87,7 +87,7 @@ const HomeCourses = ({ certificationCourses }) => {
     });
 
     return () => unsubscribe();
-  }, [scrollYProgress]);
+  }, [scrollYProgress, ALL_SERVICES.length]);
   useEffect(() => {
     const handleScroll = () => {
       if (!container.current) return;
@@ -281,7 +281,6 @@ const HomeCourses = ({ certificationCourses }) => {
                   service={service}
                   i={i}
                   progress={scrollYProgress}
-                  range={[start, end]}
                   targetScale={targetScale}
                   total={ALL_SERVICES.length}
                 />

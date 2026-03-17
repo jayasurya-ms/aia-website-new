@@ -8,8 +8,6 @@ export function TestimonialCardColor({
   className,
   target,
   course,
-  cardWidth = 260,
-  cardHeight = 165,
 }) {
   const Card = href ? "a" : "div";
   const getCourseName = (course) => {
@@ -41,10 +39,10 @@ export function TestimonialCardColor({
     <Card
       {...(href
         ? {
-            href,
-            target: target || "_blank",
-            rel: "noopener noreferrer",
-          }
+          href,
+          target: target || "_blank",
+          rel: "noopener noreferrer",
+        }
         : {})}
       className={cn(
         "flex flex-col rounded-lg relative group",
@@ -52,7 +50,7 @@ export function TestimonialCardColor({
         "overflow-hidden",
         className
       )}
-      // style={{ width: cardWidth, height: cardHeight }}
+    // style={{ width: cardWidth, height: cardHeight }}
     >
       <div
         className={`absolute top-0 right-0 z-30 backdrop-blur-sm px-3 py-1 rounded-md text-xs font-semibold ${getCourseStyles(

@@ -19,28 +19,16 @@ function calculateGap(width) {
 export const CircularTestimonials = ({
   testimonials,
   autoplay = true,
-  colors = {},
   onIndexChange, // Add this prop
 }) => {
-  // Color & font config
-  const colorArrowBg = colors.arrowBackground ?? "#141414";
-  const colorArrowFg = colors.arrowForeground ?? "#f1f1f7";
-  const colorArrowHoverBg = colors.arrowHoverBackground ?? "#00a6fb";
-
   // State
   const [activeIndex, setActiveIndex] = useState(0);
-  const [hoverPrev, setHoverPrev] = useState(false);
-  const [hoverNext, setHoverNext] = useState(false);
   const [containerWidth, setContainerWidth] = useState(1200);
 
   const imageContainerRef = useRef(null);
   const autoplayIntervalRef = useRef(null);
 
   const testimonialsLength = useMemo(() => testimonials.length, [testimonials]);
-  const activeTestimonial = useMemo(
-    () => testimonials[activeIndex],
-    [activeIndex, testimonials],
-  );
 
   // Notify parent when index changes
   useEffect(() => {
@@ -78,16 +66,6 @@ export const CircularTestimonials = ({
     };
   }, [autoplay, testimonialsLength, activeIndex, onIndexChange]);
 
-  // Keyboard navigation
-  useEffect(() => {
-    const handleKey = (e) => {
-      if (e.key === "ArrowLeft") handlePrev();
-      if (e.key === "ArrowRight") handleNext();
-    };
-    window.addEventListener("keydown", handleKey);
-    return () => window.removeEventListener("keydown", handleKey);
-  }, [activeIndex, testimonialsLength]);
-
   // Navigation handlers
   const handleNext = useCallback(() => {
     const newIndex = (activeIndex + 1) % testimonialsLength;
@@ -111,6 +89,8 @@ export const CircularTestimonials = ({
     }
   }, [activeIndex, testimonialsLength, autoplay, onIndexChange]);
 
+
+
   const handlePrev = useCallback(() => {
     const newIndex =
       (activeIndex - 1 + testimonialsLength) % testimonialsLength;
@@ -133,7 +113,15 @@ export const CircularTestimonials = ({
       }
     }
   }, [activeIndex, testimonialsLength, autoplay, onIndexChange]);
-
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKey = (e) => {
+      if (e.key === "ArrowLeft") handlePrev();
+      if (e.key === "ArrowRight") handleNext();
+    };
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, [activeIndex, testimonialsLength, handleNext, handlePrev]);
   // Compute transforms for each image
   function getImageStyle(index) {
     const gap = calculateGap(containerWidth);

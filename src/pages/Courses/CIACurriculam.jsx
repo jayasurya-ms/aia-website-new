@@ -155,27 +155,27 @@ const CiaCurrFaq = lazy(
 );
 
 const CIACurriculam = () => {
-  const refs = {
-    topStudent: useRef(null),
-    curriculum: useRef(null),
-    result: useRef(null),
-    journey: useRef(null),
-    why: useRef(null),
-    whatsapp: useRef(null),
-    highlight: useRef(null),
-    map: useRef(null),
-    review: useRef(null),
-    youtube: useRef(null),
-    trainer: useRef(null),
-    lecture: useRef(null),
-    lms: useRef(null),
-    unique: useRef(null),
-    achievers: useRef(null),
-    blog: useRef(null),
-    connection: useRef(null),
-    alumni: useRef(null),
-    faq: useRef(null),
-  };
+  const refs = useRef({
+    topStudent: { current: null },
+    curriculum: { current: null },
+    result: { current: null },
+    journey: { current: null },
+    why: { current: null },
+    whatsapp: { current: null },
+    highlight: { current: null },
+    map: { current: null },
+    review: { current: null },
+    youtube: { current: null },
+    trainer: { current: null },
+    lecture: { current: null },
+    lms: { current: null },
+    unique: { current: null },
+    achievers: { current: null },
+    blog: { current: null },
+    connection: { current: null },
+    alumni: { current: null },
+    faq: { current: null },
+  }).current;
 
   const [visible, setVisible] = useState({});
 
@@ -210,7 +210,7 @@ const CIACurriculam = () => {
     });
 
     return () => observer.disconnect();
-  }, []);
+  }, [refs]);
 
   return (
     <div>

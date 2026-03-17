@@ -41,11 +41,10 @@ const CourseTopStudent = ({
     const studentImageUrl = studentImageUrlObj?.image_url || "";
 
     return camsPassoutData.data.map((student) => ({
-      src: `${
-        student.student_marks_image
-          ? studentImageUrl + student.student_marks_image
-          : studentNoImageUrlObj?.image_url || ""
-      }`,
+      src: `${student.student_marks_image
+        ? studentImageUrl + student.student_marks_image
+        : studentNoImageUrlObj?.image_url || ""
+        }`,
       alt: student.student_marks_image_alt || "Marks Image",
     }));
   }, [camsPassoutData]);

@@ -1,4 +1,4 @@
-/* eslint-disable no-unused-vars */
+ 
 import { motion } from "framer-motion";
 import { useState } from "react";
 import SectionHeading from "../SectionHeading/SectionHeading";

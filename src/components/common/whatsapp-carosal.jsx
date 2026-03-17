@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react";
-import React, {
+import {
   useCallback,
   useEffect,
   useMemo,
@@ -198,25 +198,7 @@ export const TestimonialSlider = ({
           </div>
         </div>
         <div className="md:col-span-4 relative h-80 min-h-[400px] md:min-h-[500px] order-2 md:order-2">
-          {/* <AnimatePresence initial={false} custom={direction}>
-            <motion.img
-              key={currentIndex}
-              src={activeReview.image}
-              alt={activeReview.alt || `Slide ${currentIndex + 1}`}
-              custom={direction}
-              variants={imageVariants}
-              initial="enter"
-              animate="center"
-              exit="exit"
-              loading={currentIndex === 0 ? "eager" : "lazy"}
-              fetchPriority={currentIndex === 0 ? "high" : "auto"}
-              width="400"
-              height="500"
-              transition={{ duration: 0.6, ease }}
-              className="absolute inset-0 w-full h-full object-cover rounded-lg"
-              onLoad={() => handleImageLoad(activeReview.image)}
-            />
-          </AnimatePresence> */}
+
           {isMdScreen ? (
             <AnimatePresence initial={false} custom={direction}>
               <motion.img
@@ -352,8 +334,8 @@ const WhatsappCarosal = ({ title, description, course }) => {
         {/* Mobile heading */}
         <div className="pt-4 min-h-[200px] md:hidden">
           <div className="flex flex-col items-center gap-3">
-            <div className="h-8 w-64 bg-gray-200 rounded animate-pulse" />
-            <div className="h-4 w-48 bg-gray-200 rounded animate-pulse" />
+            <Skeleton height={32} width={256} />
+            <Skeleton height={16} width={192} />
           </div>
         </div>
 
@@ -361,14 +343,16 @@ const WhatsappCarosal = ({ title, description, course }) => {
           {/* Left column — counter + left thumbs */}
           <div className="md:col-span-2 hidden md:flex flex-col justify-between">
             {/* Counter */}
-            <div className="h-4 w-12 bg-gray-200 rounded animate-pulse" />
+            <Skeleton height={16} width={48} />
 
             {/* Left thumbnails */}
             <div className="flex space-x-2 mt-8 md:mt-0">
               {[...Array(2)].map((_, i) => (
-                <div
+                <Skeleton
                   key={i}
-                  className="rounded-md w-16 h-20 md:w-20 md:h-36 bg-gray-200 animate-pulse"
+                  height={144}
+                  width={80}
+                  className="rounded-md"
                 />
               ))}
             </div>
@@ -376,30 +360,32 @@ const WhatsappCarosal = ({ title, description, course }) => {
 
           {/* Center — main image */}
           <div className="md:col-span-4 relative h-80 min-h-[400px] md:min-h-[500px] order-2">
-            <div className="absolute inset-0 bg-gray-200 animate-pulse rounded-lg" />
+            <Skeleton height="100%" className="rounded-lg" />
           </div>
 
           {/* Right column — heading + right thumbs + nav */}
           <div className="md:col-span-6 flex flex-col justify-between md:pl-8 order-3">
             {/* Desktop heading */}
             <div className="pt-4 min-h-[200px] hidden md:flex flex-col gap-3">
-              <div className="h-8 w-64 bg-gray-200 rounded animate-pulse" />
-              <div className="h-4 w-48 bg-gray-200 rounded animate-pulse" />
+              <Skeleton height={32} width={256} />
+              <Skeleton height={16} width={192} />
             </div>
 
             {/* Right thumbnails + nav buttons */}
             <div className="flex space-x-2 mt-8 md:mt-0 items-end">
               {[...Array(4)].map((_, i) => (
-                <div
+                <Skeleton
                   key={i}
-                  className="rounded-md w-16 h-20 md:w-20 md:h-36 bg-gray-200 animate-pulse"
+                  height={144}
+                  width={80}
+                  className="rounded-md"
                 />
               ))}
 
               {/* Nav buttons */}
               <div className="flex items-end ml-6 space-x-2">
-                <div className="w-12 h-12 rounded-full bg-gray-200 animate-pulse" />
-                <div className="w-12 h-12 rounded-full bg-gray-300 animate-pulse" />
+                <Skeleton circle height={48} width={48} />
+                <Skeleton circle height={48} width={48} />
               </div>
             </div>
           </div>

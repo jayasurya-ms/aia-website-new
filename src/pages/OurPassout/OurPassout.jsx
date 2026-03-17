@@ -51,13 +51,13 @@ const HomeAlumniWork = lazy(() =>
 );
 
 const OurPassout = () => {
-  const refs = {
-    success: useRef(null),
-    youtube: useRef(null),
-    whatsapp: useRef(null),
-    review: useRef(null),
-    alumni: useRef(null),
-  };
+  const refs = useRef({
+    success: { current: null },
+    youtube: { current: null },
+    whatsapp: { current: null },
+    review: { current: null },
+    alumni: { current: null },
+  }).current;
 
   const [visible, setVisible] = useState({});
 
@@ -93,7 +93,7 @@ const OurPassout = () => {
     });
 
     return () => observer.disconnect();
-  }, []);
+  }, [refs]);
 
   return (
     <div>

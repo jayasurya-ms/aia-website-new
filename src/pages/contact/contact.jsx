@@ -55,15 +55,15 @@ const ContactLocation = lazy(() =>
 );
 
 const Contact = () => {
-  const refs = {
-    highlight: useRef(null),
-    students: useRef(null),
-    alumni: useRef(null),
-    map: useRef(null),
-    unique: useRef(null),
-    review: useRef(null),
-    location: useRef(null),
-  };
+  const refs = useRef({
+    highlight: { current: null },
+    students: { current: null },
+    alumni: { current: null },
+    map: { current: null },
+    unique: { current: null },
+    review: { current: null },
+    location: { current: null },
+  }).current;
 
   const [visible, setVisible] = useState({});
 
@@ -99,7 +99,7 @@ const Contact = () => {
     });
 
     return () => observer.disconnect();
-  }, []);
+  }, [refs]);
 
   return (
     <div>
