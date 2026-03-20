@@ -29,7 +29,7 @@ const CourseTopStudent = ({
     if (!prdata?.data) return [];
 
     const studentImageUrlObj = prdata.image_url?.find(
-      (item) => item.image_for === "Pr",
+      (item) => item.image_for === "Pr"
     );
     const studentImageUrl = studentImageUrlObj?.image_url || "";
 
@@ -115,9 +115,7 @@ const CourseTopStudent = ({
         <div className="mb-8 text-center gap-4">
           <div className="relative z-30">
             <h2 className="text-3xl font-medium text-gray-900">
-              {needPrefix == "true" && (
-                <span>Recent Passout Students</span>
-              )}{" "}
+              {needPrefix == "true" && <span>Recent Passout Students</span>}{" "}
             </h2>
             <SectionHeading
               title={title}

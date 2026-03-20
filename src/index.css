@@ -43,7 +43,6 @@ body {
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
-
 }
 
 @theme inline {
@@ -145,6 +144,7 @@ body {
 .ck-content {
   line-height: 1.6;
   color: #374151;
+  overflow-x: auto;
 }
 
 .ck-content h1,
@@ -215,6 +215,7 @@ body {
   border-collapse: collapse;
   width: 100%;
   margin-bottom: 1em;
+  min-width: 100%; /* ✅ keeps normal tables full width */
 }
 
 .ck-content table th,
@@ -283,10 +284,12 @@ body {
 }
 
 .shimmer {
-  background: linear-gradient(90deg,
-      rgba(229, 231, 235, 0.9) 25%,
-      rgba(255, 255, 255, 0.6) 50%,
-      rgba(229, 231, 235, 0.9) 75%);
+  background: linear-gradient(
+    90deg,
+    rgba(229, 231, 235, 0.9) 25%,
+    rgba(255, 255, 255, 0.6) 50%,
+    rgba(229, 231, 235, 0.9) 75%
+  );
   background-size: 200% 100%;
   animation: shimmerMove 1.6s infinite linear;
 }
