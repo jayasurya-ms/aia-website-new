@@ -1,15 +1,14 @@
-import React, {
+import PopUp from "@/components/common/pop-up";
+import HomeHero from "@/components/home/home-hero";
+import certificationCourses from "@/data/certificationCourses";
+import {
   lazy,
   Suspense,
   useEffect,
   useRef,
   useState,
   useTransition,
-  useCallback,
 } from "react";
-import PopUp from "@/components/common/pop-up";
-import HomeHero from "@/components/home/home-hero";
-import certificationCourses from "@/data/certificationCourses";
 
 const homeAboutPromise = import("@/components/home/home-about");
 const homeContactPromise = import("@/components/home/home-contact");
@@ -21,20 +20,20 @@ const HomeCourses = lazy(() => import("@/components/home/home-courses"));
 const HomePassout = lazy(() => import("@/components/home/home-passout"));
 const HomeResults = lazy(() => import("@/components/home/home-results"));
 const HomeAccredited = lazy(() => import("@/components/home/home-accredited"));
-const WhatsappCarosal = lazy(
-  () => import("@/components/common/whatsapp-carosal"),
+const WhatsappCarosal = lazy(() =>
+  import("@/components/common/whatsapp-carosal")
 );
 const HomeReview = lazy(() => import("@/components/home/home-review"));
 const AllYoutube = lazy(() => import("@/components/common/get-all-youtube"));
-const HomeCorporatePartner = lazy(
-  () => import("@/components/home/home-corporate-partner"),
+const HomeCorporatePartner = lazy(() =>
+  import("@/components/home/home-corporate-partner")
 );
 const HomePrCarousel = lazy(() => import("@/components/home/home-pr-carousel"));
-const HomeAlumniWork = lazy(
-  () => import("@/components/home/home-alumini-work"),
+const HomeAlumniWork = lazy(() =>
+  import("@/components/home/home-alumini-work")
 );
-const CourseYoutubeLecture = lazy(
-  () => import("@/components/courses/common/course-youtube-lecture"),
+const CourseYoutubeLecture = lazy(() =>
+  import("@/components/courses/common/course-youtube-lecture")
 );
 const HomeBlogs = lazy(() => import("@/components/home/home-blogs"));
 const HomeFaq = lazy(() => import("@/components/home/home-faq"));
@@ -70,7 +69,7 @@ const LazySection = ({
           observer.unobserve(entry.target);
         }
       },
-      { threshold: 0, rootMargin },
+      { threshold: 0, rootMargin }
     );
 
     if (ref.current) observer.observe(ref.current);

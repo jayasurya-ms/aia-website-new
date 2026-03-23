@@ -112,7 +112,7 @@ const HomeBlog = () => {
                           <OptimizedImage
                             src={imageUrl}
                             alt={blog.blog_images_alt || blog.blog_heading}
-                            className="h-auto w-full object-contain transition-transform duration-300 md:group-hover:scale-105 md:grayscale md:hover:grayscale-0 "
+                            className="h-auto w-full object-contain transition-transform duration-300 lg:group-hover:scale-105 lg:grayscale lg:hover:grayscale-0 "
                             onError={(e) => {
                               e.target.src = noImageUrl;
                             }}

@@ -16,7 +16,7 @@ const HomeAccredited = () => {
 
       <div className="w-full py-10 bg-cover bg-center">
         {/* Desktop view  */}
-        <div className="hidden md:flex justify-center gap-20 px-6">
+        <div className="hidden lg:flex justify-center gap-20 px-6">
           <div className="grayscale hover:grayscale-0 flex items-center justify-center transition-transform duration-300 hover:scale-110">
             <a
               href="https://www.iao.org/India-Haryana/Academy-of-Internal-Audit"
@@ -84,7 +84,7 @@ const HomeAccredited = () => {
         </div>
 
         {/* Mobile view  */}
-        <div className="md:hidden grid grid-cols-2 gap-8 px-6 place-items-center">
+        <div className="lg:hidden grid grid-cols-2 gap-8 px-6 place-items-center">
           <div className=" flex items-center justify-center">
             <a
               href="https://www.iao.org/India-Haryana/Academy-of-Internal-Audit"
