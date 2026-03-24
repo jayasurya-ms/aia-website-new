@@ -28,7 +28,7 @@ const CfeCourseLms = ({ title, subtitle, course, buttonlabel, image }) => {
         "Attend weekly live query sessions with experienced industry faculty to clarify doubts, interact with peers, and gain practical insights that strengthen conceptual clarity and real-world fraud understanding.",
     },
     {
-      title: "What's Included in the AIA CFE Prep Course ?",
+      title: "Expert-curated Flash Cards.",
       description:
         "We’ve created 400+ easy-to-use flashcards to help learners revise key fraud concepts and definitions faster, making last-minute revision more focused, effective, and easier to retain.",
     },

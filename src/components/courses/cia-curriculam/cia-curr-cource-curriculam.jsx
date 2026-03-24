@@ -57,11 +57,12 @@ const eligibilityContent = `
 </p>
 
 <p class="mt-2">
-  <span class="font-bold">Note:</span>
-  If you're a beginner, this course may not be a good choice for you. But don't worry, you're still eligible for other courses.
-  <span class="text-blue-600 underline cursor-pointer">Explore other certifications.</span>
-</p>
-
+    <span class="font-bold">Note:</span>
+    If you're a beginner, this course may not be a good choice for you. But don't worry, you're still eligible for other courses.
+    <a href="/" class="text-blue-600 underline cursor-pointer hover:text-blue-800 transition-colors duration-200">
+      Explore other certifications.
+    </a>
+  </p>
 <p class="mt-2">
   <em>Not sure if you’re eligible? Consult with experts now!</em>
 </p>

@@ -5,7 +5,7 @@ import { IMAGE_PATH } from "@/api/base-url";
 const CfeJourney = () => {
   return (
     <CourseJourney
-      heading="  –"
+      heading="Your Complete Guide to CFE Mastery –"
       highlight="Value, Learning, Format"
       connectorImage={`${IMAGE_PATH}/step-line.webp`}
       steps={[

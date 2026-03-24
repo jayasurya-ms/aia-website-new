@@ -9,7 +9,7 @@ const CourseWhyAia = ({ heading, items }) => {
           <SectionHeading title={heading} align="center" />
         </div>
 
-        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-6 justify-items-center items-start">
+        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-6 justify-items-center items-start lg:place-items-center">
           {" "}
           {items.map((item, i) => (
             <DiamondCard key={i} img={item.img} title={item.title} />
@@ -23,7 +23,8 @@ const CourseWhyAia = ({ heading, items }) => {
 export default CourseWhyAia;
 
 const DiamondCard = ({ img, title }) => (
-  <div className="group w-full max-w-[160px]  lg:w-60 mx-auto flex flex-col items-center justify-center">
+  // <div className="group w-full max-w-[160px]  lg:w-60 mx-auto flex flex-col items-center justify-center">
+  <div className="group w-full max-w-[160px]  lg:max-w-[200px] mx-auto flex flex-col items-center justify-center">
     {/* Perfect square container */}
     <div className="relative w-full aspect-square">
       {/* Diamond */}

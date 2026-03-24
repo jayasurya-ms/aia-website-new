@@ -93,7 +93,7 @@ export default function App() {
                 path="/passout-stories/:slug"
                 element={<PassoutStoriesSlug />}
               />
-              <Route path="/enroll-now" element={<Enrool />} />
+              {/* <Route path="/enroll-now" element={<Enrool />} /> */}
               <Route
                 path="/corporate-training"
                 element={<CorporateTraining />}

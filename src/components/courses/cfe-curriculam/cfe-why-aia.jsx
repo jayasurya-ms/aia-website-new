@@ -12,7 +12,7 @@ const CfeWhyAia = () => {
         heading="Key Advantages of AIA CFE Prep Course"
         items={[
           {
-            img: `${IMAGE_PATH}/teacher-svgrepo-com.webp`,
+            img: `${IMAGE_PATH}/flash_card.webp`,
             title: "400+ Flash Cards",
           },
           {
@@ -24,7 +24,7 @@ const CfeWhyAia = () => {
             title: "Recorded Detailed Video Sessions",
           },
           {
-            img: `${IMAGE_PATH}/calender-svgrepo-com.webp`,
+            img: `${IMAGE_PATH}/exam_distractors.webp`,
             title: "Exclusive Exam Distractors",
           },
           {

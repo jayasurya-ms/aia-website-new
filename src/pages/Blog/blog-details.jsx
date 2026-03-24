@@ -5,6 +5,7 @@ import { ArrowLeft, Calendar, Clock, Image as ImageIcon } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { ShareButtons } from "./share-button";
+import OptimizedImage from "@/components/common/optmized-image";
 
 const BlogDetails = () => {
   const { id } = useParams();
@@ -506,7 +507,7 @@ const BlogDetails = () => {
                   </ul>
                 </nav>
 
-                <div className="max-w-md mx-auto p-1 space-y-4">
+                <div className="max-w-md mx-auto p-1 space-y-4 hidden lg:block">
                   <div className="space-y-2">
                     <h2 className="text-xl font-medium text-[#0F3652]">
                       Subscribe to Newsletter
@@ -619,9 +620,10 @@ const BlogDetails = () => {
             <BlogFaq title={faqHeading} faqs={faqItems} />
           </main>
 
-          {blog.web_blog_subs?.length > 0 && (
+          {/* {blog.web_blog_subs?.length > 0 && (
             <aside className="lg:w-1/4">
-              <div className=" sticky top-26">
+              <div className="sticky top-26">
+                
                 {relatedBlogs.length > 0 && (
                   <section className="border-[#0F3652]/20 ">
                     <div className="mb-2">
@@ -669,9 +671,6 @@ const BlogDetails = () => {
                                 <Calendar className="w-3 h-3" />
                                 {formatDate(relatedBlog.blog_created)}
                               </div>
-                              {/* <div className="flex items-center gap-1">
-                                <Clock className="w-3 h-3" />5 min read
-                              </div> */}
                             </div>
                           </div>
                         </div>
@@ -688,7 +687,7 @@ const BlogDetails = () => {
                     </h3>
 
                     <div className="relative group">
-                      <div className="overflow-hidden rounded-xl">
+                      <div className="overflow-hidden rounded-xl ">
                         <div
                           className="flex transition-transform duration-700 ease-out"
                           style={{
@@ -764,7 +763,255 @@ const BlogDetails = () => {
                 )}
               </div>
             </aside>
+          )} */}
+          {blog.web_blog_subs?.length > 0 && (
+            <aside className="w-full lg:w-1/4">
+              <div className="lg:sticky lg:top-26">
+                {/* Related Articles + Students: 2 col on md, 1 col on sm/lg */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-4">
+                  {/* Related Articles */}
+                  {relatedBlogs.length > 0 && (
+                    <section className="border-[#0F3652]/20">
+                      <div className="mb-2">
+                        <h3 className="text-xl sm:text-2xl font-bold text-[#0F3652]">
+                          Related Articles
+                        </h3>
+                        <p className="text-[#0F3652] text-sm sm:text-base">
+                          You might also be interested in these articles
+                        </p>
+                      </div>
+
+                      <div className="grid gap-2">
+                        {relatedBlogs.map((relatedBlog) => (
+                          <div
+                            key={relatedBlog.id}
+                            onClick={() =>
+                              handleRelatedBlogClick(relatedBlog.blog_slug)
+                            }
+                            className="flex gap-2 p-1 border border-[#0F3652]/20 rounded-md hover:border-[#F3831C] cursor-pointer transition-all group"
+                          >
+                            <div className="w-14 h-14 sm:w-16 sm:h-16 shrink-0 overflow-hidden rounded-md bg-[#0F3652]/10">
+                              <img
+                                src={`${imageBaseUrl}${relatedBlog.blog_images}`}
+                                alt={
+                                  relatedBlog.blog_images_alt ||
+                                  relatedBlog.blog_heading
+                                }
+                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                onError={(e) => {
+                                  e.target.src = `${IMAGE_PATH}/no_image.jpg`;
+                                }}
+                                loading="lazy"
+                              />
+                            </div>
+
+                            <div className="flex flex-col justify-between flex-1 min-w-0">
+                              <h4 className="text-sm sm:text-base font-semibold text-[#0F3652] line-clamp-2 group-hover:text-[#F3831C]">
+                                {relatedBlog.blog_heading}
+                              </h4>
+                              <div className="flex items-center gap-4 text-[#0F3652] text-xs mt-1">
+                                <div className="flex items-center gap-1">
+                                  <Calendar className="w-3 h-3" />
+                                  {formatDate(relatedBlog.blog_created)}
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </section>
+                  )}
+
+                  {/* Students Carousel */}
+                  {students.length > 0 && (
+                    <div className="bg-[#0F3652]/5 rounded-lg p-2 border border-[#0F3652]/20">
+                      <h3 className="font-semibold text-[#0F3652] mb-2">
+                        Recently Passed Out Students
+                      </h3>
+
+                      <div className="relative group w-full">
+                        <div className="overflow-hidden rounded-xl">
+                          <div
+                            className="flex transition-transform duration-700 ease-out"
+                            style={{
+                              transform: `translateX(-${
+                                currentStudentIndex * 100
+                              }%)`,
+                            }}
+                          >
+                            {students.map((student, index) => (
+                              <div key={index} className="min-w-full">
+                                <div className="relative w-full aspect-[3/4] sm:aspect-square overflow-hidden rounded-xl">
+                                  <OptimizedImage
+                                    src={`${studentImageBaseUrl}${student.student_image}`}
+                                    alt={
+                                      student.student_image_alt ||
+                                      student.student_name
+                                    }
+                                    className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-1000 ease-out group-hover:scale-105"
+                                    priority={index === 0}
+                                    onError={(e) => {
+                                      e.target.src = `${IMAGE_PATH}/no_image.jpg`;
+                                    }}
+                                  />
+
+                                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-transparent" />
+
+                                  <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 transition-opacity duration-300 group-hover:opacity-0">
+                                    <div className="flex flex-col items-center text-center">
+                                      <h4 className="font-semibold text-white text-base sm:text-lg mb-1 line-clamp-2">
+                                        {student.student_name}
+                                      </h4>
+                                    </div>
+                                  </div>
+
+                                  {student.student_course && (
+                                    <span
+                                      className={`absolute top-0 right-0 ${getCourseColor(
+                                        student.student_course
+                                      )} text-xs sm:text-sm font-medium px-2.5 sm:px-4 py-1 sm:py-1.5 rounded-bl-md border-0 max-w-[65%] truncate`}
+                                    >
+                                      {student.student_course}
+                                    </span>
+                                  )}
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+
+                        {students.length > 1 && (
+                          <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div className="flex items-center justify-between">
+                              <button
+                                onClick={prevStudent}
+                                className="bg-black/60 hover:bg-black/80 backdrop-blur-sm rounded-full w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center transition-all hover:scale-110"
+                                aria-label="Previous student"
+                              >
+                                <ArrowLeft className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
+                              </button>
+
+                              <button
+                                onClick={nextStudent}
+                                className="bg-black/60 hover:bg-black/80 backdrop-blur-sm rounded-full w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center transition-all hover:scale-110"
+                                aria-label="Next student"
+                              >
+                                <ArrowLeft className="w-3 h-3 sm:w-4 sm:h-4 text-white rotate-180" />
+                              </button>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  )}
+                </div>
+                {/* end inner grid */}
+              </div>
+            </aside>
           )}
+          <div className="p-4 space-y-6 lg:hidden">
+            <div className="bg-white rounded-2xl border border-[#0F3652]/10 p-6 shadow-sm">
+              <h2 className="text-xl md:text-2xl font-semibold text-[#0F3652] mb-4">
+                Subscribe to Newsletter
+              </h2>
+
+              <form onSubmit={handleSubscribe} className="space-y-4">
+                <div className="flex flex-col md:flex-row gap-3">
+                  <input
+                    type="email"
+                    placeholder="Enter your email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="flex-1 px-4 py-3 md:py-3.5 border border-[#0F3652]/30 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#F3831C] focus:border-transparent text-[#0F3652] placeholder-[#0F3652]/50 transition-all"
+                    required
+                  />
+
+                  <button
+                    type="submit"
+                    disabled={isSubscribing}
+                    className={`md:w-auto md:px-8 py-3 md:py-3.5 ${
+                      isSubscribing
+                        ? "bg-[#F3831C]/70"
+                        : "bg-[#F3831C] hover:bg-[#F3831C]/90"
+                    } text-white font-semibold rounded-xl transition-all disabled:cursor-not-allowed whitespace-nowrap shadow-md hover:shadow-lg`}
+                  >
+                    {isSubscribing ? (
+                      <span className="flex items-center justify-center gap-2">
+                        <svg
+                          className="animate-spin h-4 w-4"
+                          viewBox="0 0 24 24"
+                        >
+                          <circle
+                            className="opacity-25"
+                            cx="12"
+                            cy="12"
+                            r="10"
+                            stroke="currentColor"
+                            strokeWidth="4"
+                            fill="none"
+                          />
+                          <path
+                            className="opacity-75"
+                            fill="currentColor"
+                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                          />
+                        </svg>
+                        Subscribing...
+                      </span>
+                    ) : (
+                      "Subscribe"
+                    )}
+                  </button>
+                </div>
+
+                {subscriptionStatus && (
+                  <div
+                    className={`flex items-center justify-center gap-2 p-3 rounded-lg ${
+                      subscriptionStatus.includes("Success")
+                        ? "bg-green-50 text-green-700 border border-green-200"
+                        : "bg-red-50 text-red-700 border border-red-200"
+                    } text-sm font-medium transition-all`}
+                  >
+                    {subscriptionStatus.includes("Success") ? (
+                      <svg
+                        className="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                    ) : (
+                      <svg
+                        className="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M6 18L18 6M6 6l12 12"
+                        />
+                      </svg>
+                    )}
+                    {subscriptionStatus}
+                  </div>
+                )}
+              </form>
+            </div>
+
+            {/* Share Buttons Section */}
+            <div className="bg-white rounded-2xl border border-[#0F3652]/10 p-6 shadow-sm">
+              <ShareButtons />
+            </div>
+          </div>
         </div>
       </div>
     </div>
