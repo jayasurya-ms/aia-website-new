@@ -44,7 +44,7 @@ const CourseJourney = ({ heading, highlight, steps, connectorImage }) => {
                       {step.title}
                     </h4>
 
-                    <ul className="text-xs md:text-sm leading-relaxed pl-4 md:pl-6 lg:pl-10 space-y-1 list-disc list-inside">
+                    <ul className="text-xs md:text-sm leading-relaxed pl-2 md:pl-6 lg:pl-8 space-y-1 list-disc list-inside">
                       {step.items.map((item, i) => (
                         <li key={i} className="break-words">
                           {item}

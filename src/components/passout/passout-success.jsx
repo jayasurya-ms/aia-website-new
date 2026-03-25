@@ -2,11 +2,28 @@ import { BASE_URL, IMAGE_PATH } from "@/api/base-url";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { ArrowDown, ArrowUp } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SectionHeading from "../SectionHeading/SectionHeading";
+const useItemsPerLoad = () => {
+  const getCount = () => {
+    if (typeof window === "undefined") return 3;
+    if (window.innerWidth >= 1024) return 3; // lg: 3-col grid
+    if (window.innerWidth >= 768) return 4; // md: 2-col grid (2+2)
+    return 1; // sm: 1-col grid
+  };
 
+  const [itemsPerLoad, setItemsPerLoad] = useState(getCount);
+
+  useEffect(() => {
+    const handleResize = () => setItemsPerLoad(getCount());
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  return itemsPerLoad;
+};
 const PassoutSuccess = () => {
-  const ITEMS_PER_LOAD = 3;
+  const ITEMS_PER_LOAD = useItemsPerLoad();
   const courseColors = {
     CFE: "#93c0e2",
     CIA: "#f2a966",
@@ -28,7 +45,7 @@ const PassoutSuccess = () => {
   const getImageUrl = (type) => {
     if (!studentStoriesData?.image_url) return "";
     const imageConfig = studentStoriesData.image_url.find(
-      (item) => item.image_for === type,
+      (item) => item.image_for === type
     );
     return imageConfig ? imageConfig.image_url : "";
   };
@@ -102,7 +119,7 @@ const PassoutSuccess = () => {
       ...prev,
       [course]: Math.min(
         (prev[course] || ITEMS_PER_LOAD) + ITEMS_PER_LOAD,
-        total,
+        total
       ),
     }));
   };

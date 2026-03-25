@@ -13,7 +13,7 @@ const ServiceCard = ({ service, i, progress, total }) => {
   return (
     <div
       ref={container}
-      className="min-h-screen flex items-center justify-center sticky md:top-36"
+      className="min-h-screen flex items-center justify-center sticky lg:top-36"
     >
       <motion.div
         style={{
@@ -105,9 +105,9 @@ const HomeCourses = ({ certificationCourses }) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   return (
-    <div className="max-w-340 mx-auto px-4 sm:px-6 lg:px-8 mt-4 md:-mb-46">
+    <div className="max-w-340 mx-auto px-4 sm:px-6 lg:px-8 mt-4 lg:-mb-46">
       {" "}
-      <div className="md:hidden">
+      <div className="lg:hidden">
         <SectionHeading
           title="Global Certification Programs Offered by AIA"
           align="center"
@@ -211,7 +211,7 @@ const HomeCourses = ({ certificationCourses }) => {
           </div>
         ))}
       </div>
-      <div className="hidden md:block">
+      <div className="hidden lg:block">
         <div
           className={`${
             scrollFinished ? "relative" : "sticky top-20"
@@ -224,13 +224,13 @@ const HomeCourses = ({ certificationCourses }) => {
           />
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12">
-          <div className="md:sticky md:top-55 md:h-screen md:flex md:flex-col md:justify-center">
+        <div className="grid lg:grid-cols-2 gap-12">
+          <div className="lg:sticky lg:top-55 lg:h-screen lg:flex lg:flex-col lg:justify-center">
             <div className="h-full flex flex-col justify-between">
               <div>
                 <div className="transition-opacity duration-300 mb-20">
                   <h1
-                    className="text-xl md:text-3xl font-bold mb-3 leading-tight "
+                    className="text-xl lg:text-3xl font-bold mb-3 leading-tight "
                     style={{
                       color: ALL_SERVICES[activeCard]?.lefttextColor || "",
                     }}
@@ -258,7 +258,7 @@ const HomeCourses = ({ certificationCourses }) => {
                     </span>
                   </a>
 
-                  <div className="hidden md:flex items-center gap-4">
+                  <div className="hidden lg:flex items-center gap-4">
                     <div className="h-px w-16 bg-[#F3831C]"></div>
                     <p className="text-sm text-[#0F3652]/70">
                       Scroll to explore all courses

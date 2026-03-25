@@ -46,6 +46,7 @@ const CourseHighLight = ({
         </div>
 
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          {/* Mobile only (< 768px) */}
           <svg
             className="w-full h-full block md:hidden"
             viewBox="0 -60 400 900"
@@ -121,16 +122,17 @@ const CourseHighLight = ({
             </defs>
           </svg>
 
+          {/* MD only (768px – 1023px) */}
           <svg
-            className="w-full h-full hidden md:block"
-            viewBox="0 -60 1440 600"
+            className="w-full h-full hidden md:block lg:hidden"
+            viewBox="0 -60 1440 850"
             preserveAspectRatio="xMidYMid slice"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M0,200 C300,100 500,300 800,200 C1100,100 1200,300 1440,200 L1440,600 L0,600 Z"
-              fill="url(#waveGradient)"
+              d="M0,200 C300,100 500,300 800,200 C1100,100 1200,300 1440,200 L1440,850 L0,850 Z"
+              fill="url(#waveGradientMd)"
               fillOpacity="0.1"
             />
             <path
@@ -183,7 +185,83 @@ const CourseHighLight = ({
             </circle>
             <defs>
               <linearGradient
-                id="waveGradient"
+                id="waveGradientMd"
+                x1="0%"
+                y1="0%"
+                x2="100%"
+                y2="0%"
+              >
+                <stop offset="0%" stopColor="#F3831C" />
+                <stop offset="50%" stopColor="#0F3652" />
+                <stop offset="100%" stopColor="#F3831C" />
+              </linearGradient>
+            </defs>
+          </svg>
+
+          {/* LG+ only (1024px+) */}
+          <svg
+            className="w-full h-full hidden lg:block"
+            viewBox="0 -60 1440 600"
+            preserveAspectRatio="xMidYMid slice"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0,200 C300,100 500,300 800,200 C1100,100 1200,300 1440,200 L1440,600 L0,600 Z"
+              fill="url(#waveGradientLg)"
+              fillOpacity="0.1"
+            />
+            <path
+              d="M0,200 C300,100 500,300 800,200 C1100,100 1200,300 1440,200"
+              stroke="#0F3652"
+              strokeWidth="2"
+              strokeOpacity="0.3"
+              fill="none"
+              vectorEffect="non-scaling-stroke"
+            />
+            <path
+              d="M0,220 C200,150 400,250 600,220 C800,180 1000,250 1200,220 L1440,220"
+              stroke="#F3831C"
+              strokeWidth="2"
+              strokeOpacity="0.4"
+              fill="none"
+              vectorEffect="non-scaling-stroke"
+            />
+            <path
+              d="M0,180 C250,80 450,280 700,180 C950,80 1150,280 1440,180"
+              stroke="#0F3652"
+              strokeWidth="3"
+              strokeOpacity="0.2"
+              fill="none"
+              strokeDasharray="5,5"
+              vectorEffect="non-scaling-stroke"
+            />
+            <circle cx="0" cy="200" r="4" fill="#F3831C">
+              <animateMotion
+                dur="20s"
+                repeatCount="indefinite"
+                path="M0,200 C300,100 500,300 800,200 C1100,100 1200,300 1440,200"
+              />
+            </circle>
+            <circle cx="0" cy="220" r="3" fill="#0F3652" opacity="0.6">
+              <animateMotion
+                dur="15s"
+                repeatCount="indefinite"
+                begin="2s"
+                path="M0,220 C200,150 400,250 600,220 C800,180 1000,250 1200,220 L1440,220"
+              />
+            </circle>
+            <circle cx="0" cy="180" r="2" fill="#F3831C" opacity="0.4">
+              <animateMotion
+                dur="25s"
+                repeatCount="indefinite"
+                begin="5s"
+                path="M0,180 C250,80 450,280 700,180 C950,80 1150,280 1440,180"
+              />
+            </circle>
+            <defs>
+              <linearGradient
+                id="waveGradientLg"
                 x1="0%"
                 y1="0%"
                 x2="100%"
@@ -233,7 +311,7 @@ const CourseHighLight = ({
                     src={logo.img}
                     alt="Brand logo"
                     className="max-w-full max-h-32 object-contain"
-                     loading="lazy"
+                    loading="lazy"
                   />
                 </Wrapper>
               );

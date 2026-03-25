@@ -62,7 +62,7 @@ const SectionHeading = ({
       </div>
 
       {/* Desktop Description */}
-      <div className="hidden md:block">
+      <div className="hidden lg:block">
         {description && (
           <div
             className={`mt-4 text-[16px] text-gray-600 leading-relaxed mx-auto ${
@@ -96,7 +96,7 @@ const SectionHeading = ({
           </p>
         </div>
       </div> */}
-      <div className="md:hidden">
+      <div className="lg:hidden">
         <div
           className={`text-gray-600 text-[16px] leading-relaxed mx-auto ${
             isCenter ? "text-center" : "text-left"
