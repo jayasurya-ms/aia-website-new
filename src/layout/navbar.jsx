@@ -84,7 +84,11 @@ const Navbar = () => {
     {
       title: "Free Resources",
       link: "#",
-      submenu: [{ name: "CFE", link: "/cfe-free-resources" }],
+      submenu: [
+        { name: "CFE", link: "/cfe-free-resources" },
+        { name: "CIA", link: "/cia-free-resources" },
+        { name: "CAMS", link: "/cams-free-resources" }
+      ],
     },
     {
       title: "Other",

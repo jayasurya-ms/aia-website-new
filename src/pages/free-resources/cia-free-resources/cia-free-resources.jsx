@@ -6,10 +6,10 @@ const CourseYoutubeLecture = lazy(() =>
   import("@/components/courses/common/course-youtube-lecture")
 );
 const FreeResourceFlashCard = lazy(() =>
-  import("@/components/cfe-free-resource/free-resource-flash-card")
+  import("@/components/cia-free-resource/cia-flash-card")
 );
 const FreeResourcePracticeQuestion = lazy(() =>
-  import("@/components/cfe-free-resource/free-resource-practice-question")
+  import("@/components/cia-free-resource/cia-practice-questions")
 );
 const CourseAchivers = lazy(() =>
   import("@/components/common/course-achivers")
@@ -70,15 +70,15 @@ const CIAFreeResources = () => {
   return (
     <>
       {/* Initial render */}
-      <HomeHero slug="cfe-free-resources" />
+      <HomeHero slug="cia-free-resources" />
 
       <div ref={refs.youtube}>
         {visible.youtube && (
           <Suspense fallback={null}>
             <CourseYoutubeLecture
-              courseSlug="CFE-Free-Resources"
-              title="Master Exams Key Concepts with AIA’s Video Learning Series"
-              description="Explore concise video sessions by Puneet Sir covering key topics, simplified for practical clarity and exam-focused understanding."
+              courseSlug="CIA-Free-Resources"
+              title="Strengthen Your Internal Audit Concepts with AIA’s Learning Videos"
+              description="Learn key CIA topics through focused sessions by Puneet Sir, designed to break down concepts clearly and help you apply them confidently in exams."
             />
           </Suspense>
         )}
@@ -104,9 +104,9 @@ const CIAFreeResources = () => {
         {visible.achievers && (
           <Suspense fallback={null}>
             <CourseAchivers
-              slug="cfe"
-              title="From Aspirants to Certified Fraud Examiners - Our Recent CFE Achievers"
-              description="Meet AIA proud achievers who advance their careers by achieving the global CFE credential with structured prep and real-world expertise."
+              slug="cia"
+              title="From Learners to Certified Internal Auditors – Our CIA Achievers"
+              description="Get inspired by AIA achievers who have successfully earned the globally recognized CIA certification through focused preparation and strong conceptual understanding."
             />
           </Suspense>
         )}
@@ -123,7 +123,7 @@ const CIAFreeResources = () => {
       <div ref={refs.review}>
         {visible.review && (
           <Suspense fallback={null}>
-            <FreeResourceReview slug="CIA"/>
+            <FreeResourceReview slug="CIA" />
           </Suspense>
         )}
       </div>

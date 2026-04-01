@@ -9,8 +9,11 @@ const CIACurriculam = lazy(() => import("./pages/Courses/CIACurriculam"));
 const FreeResources = lazy(() =>
   import("./pages/free-resources/cfe-free-resources")
 );
+const CAMSFreeResources = lazy(() =>
+  import("./pages/free-resources/cams-free-resources/cams-free-resources")
+);
 const CIAFreeResources = lazy(() =>
-  import("./pages/free-resources/cia-free-resources")
+  import("./pages/free-resources/cia-free-resources/cia-free-resources")
 );
 const Home = lazy(() => import("./pages/Home/Home"));
 const Blog = lazy(() => import("./pages/Blog/Blog"));
@@ -80,6 +83,10 @@ export default function App() {
               <Route
                 path="/cia-free-resources"
                 element={<CIAFreeResources />}
+              />
+              <Route
+                path="/cams-free-resources"
+                element={<CAMSFreeResources />}
               />
               <Route path="/cfe-free-resources" element={<FreeResources />} />
               <Route
