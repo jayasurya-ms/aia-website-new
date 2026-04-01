@@ -22,9 +22,9 @@ const FreeResourceFlashCard = () => {
     isLoading,
     isError,
   } = useQuery({
-    queryKey: ["flash-card"],
+    queryKey: ["flash-card-cfe"],
     queryFn: async () => {
-      const response = await axios.get(`${BASE_URL}/api/getFlashCard`);
+      const response = await axios.get(`${BASE_URL}/api/getFlashCardByCourse/CFE`);
       return response.data;
     },
   });

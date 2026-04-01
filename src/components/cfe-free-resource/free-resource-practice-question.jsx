@@ -15,9 +15,9 @@ const FreeResourcePracticeQuestion = () => {
     isLoading,
     isError,
   } = useQuery({
-    queryKey: ["practice-question"],
+    queryKey: ["practice-question-cfe"],
     queryFn: async () => {
-      const response = await axios.get(`${BASE_URL}/api/getQuestionAnswer`);
+      const response = await axios.get(`${BASE_URL}/api/getQuestionAnswerByCourse/CFE`);
       return response.data;
     },
     retry: 3,
