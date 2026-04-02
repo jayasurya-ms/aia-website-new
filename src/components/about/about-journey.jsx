@@ -137,9 +137,18 @@ const AboutJourney = () => {
           <div className="px-6">
             <div className="max-w-340 mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mb-5">
               {statsCards.map((item, index) => (
+                // <div
+                //   key={index}
+                //   className="relative bg-white rounded-xl p-6 text-center border border-gray-200 hover:border-[#F3831C] cursor-pointer transition-all duration-300 hover:shadow-lg group overflow-hidden"
+                // >
                 <div
                   key={index}
-                  className="relative bg-white rounded-xl p-6 text-center border border-gray-200 hover:border-[#F3831C] cursor-pointer transition-all duration-300 hover:shadow-lg group overflow-hidden"
+                  className={`relative  bg-white rounded-xl p-6 text-center border border-gray-200 hover:border-[#F3831C] cursor-pointer transition-all duration-300 hover:shadow-lg group overflow-hidden
+                ${
+                  index === statsCards.length - 1
+                    ? "sm:col-span-2 lg:col-span-1 sm:mx-auto"
+                    : ""
+                }`}
                 >
                   <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#0F3652] to-[#F3831C] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
 
