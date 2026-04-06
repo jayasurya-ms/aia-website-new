@@ -72,7 +72,7 @@ const CIAFreeResources = () => {
       {/* Initial render */}
       
 
-<PopUp slug="cfe-free-resources" />
+<PopUp slug="cia-free-resources" />
 
 
       <HomeHero slug="cia-free-resources" />
