@@ -428,7 +428,7 @@ export const TestimonialSlider = ({ reviews, className }) => {
         className
       )}
     >
-      {preloadImages.map((src) => (
+      {/* {preloadImages.map((src) => (
         <link
           key={`preload-${src}`}
           rel="preload"
@@ -436,7 +436,7 @@ export const TestimonialSlider = ({ reviews, className }) => {
           href={src}
           fetchPriority="low"
         />
-      ))}
+      ))} */}
       {/* Mobile Layout */}
       <div className="lg:hidden flex flex-col space-y-6">
         <div className="grid grid-cols-3 gap-4 items-center">

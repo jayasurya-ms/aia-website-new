@@ -565,8 +565,8 @@ export const TestimonialSlider = ({
     (screenSize === "md"
       ? "w-[60px] h-[90px]" // slim at tablet — fits in 72px column or right panel
       : screenSize === "lg"
-      ? "w-20 h-36" // lg: original size
-      : "w-16 h-20"); // sm: mobile size
+        ? "w-20 h-36" // lg: original size
+        : "w-16 h-20"); // sm: mobile size
 
   return (
     <div

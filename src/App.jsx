@@ -52,7 +52,7 @@ export default function App() {
   const location = useLocation();
 
   return (
-    <div className="font-sans text-gray-800 min-h-screen flex flex-col">
+    <div className="font-sans text-gray-800 min-h-screen flex flex-col relative">
       <ScrollToTop />
       <CanonicalTag />
       <GoogleAnalytics />

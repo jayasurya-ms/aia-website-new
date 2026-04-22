@@ -3,6 +3,7 @@ import React, { lazy, Suspense, useEffect, useRef, useState } from "react";
 import PopUp from "@/components/common/pop-up";
 import HomeHero from "@/components/home/home-hero";
 import certificationCourses from "@/data/certificationCourses";
+import Pdf from "@/components/common/pdf";
 
 const AboutSection = lazy(() => import("@/components/about/about-section"));
 const AboutTrainerSection = lazy(
@@ -34,6 +35,7 @@ const AboutPage = () => {
   const sectionRefs = useRef({
     about: { current: null },
     trainer: { current: null },
+    pdf: { current: null },
     testimonial: { current: null },
     mission: { current: null },
     highlight: { current: null },
@@ -96,10 +98,17 @@ const AboutPage = () => {
         )}
       </div>
 
-      <div ref={sectionRefs.trainer}>
+      {/* <div ref={sectionRefs.trainer}>
         {visibleSections.trainer && (
           <Suspense fallback={null}>
             <AboutTrainerSection />
+          </Suspense>
+        )}
+      </div> */}
+      <div ref={sectionRefs.pdf}>
+        {visibleSections.pdf && (
+          <Suspense fallback={null}>
+            <Pdf />
           </Suspense>
         )}
       </div>

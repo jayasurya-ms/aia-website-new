@@ -7,6 +7,19 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+.no-scrollbar {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+  /* Chrome, Safari */
+}
+
+
 :root {
   /* AIA PRIMARY */
   --primary: oklch(0.205 0 0);
@@ -215,7 +228,8 @@ body {
   border-collapse: collapse;
   width: 100%;
   margin-bottom: 1em;
-  min-width: 100%; /* ✅ keeps normal tables full width */
+  min-width: 100%;
+  /* ✅ keeps normal tables full width */
 }
 
 .ck-content table th,
@@ -284,12 +298,10 @@ body {
 }
 
 .shimmer {
-  background: linear-gradient(
-    90deg,
-    rgba(229, 231, 235, 0.9) 25%,
-    rgba(255, 255, 255, 0.6) 50%,
-    rgba(229, 231, 235, 0.9) 75%
-  );
+  background: linear-gradient(90deg,
+      rgba(229, 231, 235, 0.9) 25%,
+      rgba(255, 255, 255, 0.6) 50%,
+      rgba(229, 231, 235, 0.9) 75%);
   background-size: 200% 100%;
   animation: shimmerMove 1.6s infinite linear;
 }
