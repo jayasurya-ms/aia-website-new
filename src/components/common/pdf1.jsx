@@ -117,7 +117,7 @@ export const TestimonialSlider = ({
     return (
         <div className={cn("relative w-full text-foreground", className)}>
 
-            <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 items-center">
+            <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-10 items-center">
 
                 <div className="relative w-full aspect-[3/4] md:aspect-[4/5] lg:aspect-[4/5] xl:h-full overflow-hidden">
                     <AnimatePresence initial={false} custom={direction}>
@@ -131,64 +131,10 @@ export const TestimonialSlider = ({
                             animate="center"
                             exit="exit"
                             transition={{ duration: 0.6, ease }}
-                            className="absolute inset-0 w-full h-[75%] object-contain"
+                            className="absolute w-full h-full object-contain shadow-[4px_0_15px_rgba(0,0,0,0.15)]"
                         />
                     </AnimatePresence>
-                    <div className="md:h-[25%] pt-1 bottom-0 absolute flex flex-col gap-1 md:gap-5 items-center w-full bg-p ink-500">
 
-                        <div className="relative h-full w-full overflow-hidden flex justify-center">
-
-                            <div ref={thumbContainerRef} className="flex flex-nowrap overflow-x-auto overflow-y-hidden gap-4 md:gap-6 scroll-smooth no-scrollbar px-10 w-[50%] md:w-[65%] p-2">
-                                {reviews.map((review, idx) => (
-                                    <button
-                                        ref={(el) => (thumbRefs.current[idx] = el)}
-                                        key={review.id}
-                                        onClick={() => handleThumbClick(idx)}
-                                        className={cn(
-                                            "relative w-10 cursor-pointer h-14 md:w-28 md:h-36 rounded-lg overflow-hidden transition-all duration-300 ring-2 ring-offset-2 focus:outline-none shrink-0",
-                                            currentIndex === idx
-                                                ? "ring-primary scale-105 opacity-100 shadow-lg"
-                                                : "ring-transparent opacity-50 hover:opacity-80 scale-100"
-                                        )}
-                                    >
-                                        <img
-                                            src={`${IMAGE_PATH}/${review.image}`}
-                                            alt={review.alt}
-                                            className="w-full h-full"
-                                        />
-
-                                        {currentIndex === idx && (
-                                            <div className="absolute inset-0 bg-primary/10 flex items-center justify-center">
-                                                <div className="w-2 h-2 rounded-full bg-primary animate-ping" />
-                                            </div>
-                                        )}
-                                    </button>
-                                ))}
-                            </div>
-                            <button
-                                onClick={goPrev}
-                                className="absolute left-[10%] top-1/2 -translate-y-1/2 z-20 text-white p-2 rounded-full cursor-pointer"
-                            >
-                                <ChevronLeft className="size-4 md:size-7" />
-                            </button>
-
-                            <button
-                                onClick={goNext}
-                                className="absolute right-[10%] top-1/2 -translate-y-1/2 z-20 text-white p-2 rounded-full cursor-pointer"
-                            >
-                                <ChevronRight className="size-4 md:size-7" />
-                            </button>
-
-                        </div>
-                        <a
-                            href="/puneet_garg_profile.pdf"
-                            download
-                            className="bg-[#F3831C] text-[12px] md:text-[16px] text-white px-6 py-1 rounded-xl font-semibold hover:bg-[#F3831C]/90 transition-all cursor-pointer flex items-center"
-                        >
-                            <p>Download Complete Profile</p>
-                        </a>
-
-                    </div>
                 </div>
 
                 <div className="flex flex-col justify-center">
@@ -291,11 +237,76 @@ export const TestimonialSlider = ({
 
                 </div>
             </div>
+
+            <div className="border-t border-muted pt-8 relative flex items-center">
+
+                <button
+                    onClick={goPrev}
+                    className="hidden xl:block absolute text-md -left-[2%] z-10 bg-[#F3831C] hover:bg-[#F3831C]/90 text-white p-2 rounded-full cursor-pointer"
+                >
+                    <ChevronLeft />
+                </button>
+
+                <div ref={thumbContainerRef} className="flex flex-nowrap overflow-x-auto overflow-y-hidden gap-4 md:gap-6 scroll-smooth no-scrollbar px-10 w-full p-2">
+                    {reviews.map((review, idx) => (
+                        <button
+                            ref={(el) => (thumbRefs.current[idx] = el)}
+                            key={review.id}
+                            onClick={() => handleThumbClick(idx)}
+                            className={cn(
+                                "relative w-20 cursor-pointer h-24 md:w-28 md:h-36 rounded-lg overflow-hidden transition-all duration-300 ring-2 ring-offset-2 focus:outline-none shrink-0",
+                                currentIndex === idx
+                                    ? "ring-primary scale-105 opacity-100 shadow-lg"
+                                    : "ring-transparent opacity-50 hover:opacity-80 scale-100"
+                            )}
+                        >
+                            <img
+                                src={`${IMAGE_PATH}/${review.image}`}
+                                alt={review.alt}
+                                className="w-full h-full"
+                            />
+
+                            {currentIndex === idx && (
+                                <div className="absolute inset-0 bg-primary/10 flex items-center justify-center">
+                                    <div className="w-2 h-2 rounded-full bg-primary animate-ping" />
+                                </div>
+                            )}
+                        </button>
+                    ))}
+                </div>
+
+                <button
+                    onClick={goNext}
+                    className="hidden xl:block absolute text-md -right-[2%] z-10 bg-[#F3831C] hover:bg-[#F3831C]/90 text-white p-2 rounded-full cursor-pointer"
+                >
+                    <ChevronRight />
+                </button>
+            </div>
+            <div className="pt-6 px-6 flex items-center justify-center">
+                <p className="text-white uppercase tracking-[0.2em] text-sm md:text-base font-medium mr-4">
+                    Download Broucher
+                </p>
+
+                <a
+                    href="/puneet_garg_profile.pdf"
+                    download
+                    className="
+                          bg-[#F3831C] text-white
+                          px-6 py-2.5 rounded-none
+                          font-semibold
+                          hover:bg-[#F3831C]/90
+                          transition-all
+                      cursor-pointer
+                        "
+                >
+                    Download
+                </a>
+            </div>
         </div>
     );
 };
 
-const Pdf = () => {
+const Pdf1 = () => {
     return (
         <div className="w-full bg-linear-to-r from-slate-700 via-slate-600 to-blue-950 px-4 sm:px-6 lg:px-8 bg-white py-16">
             <div className="max-w-7xl mx-auto">
@@ -307,4 +318,4 @@ const Pdf = () => {
     );
 };
 
-export default Pdf;
+export default Pdf1;
