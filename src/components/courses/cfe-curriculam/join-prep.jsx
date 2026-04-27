@@ -45,11 +45,25 @@ export default function CfeJoinDialog({
     referred_from: "",
     userType: course || "",
     userCourse: course || "",
+    utm_source: "",
+    utm_medium: "",
+    utm_campaign: "",
   });
   const navigate = useNavigate();
   const [errors, setErrors] = useState({});
   const [loader, setLoader] = useState(false);
   const [referral, setReferral] = useState([]);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+
+    setFormData({
+      ...formData,
+      utm_source: params.get("utm_source") || "",
+      utm_medium: params.get("utm_medium") || "",
+      utm_campaign: params.get("utm_campaign") || "",
+    });
+  }, []);
 
   useEffect(() => {
     const loadReferral = async () => {
@@ -130,6 +144,9 @@ export default function CfeJoinDialog({
           reffered_from: "",
           userType: course || "",
           userCourse: course || "",
+          utm_source: "",
+          utm_medium: "",
+          utm_campaign: "",
         });
       } else {
         toast.error(res.data.msg || "Something went wrong. Please try again.");
@@ -173,12 +190,12 @@ export default function CfeJoinDialog({
           flex flex-col
           rounded-xl
           p-0
-          z-[9999]
+          z-9999
           overflow-hidden
         "
       >
         {/* ── Fixed header (never scrolls away) ── */}
-        <div className="relative flex-shrink-0 px-4 pt-5 pb-3 sm:px-6 sm:pt-6 border-b border-slate-100">
+        <div className="relative shrink-0 px-4 pt-5 pb-3 sm:px-6 sm:pt-6 border-b border-slate-100">
           <DialogClose asChild>
             <button className="absolute right-3 top-3 rounded-full p-1 text-slate-500 hover:bg-slate-100 hover:text-[#F3831C] cursor-pointer transition-colors">
               <X size={20} />

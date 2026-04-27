@@ -17,11 +17,26 @@ const ContactHero = () => {
     userCourse: "",
     userMessage: "",
     userType: "contact",
+    utm_source: "",
+    utm_medium: "",
+    utm_campaign: "",
+
   });
 
   const [errors, setErrors] = useState({});
   const [loader, setLoader] = useState(false);
   const [referral, setReferral] = useState([]);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+
+    setFormData({
+      ...formData,
+      utm_source: params.get("utm_source") || "",
+      utm_medium: params.get("utm_medium") || "",
+      utm_campaign: params.get("utm_campaign") || "",
+    });
+  }, []);
 
   useEffect(() => {
     const loadReferral = async () => {
@@ -90,6 +105,9 @@ const ContactHero = () => {
           referred_from: formData.referred_from,
           userMessage: formData.userMessage,
           userType: formData.userType,
+          utm_source: formData.utm_source,
+          utm_medium: formData.utm_medium,
+          utm_campaign: formData.utm_campaign,
         },
         { headers: { "Content-Type": "application/json" } },
       );

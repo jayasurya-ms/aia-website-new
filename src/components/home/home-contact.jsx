@@ -25,8 +25,22 @@ const HomeContact = () => {
     userCourse: "",
     referred_from: "",
     userType: "Home",
+    utm_source: "",
+    utm_medium: "",
+    utm_campaign: "",
   });
   const [referral, setReferral] = useState([]);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+
+    setFormData({
+      ...formData,
+      utm_source: params.get("utm_source") || "",
+      utm_medium: params.get("utm_medium") || "",
+      utm_campaign: params.get("utm_campaign") || "",
+    });
+  }, []);
 
   useEffect(() => {
     const loadReferral = async () => {
@@ -96,6 +110,10 @@ const HomeContact = () => {
       userLocation: formData.userLocation.trim(),
       referred_from: formData.referred_from.trim(),
       userType: formData.userType.trim(),
+
+      utm_source: formData.utm_source,
+      utm_medium: formData.utm_medium,
+      utm_campaign: formData.utm_campaign,
     };
 
     try {

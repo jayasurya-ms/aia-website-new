@@ -2,7 +2,6 @@ import { IMAGE_PATH } from "@/api/base-url";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { Button } from "../ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import PdfJoinDialog from "./PdfForm";
 
@@ -39,7 +38,6 @@ export const TestimonialSlider = ({
 }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [direction, setDirection] = useState("right");
-    const timerRef = useRef(null);
 
     const activeReview = reviews[currentIndex];
 
@@ -47,28 +45,6 @@ export const TestimonialSlider = ({
         setDirection(dir);
         setCurrentIndex(newIndex);
     }, []);
-
-    const startTimer = useCallback(() => {
-        clearInterval(timerRef.current);
-        timerRef.current = setInterval(() => {
-            setDirection("right");
-            setCurrentIndex((prev) => (prev + 1) % reviews.length);
-        }, 5000); // slightly longer timer
-    }, [reviews.length]);
-
-    useEffect(() => {
-        startTimer();
-        return () => clearInterval(timerRef.current);
-    }, [startTimer]);
-
-    const handleThumbClick = useCallback(
-        (idx) => {
-            const dir = idx > currentIndex ? "right" : "left";
-            goTo(idx, dir);
-            startTimer();
-        },
-        [currentIndex, goTo, startTimer]
-    );
 
     const imageVariants = {
         enter: (d) => ({ x: d === "right" ? "100%" : "-100%", opacity: 0 }),
@@ -104,16 +80,14 @@ export const TestimonialSlider = ({
     const goNext = useCallback(() => {
         setDirection("right");
         setCurrentIndex((prev) => (prev + 1) % reviews.length);
-        startTimer();
-    }, [reviews.length, startTimer]);
+    }, [reviews.length]);
 
     const goPrev = useCallback(() => {
         setDirection("left");
         setCurrentIndex((prev) =>
             prev === 0 ? reviews.length - 1 : prev - 1
         );
-        startTimer();
-    }, [reviews.length, startTimer]);
+    }, [reviews.length]);
 
     return (
         <div className={cn("relative w-full text-foreground ", className)}>
@@ -131,7 +105,7 @@ export const TestimonialSlider = ({
                             initial="enter"
                             animate="center"
                             exit="exit"
-                            transition={{ duration: 0.6, ease }}
+                            transition={{ duration: 0, ease }}
                             className="absolute inset-0 w-full h-[75%] object-contain"
                         />
                     </AnimatePresence>

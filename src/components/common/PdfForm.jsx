@@ -41,10 +41,24 @@ export default function PdfJoinDialog({
         referred_from: "",
         userType: course || "",
         userCourse: course || "",
+        utm_source: "",
+        utm_medium: "",
+        utm_campaign: "",
     });
     const [errors, setErrors] = useState({});
     const [loader, setLoader] = useState(false);
     const [referral, setReferral] = useState([]);
+
+    useEffect(() => {
+        const params = new URLSearchParams(window.location.search);
+
+        setFormData({
+            ...formData,
+            utm_source: params.get("utm_source") || "",
+            utm_medium: params.get("utm_medium") || "",
+            utm_campaign: params.get("utm_campaign") || "",
+        });
+    }, []);
 
     useEffect(() => {
         const loadReferral = async () => {
@@ -123,6 +137,9 @@ export default function PdfJoinDialog({
                     reffered_from: "",
                     userType: course || "",
                     userCourse: course || "",
+                    utm_source: "",
+                    utm_medium: "",
+                    utm_campaign: "",
                 });
             } else {
                 toast.error(res.data.msg || "Something went wrong. Please try again.");

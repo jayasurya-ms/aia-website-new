@@ -11,10 +11,29 @@ const DEFAULT_META = {
 function matchRoute(pathname) {
   return Object.keys(meta).find((route) => {
     if (!route.includes(":")) return route === pathname;
+
     const base = route.split("/:")[0];
-    return pathname.startsWith(base);
+    return pathname === base || pathname.startsWith(base + "/");
   });
 }
+
+const setMetaTag = (selector, attr, value) => {
+  let tag = document.querySelector(selector);
+
+  if (!tag) {
+    tag = document.createElement("meta");
+
+    if (selector.includes("property")) {
+      tag.setAttribute("property", attr);
+    } else {
+      tag.setAttribute("name", attr);
+    }
+
+    document.head.appendChild(tag);
+  }
+
+  tag.setAttribute("content", value);
+};
 
 export default function Meta() {
   const { pathname } = useLocation();
@@ -23,15 +42,19 @@ export default function Meta() {
     const routeKey = matchRoute(pathname);
     const metaData = meta[routeKey] || DEFAULT_META;
 
+    // ✅ Title
     document.title = metaData.title;
 
-    let descTag = document.querySelector("meta[name='description']");
-    if (!descTag) {
-      descTag = document.createElement("meta");
-      descTag.setAttribute("name", "description");
-      document.head.appendChild(descTag);
-    }
-    descTag.setAttribute("content", metaData.description);
+    // ✅ Description
+    setMetaTag("meta[name='description']", "description", metaData.description);
+
+    // ✅ Open Graph (VERY IMPORTANT)
+    setMetaTag("meta[property='og:title']", "og:title", metaData.title);
+    setMetaTag("meta[property='og:description']", "og:description", metaData.description);
+
+    // ✅ Optional (not important but okay)
+    setMetaTag("meta[name='title']", "title", metaData.title);
+
   }, [pathname]);
 
   return null;
